@@ -1,0 +1,268 @@
+\hypertarget{namespaceshopping}{}\doxysection{shopping Module Reference}
+\label{namespaceshopping}\index{shopping@{shopping}}
+
+
+Surface hopping tools to compute the hop probability, the active state the energy rescaling after the hop, and the energy decoherence correction.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespaceshopping_a52e8fd6def005247ec624392ceb21ffe}{hopping}} (my\+\_\+rho, v, r, trajlabel, k\+\_\+li)
+\begin{DoxyCompactList}\small\item\em The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceshopping_af517d79335a44778aaee69db1c556f21}{choose\+\_\+bostate}} (v, r, hop\+\_\+prob, trajlabel, k\+\_\+li, my\+\_\+rho)
+\begin{DoxyCompactList}\small\item\em According to the fewest switches algorithm, the new active state is selected. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceshopping_ad2f34a1b3da40e8e8f2d975cec75fbc0}{momentum\+\_\+correction}} (v, r, old\+\_\+occ\+\_\+state, trajlabel, k\+\_\+li, my\+\_\+rho)
+\begin{DoxyCompactList}\small\item\em Nuclear velocities are rescaled along the direction of the non-\/adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceshopping_a1e73fe534aa7891ff431291c94ab2a16}{decoherence\+\_\+coorection}} (coeff, v, trajlabel)
+\begin{DoxyCompactList}\small\item\em Energy decoherence corrections are applied to surface hopping coefficients according to Granucci and Persico JCP 2007 DOI\+: 10.\+1063/1.2715585. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceshopping_a674547329fd9bcf21bcba8dbc02b6e4a}\label{namespaceshopping_a674547329fd9bcf21bcba8dbc02b6e4a}} 
+subroutine {\bfseries xi\+\_\+for\+\_\+model\+\_\+system} (dist, deltaE, xi, Rcl, Vcl, trajlabel)
+\item 
+subroutine \mbox{\hyperlink{namespaceshopping_a337e7b61b2198ac64f3e6ee8a26abee6}{hopping}} (my\+\_\+rho, v, r, trajlabel)
+\begin{DoxyCompactList}\small\item\em The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceshopping_a23aaf41ee81dc0ce7779fa60ff5bca75}{choose\+\_\+bostate}} (v, hop\+\_\+prob, trajlabel)
+\begin{DoxyCompactList}\small\item\em According to the fewest switches algorithm, the new active state is selected. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceshopping_ada8f3a7445deb0d07a5a8b43bb6f92c0}{momentum\+\_\+correction}} (v, old\+\_\+occ\+\_\+state, trajlabel)
+\begin{DoxyCompactList}\small\item\em Nuclear velocities are rescaled along the direction of the non-\/adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Surface hopping tools to compute the hop probability, the active state the energy rescaling after the hop, and the energy decoherence correction. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespaceshopping_a23aaf41ee81dc0ce7779fa60ff5bca75}\label{namespaceshopping_a23aaf41ee81dc0ce7779fa60ff5bca75}} 
+\index{shopping@{shopping}!choose\_bostate@{choose\_bostate}}
+\index{choose\_bostate@{choose\_bostate}!shopping@{shopping}}
+\doxysubsubsection{\texorpdfstring{choose\_bostate()}{choose\_bostate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine shopping\+::choose\+\_\+bostate (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(n\+\_\+dof), intent(inout)}]{v,  }\item[{real(kind=dp), dimension(nstates), intent(inout)}]{hop\+\_\+prob,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+According to the fewest switches algorithm, the new active state is selected. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em v} & nuclear velocity \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em hop\+\_\+prob} & hopping probability for each electronic state \\
+\hline
+ & {\em myrand} & random number \\
+\hline
+ & {\em prob\+\_\+sum} & cumulative hopping probability \\
+\hline
+ & {\em i\+\_\+state,j\+\_\+state} & integer indices running over the nstates electronic states \\
+\hline
+ & {\em old\+\_\+occ\+\_\+state} & previous active state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the hopping probability is returned, along with the new nuclear velocity in case a hop occurred. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceshopping_af517d79335a44778aaee69db1c556f21}\label{namespaceshopping_af517d79335a44778aaee69db1c556f21}} 
+\index{shopping@{shopping}!choose\_bostate@{choose\_bostate}}
+\index{choose\_bostate@{choose\_bostate}!shopping@{shopping}}
+\doxysubsubsection{\texorpdfstring{choose\_bostate()}{choose\_bostate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine shopping\+::choose\+\_\+bostate (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(inout)}]{v,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{r,  }\item[{real(kind=dp), dimension(nstates), intent(inout)}]{hop\+\_\+prob,  }\item[{integer, intent(in)}]{trajlabel,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in), optional}]{k\+\_\+li,  }\item[{complex(kind=dp), dimension(nstates,nstates), intent(in), optional}]{my\+\_\+rho }\end{DoxyParamCaption})}
+
+
+
+According to the fewest switches algorithm, the new active state is selected. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em v} & nuclear velocity \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em hop\+\_\+prob} & hopping probability for each electronic state \\
+\hline
+ & {\em myrand} & random number \\
+\hline
+ & {\em prob\+\_\+sum} & cumulative hopping probability \\
+\hline
+ & {\em i\+\_\+state,j\+\_\+state} & integer indices running over the nstates electronic states \\
+\hline
+ & {\em old\+\_\+occ\+\_\+state} & previous active state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the hopping probability is returned, along with the new nuclear velocity in case a hop occurred. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceshopping_a1e73fe534aa7891ff431291c94ab2a16}\label{namespaceshopping_a1e73fe534aa7891ff431291c94ab2a16}} 
+\index{shopping@{shopping}!decoherence\_coorection@{decoherence\_coorection}}
+\index{decoherence\_coorection@{decoherence\_coorection}!shopping@{shopping}}
+\doxysubsubsection{\texorpdfstring{decoherence\_coorection()}{decoherence\_coorection()}}
+{\footnotesize\ttfamily subroutine shopping\+::decoherence\+\_\+coorection (\begin{DoxyParamCaption}\item[{complex(kind=qp), dimension(nstates), intent(inout)}]{coeff,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{v,  }\item[{integer}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+Energy decoherence corrections are applied to surface hopping coefficients according to Granucci and Persico JCP 2007 DOI\+: 10.\+1063/1.2715585. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em coeff} & electronic coefficients \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & nuclear velocity \\
+\hline
+ & {\em decay\+\_\+time} & characteristic time over which the electronic coeffecients of the non-\/activate states are exponentially damped \\
+\hline
+ & {\em deltaE} & potential energy difference between the active states and the other electronic states \\
+\hline
+ & {\em kinetic\+\_\+energy} & nuclear kinetic energy along the trajectory \\
+\hline
+ & {\em sum\+\_\+rho} & sum of the populations of the non-\/active states \\
+\hline
+ & {\em i\+\_\+dof} & integer index running over the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em i\+\_\+state} & integer index running over the nstates electronic states \\
+\hline
+ & {\em trajlabel} & label of the trajectory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the new nuclear velocity is returned in case a hop occurred. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceshopping_a337e7b61b2198ac64f3e6ee8a26abee6}\label{namespaceshopping_a337e7b61b2198ac64f3e6ee8a26abee6}} 
+\index{shopping@{shopping}!hopping@{hopping}}
+\index{hopping@{hopping}!shopping@{shopping}}
+\doxysubsubsection{\texorpdfstring{hopping()}{hopping()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine shopping\+::hopping (\begin{DoxyParamCaption}\item[{complex(kind=dp), dimension(nstates,nstates), intent(in)}]{my\+\_\+rho,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(inout)}]{v,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{r,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in}}  & {\em my\+\_\+rho} & electronic density matrix \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em v} & nuclear velocity \\
+\hline
+ & {\em i\+\_\+state} & integer index running over the nstates electronic states \\
+\hline
+ & {\em i\+\_\+dof} & integer index running over the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em scal2} & scalar product beteween the nuclear velocity and the non-\/adiabatic coupling \\
+\hline
+ & {\em Re\+\_\+rhoij} & real part of the elememts of the electronic density matrix \\
+\hline
+ & {\em rhojj} & population of the electronic states \\
+\hline
+ & {\em hop\+\_\+prob} & hopping probability for each electronic state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the nuclear velocity is returned, and it is modified to impose energy conservation if a hop occurred. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceshopping_a52e8fd6def005247ec624392ceb21ffe}\label{namespaceshopping_a52e8fd6def005247ec624392ceb21ffe}} 
+\index{shopping@{shopping}!hopping@{hopping}}
+\index{hopping@{hopping}!shopping@{shopping}}
+\doxysubsubsection{\texorpdfstring{hopping()}{hopping()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine shopping\+::hopping (\begin{DoxyParamCaption}\item[{complex(kind=dp), dimension(nstates,nstates), intent(in)}]{my\+\_\+rho,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(inout)}]{v,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{r,  }\item[{integer, intent(in)}]{trajlabel,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in), optional}]{k\+\_\+li }\end{DoxyParamCaption})}
+
+
+
+The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in}}  & {\em my\+\_\+rho} & electronic density matrix \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em v} & nuclear velocity \\
+\hline
+ & {\em i\+\_\+state} & integer index running over the nstates electronic states \\
+\hline
+ & {\em i\+\_\+dof} & integer index running over the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em scal2} & scalar product beteween the nuclear velocity and the non-\/adiabatic coupling \\
+\hline
+ & {\em Re\+\_\+rhoij} & real part of the elememts of the electronic density matrix \\
+\hline
+ & {\em rhojj} & population of the electronic states \\
+\hline
+ & {\em hop\+\_\+prob} & hopping probability for each electronic state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the nuclear velocity is returned, and it is modified to impose energy conservation if a hop occurred. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceshopping_ada8f3a7445deb0d07a5a8b43bb6f92c0}\label{namespaceshopping_ada8f3a7445deb0d07a5a8b43bb6f92c0}} 
+\index{shopping@{shopping}!momentum\_correction@{momentum\_correction}}
+\index{momentum\_correction@{momentum\_correction}!shopping@{shopping}}
+\doxysubsubsection{\texorpdfstring{momentum\_correction()}{momentum\_correction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine shopping\+::momentum\+\_\+correction (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(n\+\_\+dof), intent(inout)}]{v,  }\item[{integer, intent(in)}]{old\+\_\+occ\+\_\+state,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+Nuclear velocities are rescaled along the direction of the non-\/adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em v} & nuclear velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in}}  & {\em old\+\_\+occ\+\_\+state} & previous active state \\
+\hline
+ & {\em deltaE} & potential energy difference between the old and the new electronic states \\
+\hline
+ & {\em scal1} & squared modulus of the non-\/adiabatic couplings divided by the nuclear mass \\
+\hline
+ & {\em scal2} & scalar product betweem the nuclear velocity and the non-\/adiabatic couplings \\
+\hline
+ & {\em energy\+\_\+check} & criterion to identify the possibility of jump \\
+\hline
+ & {\em scaling\+\_\+factor} & factor to rescal the velocities along the non-\/adiabatic couplings \\
+\hline
+ & {\em i\+\_\+dof} & integer index running over the n\+\_\+dof degrees of freedom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the new nuclear velocity is returned in case a hop occurred. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceshopping_ad2f34a1b3da40e8e8f2d975cec75fbc0}\label{namespaceshopping_ad2f34a1b3da40e8e8f2d975cec75fbc0}} 
+\index{shopping@{shopping}!momentum\_correction@{momentum\_correction}}
+\index{momentum\_correction@{momentum\_correction}!shopping@{shopping}}
+\doxysubsubsection{\texorpdfstring{momentum\_correction()}{momentum\_correction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine shopping\+::momentum\+\_\+correction (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(inout)}]{v,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{r,  }\item[{integer, intent(in)}]{old\+\_\+occ\+\_\+state,  }\item[{integer, intent(in)}]{trajlabel,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in), optional}]{k\+\_\+li,  }\item[{complex(kind=dp), dimension(nstates,nstates), intent(in), optional}]{my\+\_\+rho }\end{DoxyParamCaption})}
+
+
+
+Nuclear velocities are rescaled along the direction of the non-\/adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em v} & nuclear velocity \\
+\hline
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in}}  & {\em old\+\_\+occ\+\_\+state} & previous active state \\
+\hline
+ & {\em deltaE} & potential energy difference between the old and the new electronic states \\
+\hline
+ & {\em scal1} & squared modulus of the non-\/adiabatic couplings divided by the nuclear mass \\
+\hline
+ & {\em scal2} & scalar product betweem the nuclear velocity and the non-\/adiabatic couplings \\
+\hline
+ & {\em energy\+\_\+check} & criterion to identify the possibility of jump \\
+\hline
+ & {\em scaling\+\_\+factor} & factor to rescal the velocities along the non-\/adiabatic couplings \\
+\hline
+ & {\em i\+\_\+dof} & integer index running over the n\+\_\+dof degrees of freedom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the new nuclear velocity is returned in case a hop occurred. 
+\end{DoxyReturn}

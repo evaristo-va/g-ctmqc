@@ -1,0 +1,234 @@
+\hypertarget{namespacecoherence__corrections}{}\doxysection{coherence\+\_\+corrections Module Reference}
+\label{namespacecoherence__corrections}\index{coherence\_corrections@{coherence\_corrections}}
+
+
+Calculations of quantities for decoherence corrections in CT-\/\+MQC.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacecoherence__corrections_af2109e0117f30acd569e33fc9642148f}{accumulated\+\_\+boforce}} (coeff, force, trajlabel)
+\begin{DoxyCompactList}\small\item\em The adiabatic (or spin-\/(a)diabatic) force is integrated in time along a trajectory. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacecoherence__corrections_aac477a8d07aa3b7a9091642386d171c3}{quantum\+\_\+momentum}} (Rcl, acc\+\_\+force, BOsigma, k\+\_\+li, qmom, qmom\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacecoherence__corrections_a1a615b125e53e24db6af11d769d93e57}{acc\+\_\+force\+\_\+ec}} (Vcl, coeff, acc\+\_\+force, acc\+\_\+force\+\_\+E)
+\begin{DoxyCompactList}\small\item\em The accumulated force is corrected to satisfy energy conservation. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacecoherence__corrections_aac477a8d07aa3b7a9091642386d171c3}{quantum\+\_\+momentum}} (Rcl, acc\+\_\+force, BOsigma, k\+\_\+li, qmom, qmom\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calculations of quantities for decoherence corrections in CT-\/\+MQC. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacecoherence__corrections_a1a615b125e53e24db6af11d769d93e57}\label{namespacecoherence__corrections_a1a615b125e53e24db6af11d769d93e57}} 
+\index{coherence\_corrections@{coherence\_corrections}!acc\_force\_ec@{acc\_force\_ec}}
+\index{acc\_force\_ec@{acc\_force\_ec}!coherence\_corrections@{coherence\_corrections}}
+\doxysubsubsection{\texorpdfstring{acc\_force\_ec()}{acc\_force\_ec()}}
+{\footnotesize\ttfamily subroutine coherence\+\_\+corrections\+::acc\+\_\+force\+\_\+ec (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Vcl,  }\item[{complex(kind=qp), dimension(ntraj,nstates), intent(in)}]{coeff,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof,nstates), intent(in)}]{acc\+\_\+force,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof,nstates), intent(inout)}]{acc\+\_\+force\+\_\+E }\end{DoxyParamCaption})}
+
+
+
+The accumulated force is corrected to satisfy energy conservation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Vcl} & classical velocities \\
+\hline
+\mbox{\texttt{ in}}  & {\em coeff} & electronic coefficientes \\
+\hline
+\mbox{\texttt{ in}}  & {\em acc\+\_\+force} & accumulated force along the trajectories \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em acc\+\_\+force\+\_\+E} & new accumulated force \\
+\hline
+ & {\em i\+\_\+dof} & index running on the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em i\+\_\+traj} & index running on the n\+\_\+traj degrees number of trajectories \\
+\hline
+ & {\em istate} & index running on the nstates of electronic states \\
+\hline
+ & {\em threshold} & electronic population threshold to compute the acc forces \\
+\hline
+ & {\em R\+\_\+threshold} & velocity threshold to compute the new acc forces \\
+\hline
+ & {\em nvec} & vector in the direction of the new acc force \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacecoherence__corrections_af2109e0117f30acd569e33fc9642148f}\label{namespacecoherence__corrections_af2109e0117f30acd569e33fc9642148f}} 
+\index{coherence\_corrections@{coherence\_corrections}!accumulated\_boforce@{accumulated\_boforce}}
+\index{accumulated\_boforce@{accumulated\_boforce}!coherence\_corrections@{coherence\_corrections}}
+\doxysubsubsection{\texorpdfstring{accumulated\_boforce()}{accumulated\_boforce()}}
+{\footnotesize\ttfamily subroutine coherence\+\_\+corrections\+::accumulated\+\_\+boforce (\begin{DoxyParamCaption}\item[{complex(kind=qp), dimension(nstates), intent(in)}]{coeff,  }\item[{real(kind=dp), dimension(n\+\_\+dof,nstates), intent(inout)}]{force,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+The adiabatic (or spin-\/(a)diabatic) force is integrated in time along a trajectory. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory along which the equation is integrated \\
+\hline
+\mbox{\texttt{ in}}  & {\em coeff} & electronic coefficientes \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em force} & integrated force along the trajectory \\
+\hline
+ & {\em i} & integer index \\
+\hline
+ & {\em i\+\_\+dof} & index running on the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em check} & control variable for allocation errors \\
+\hline
+ & {\em threshold} & electronic population threshold to accumate the force \\
+\hline
+ & {\em mean\+\_\+force} & average electronic force weighted by the electronic population \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the adiabatic (or spin-\/(a)diabatic) force is returned if the electronic population of the corresponding state is larger than threshold and smaller that one minus the threshold. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacecoherence__corrections_aac477a8d07aa3b7a9091642386d171c3}\label{namespacecoherence__corrections_aac477a8d07aa3b7a9091642386d171c3}} 
+\index{coherence\_corrections@{coherence\_corrections}!quantum\_momentum@{quantum\_momentum}}
+\index{quantum\_momentum@{quantum\_momentum}!coherence\_corrections@{coherence\_corrections}}
+\doxysubsubsection{\texorpdfstring{quantum\_momentum()}{quantum\_momentum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily subroutine coherence\+\_\+corrections\+::quantum\+\_\+momentum (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Rcl,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof,nstates), intent(in)}]{acc\+\_\+force,  }\item[{complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in)}]{BOsigma,  }\item[{real(kind=dp), dimension(ntraj,nstates,nstates), intent(inout)}]{k\+\_\+li,  }\item[{real(kind=dp), dimension(\+:,\+:,\+:), allocatable}]{qmom,  }\item[{integer, dimension(n\+\_\+dof,ntraj,npairs), intent(inout)}]{qmom\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em BOsigma} & electronic density matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em Rcl} & positions of the trajectories \\
+\hline
+\mbox{\texttt{ in}}  & {\em acc\+\_\+force} & force accumulated along the trajectory \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em k\+\_\+li} & term accounting for decoherence effects in CT-\/\+MQC \\
+\hline
+ & {\em itraj,jtraj} & indices running on the Ntraj trajectories \\
+\hline
+ & {\em i\+\_\+dof} & index running on the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em index\+\_\+ij} & index running on the pairs of electronic states \\
+\hline
+ & {\em istate,jstate} & indices running on the electronic states \\
+\hline
+ & {\em gamma} & variances of the Gaussians centered at the positions of the trajectories and used to reconstruct the nuclear density \\
+\hline
+ & {\em g\+\_\+i} & sum of Gaussians \\
+\hline
+ & {\em prod\+\_\+g\+\_\+i} & product of one-\/dimensional Gaussians to construct a multi-\/dimensional Gaussian \\
+\hline
+ & {\em w\+\_\+ij} & see paper DOI\+:... \\
+\hline
+ & {\em slope\+\_\+i} & slope of the quantum momentum when it is approximated as a linear function \\
+\hline
+ & {\em ratio} & y-\/intercept when the quantum momentum is approximated as a linear function \\
+\hline
+ & {\em num\+\_\+old} & numerator in the expression of the y-\/intercept to approximate the quantum momentum as a linear function when the condition of no-\/population-\/transfer between two electronic states is imposed for zero values of the non-\/adiabatic couplings \\
+\hline
+ & {\em num\+\_\+new} & numerator in the analytical expression of the y-\/intercept to approximate the quantum momentum as a linear function \\
+\hline
+ & {\em num} & numerator in the expression of the y-\/intercept of the linear quantum momentum \\
+\hline
+ & {\em denom} & denominator in the expression of the y-\/intercept of the linear quantum momentum \\
+\hline
+ & {\em qmom} & quantum momentum \\
+\hline
+ & {\em threshold} & for the selection of the num\+\_\+old or num\+\_\+old (M\+\_\+parameter $\ast$ threshold is the applied distance criterion) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of k\+\_\+li is returned. 
+\end{DoxyReturn}
+This is calculated each time; Consider saving them with a save varaiable
+
+Sigma is standard deviation of wave function; not density, Thus, we need factor 2 in alpha (slope) and in the gauss later
+
+Define alph (slope) for models/special cases
+
+CALCULATE \char`\"{}gaus matrix\char`\"{} As above, the factor 2 is taken care of We take advantage of the symmetry for efficiency
+
+DENSITY AT EACH TRAJECTORY
+
+standard intercept R\+\_\+ic Normal intercept, without respecting pop consersevation at NAC=0
+
+fancy intercept R\+\_\+fi Intercept respecting pop consersevation at NAC=0
+
+Periodicity part 1
+
+Quantum momentum Start with 0 Priority\+: fancy intercept If too far away\+: normal intercept If still too far away it stays zero
+
+double fancy intercept R\+\_\+fi Intercept respecting pop consersevation at NAC=0 only for same Carsten
+
+Quantum momentum Start with 0, will stay 0 if Carsten is zero
+
+Intercepts selected by Carsten of traj/state This may not work for older compilers
+
+dont forget the slope! factor 0.\+5 from using the density insead of wavefunction in def of qmom
+
+output k\+\_\+li
+
+clean up crew, could be skipped I think\mbox{\Hypertarget{namespacecoherence__corrections_aac477a8d07aa3b7a9091642386d171c3}\label{namespacecoherence__corrections_aac477a8d07aa3b7a9091642386d171c3}} 
+\index{coherence\_corrections@{coherence\_corrections}!quantum\_momentum@{quantum\_momentum}}
+\index{quantum\_momentum@{quantum\_momentum}!coherence\_corrections@{coherence\_corrections}}
+\doxysubsubsection{\texorpdfstring{quantum\_momentum()}{quantum\_momentum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily subroutine coherence\+\_\+corrections\+::quantum\+\_\+momentum (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Rcl,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof,nstates), intent(in)}]{acc\+\_\+force,  }\item[{complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in)}]{BOsigma,  }\item[{real(kind=dp), dimension(ntraj,nstates,nstates), intent(inout)}]{k\+\_\+li,  }\item[{real(kind=dp), dimension(n\+\_\+dof,ntraj,npairs), intent(inout)}]{qmom,  }\item[{integer, dimension(n\+\_\+dof,ntraj,npairs), intent(inout)}]{qmom\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em BOsigma} & electronic density matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em Rcl} & positions of the trajectories \\
+\hline
+\mbox{\texttt{ in}}  & {\em acc\+\_\+force} & force accumulated along the trajectory \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em k\+\_\+li} & term accounting for decoherence effects in CT-\/\+MQC \\
+\hline
+ & {\em itraj,jtraj} & indices running on the Ntraj trajectories \\
+\hline
+ & {\em i\+\_\+dof} & index running on the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em index\+\_\+ij} & index running on the pairs of electronic states \\
+\hline
+ & {\em istate,jstate} & indices running on the electronic states \\
+\hline
+ & {\em gamma} & variances of the Gaussians centered at the positions of the trajectories and used to reconstruct the nuclear density \\
+\hline
+ & {\em g\+\_\+i} & sum of Gaussians \\
+\hline
+ & {\em prod\+\_\+g\+\_\+i} & product of one-\/dimensional Gaussians to construct a multi-\/dimensional Gaussian \\
+\hline
+ & {\em w\+\_\+ij} & see paper DOI\+:... \\
+\hline
+ & {\em slope\+\_\+i} & slope of the quantum momentum when it is approximated as a linear function \\
+\hline
+ & {\em ratio} & y-\/intercept when the quantum momentum is approximated as a linear function \\
+\hline
+ & {\em num\+\_\+old} & numerator in the expression of the y-\/intercept to approximate the quantum momentum as a linear function when the condition of no-\/population-\/transfer between two electronic states is imposed for zero values of the non-\/adiabatic couplings \\
+\hline
+ & {\em num\+\_\+new} & numerator in the analytical expression of the y-\/intercept to approximate the quantum momentum as a linear function \\
+\hline
+ & {\em num} & numerator in the expression of the y-\/intercept of the linear quantum momentum \\
+\hline
+ & {\em denom} & denominator in the expression of the y-\/intercept of the linear quantum momentum \\
+\hline
+ & {\em qmom} & quantum momentum \\
+\hline
+ & {\em threshold} & for the selection of the num\+\_\+old or num\+\_\+old (M\+\_\+parameter $\ast$ threshold is the applied distance criterion) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of k\+\_\+li is returned. 
+\end{DoxyReturn}

@@ -1,0 +1,352 @@
+\hypertarget{namespaceanalytical__potentials}{}\doxysection{analytical\+\_\+potentials Module Reference}
+\label{namespaceanalytical__potentials}\index{analytical\_potentials@{analytical\_potentials}}
+
+
+Diabatic low dimensional potentials.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_aee08711dfb0552ba00cc2a8f005201df}{new\+\_\+model\+\_\+potentials}} (Hel, grad\+\_\+\+BO, NAC, Q)
+\begin{DoxyCompactList}\small\item\em Definition of electronic structure properties, ie, energies, gradients and derivative couplings on model potentials integrated in the G-\/\+CTMQC. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_a00c558ee0bcbfb79260952a640a9566c}{check\+\_\+overlap}} (eigenv1, eigenv2, factor)
+\begin{DoxyCompactList}\small\item\em Check that adjacent adiabatic states are continuous in nuclear space. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_a659155b761baaa9ff7d93276000a0a7d}{diagonalize}} (matrix, eigenvalues, eigenvectors)
+\begin{DoxyCompactList}\small\item\em Diagonalization of a real symmetric matrix with the Lapac procedure dsyevd. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_a18123f0763bb7734dbed0bad63a530fe}{non\+\_\+adiabatic\+\_\+couplings}} (energy, gradients, eigenvectors, couplings)
+\begin{DoxyCompactList}\small\item\em Calculation of analytical non-\/adiabatic couplings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_a36f45f8d12cae33ecb59bb2169602e81}{nai\+\_\+potential}} (H, R, grad\+\_\+H, R\+\_\+crossing)
+\begin{DoxyCompactList}\small\item\em Definition of the analytical model potentials for the diatomic molecule NaI following the work of Faist and Levine published in JCP (1976) DOI\+:10.\+1063/1.432555. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_a92dea072762aea74022fc6cbaa71cf0e}{ibr\+\_\+potential}} (H, R, grad\+\_\+H, R\+\_\+crossing)
+\begin{DoxyCompactList}\small\item\em Definition of the analytical model potentials for the diatomic molecule NaI following the work of Guo published in JCP (1993) DOI\+:10.\+1063/1.465285. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_aefac04951599dc62193ec625a8132de1}{doublewell\+\_\+potential}} (H, R, grad\+\_\+H, R\+\_\+crossing)
+\begin{DoxyCompactList}\small\item\em Definition of the analytical model potentials a double well. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_acc9da3ff3afc5fbee6d045e0b79a5d0e}{tully3}} (H, R, grad\+\_\+H)
+\begin{DoxyCompactList}\small\item\em Definition of the analytical model potential Tully \#3. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_a4966b9642bd95ef9c92ef740003b8368}{subotnikjpca2019}} (H, R, grad\+\_\+H)
+\begin{DoxyCompactList}\small\item\em Definition of the analytical model potentials for parallel constant PESs. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_ac78099f4057aa74c56d12bd9414a924a}{phenol\+\_\+potential}} (H, R, grad\+\_\+H, R\+\_\+crossing)
+\begin{DoxyCompactList}\small\item\em Definition of the analytical model potentials for the phenol molecule following the work of Faist and Levine published in JCP (1976) DOI\+:10.\+1063/1.432555. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceanalytical__potentials_aa199013ccfa8f3fdabd157b9c2bcba97}{plot\+\_\+potential}} ()
+\begin{DoxyCompactList}\small\item\em Plot the adiabatic and diabatic analytical potentials. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Diabatic low dimensional potentials. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespaceanalytical__potentials_a00c558ee0bcbfb79260952a640a9566c}\label{namespaceanalytical__potentials_a00c558ee0bcbfb79260952a640a9566c}} 
+\index{analytical\_potentials@{analytical\_potentials}!check\_overlap@{check\_overlap}}
+\index{check\_overlap@{check\_overlap}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{check\_overlap()}{check\_overlap()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::check\+\_\+overlap (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(in)}]{eigenv1,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in)}]{eigenv2,  }\item[{real(kind=dp), dimension(nstates), intent(inout)}]{factor }\end{DoxyParamCaption})}
+
+
+
+Check that adjacent adiabatic states are continuous in nuclear space. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em eigenv1,eigenv2} & eigenstates of the electronic Hamiltonian at adjecent points in nuclear space \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em factor} & control factor for the phase relation between adjacent adiabatic states \\
+\hline
+ & {\em sum} & scalar product between eigenv1 and eigenv2 \\
+\hline
+ & {\em i,j} & integer indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The values of factor is returned\+: it is 1 if the two vectors are in phase or -\/1 if the two vectors are out of phase. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_a659155b761baaa9ff7d93276000a0a7d}\label{namespaceanalytical__potentials_a659155b761baaa9ff7d93276000a0a7d}} 
+\index{analytical\_potentials@{analytical\_potentials}!diagonalize@{diagonalize}}
+\index{diagonalize@{diagonalize}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{diagonalize()}{diagonalize()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::diagonalize (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(in)}]{matrix,  }\item[{real(kind=dp), dimension(nstates), intent(inout)}]{eigenvalues,  }\item[{real(kind=dp), dimension(\+:,\+:), intent(inout)}]{eigenvectors }\end{DoxyParamCaption})}
+
+
+
+Diagonalization of a real symmetric matrix with the Lapac procedure dsyevd. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em matrix} & to be diagonalized \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em eigenvalues} & of the matrix \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em eigenvectors} & of the matrix \\
+\hline
+ & {\em ioerr} & control variable for diagonalization errors \\
+\hline
+ & {\em lwork} & dimension of the array work \\
+\hline
+ & {\em dim\+\_\+work} & temporary dimension of the array work \\
+\hline
+ & {\em liwork} & dimension of the array iwork \\
+\hline
+ & {\em dim\+\_\+iwork} & temporary dimension of the array iwork \\
+\hline
+ & {\em iwork} & integer array \\
+\hline
+ & {\em work} & double precision array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The eigenvalues and eigenvectors of the matrix are returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_aefac04951599dc62193ec625a8132de1}\label{namespaceanalytical__potentials_aefac04951599dc62193ec625a8132de1}} 
+\index{analytical\_potentials@{analytical\_potentials}!doublewell\_potential@{doublewell\_potential}}
+\index{doublewell\_potential@{doublewell\_potential}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{doublewell\_potential()}{doublewell\_potential()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::doublewell\+\_\+potential (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{H,  }\item[{real(kind=dp), intent(in)}]{R,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{grad\+\_\+H,  }\item[{real(kind=dp), intent(inout), optional}]{R\+\_\+crossing }\end{DoxyParamCaption})}
+
+
+
+Definition of the analytical model potentials a double well. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em H} & electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em grad\+\_\+H} & gradient of the electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in}}  & {\em R} & nuclear position \\
+\hline
+ & {\em KX,DELTA,X1,X2,X3,GAMMA,ALPHA} & parameters of the potentials\+: Note that the used units are atomic units \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The electronic Hamiltonian and its nuclear gradients are returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_a92dea072762aea74022fc6cbaa71cf0e}\label{namespaceanalytical__potentials_a92dea072762aea74022fc6cbaa71cf0e}} 
+\index{analytical\_potentials@{analytical\_potentials}!ibr\_potential@{ibr\_potential}}
+\index{ibr\_potential@{ibr\_potential}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{ibr\_potential()}{ibr\_potential()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::ibr\+\_\+potential (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{H,  }\item[{real(kind=dp), intent(in)}]{R,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{grad\+\_\+H,  }\item[{real(kind=dp), intent(inout), optional}]{R\+\_\+crossing }\end{DoxyParamCaption})}
+
+
+
+Definition of the analytical model potentials for the diatomic molecule NaI following the work of Guo published in JCP (1993) DOI\+:10.\+1063/1.465285. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em H} & electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em grad\+\_\+H} & gradient of the electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in}}  & {\em R} & nuclear position \\
+\hline
+ & {\em A0,alpha0,r0,A1,alpha1,r1,D,A2,alpha2,B2,beta2,h12} & parameters of the potentials\+: Note that the used units are atomic units \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The electronic Hamiltonian and its nuclear gradients are returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_a36f45f8d12cae33ecb59bb2169602e81}\label{namespaceanalytical__potentials_a36f45f8d12cae33ecb59bb2169602e81}} 
+\index{analytical\_potentials@{analytical\_potentials}!nai\_potential@{nai\_potential}}
+\index{nai\_potential@{nai\_potential}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{nai\_potential()}{nai\_potential()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::nai\+\_\+potential (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{H,  }\item[{real(kind=dp), intent(in)}]{R,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{grad\+\_\+H,  }\item[{real(kind=dp), intent(inout), optional}]{R\+\_\+crossing }\end{DoxyParamCaption})}
+
+
+
+Definition of the analytical model potentials for the diatomic molecule NaI following the work of Faist and Levine published in JCP (1976) DOI\+:10.\+1063/1.432555. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em H} & electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em grad\+\_\+H} & gradient of the electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in}}  & {\em R} & nuclear position \\
+\hline
+ & {\em Acov,Bcov,rhocov,Ccov,Aion,Bion,rhoion,Cion,alpha\+Mp,alpha\+Xm,Eth,A,rho} & parameters of the potentials\+: Note that the used units are electronvolts and and angstroms in the original definition \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The electronic Hamiltonian and its nuclear gradients are returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_aee08711dfb0552ba00cc2a8f005201df}\label{namespaceanalytical__potentials_aee08711dfb0552ba00cc2a8f005201df}} 
+\index{analytical\_potentials@{analytical\_potentials}!new\_model\_potentials@{new\_model\_potentials}}
+\index{new\_model\_potentials@{new\_model\_potentials}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{new\_model\_potentials()}{new\_model\_potentials()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::new\+\_\+model\+\_\+potentials (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{Hel,  }\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(inout)}]{grad\+\_\+\+BO,  }\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(inout)}]{NAC,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{Q }\end{DoxyParamCaption})}
+
+
+
+Definition of electronic structure properties, ie, energies, gradients and derivative couplings on model potentials integrated in the G-\/\+CTMQC. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em Hel} & electronic Hamiltonian at the trajectory position \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em grad\+\_\+\+BO} & gradient of the adiabatic energy at the trajectory position \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em NAC} & non-\/adiabatic coupling vector at the trajectory position \\
+\hline
+\mbox{\texttt{ in}}  & {\em Q} & trajectory position \\
+\hline
+ & {\em Ebo} & adiabatic energy at the trajectory position \\
+\hline
+ & {\em grad\+\_\+\+Hel} & gradient of the electronic Hamiltonian at the trajectory position \\
+\hline
+ & {\em U} & transformation matrix from the diabatic to the adiabatic basis \\
+\hline
+ & {\em factor} & control factor for the phase relation between adjacent adiabatic states \\
+\hline
+ & {\em delta} & spatial increment to compute numerical derivatives \\
+\hline
+ & {\em i\+\_\+dof} & index running on the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em ix,i} & integer indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The values of the adiabatic energies are returned as the diagonal elements of Hel; the gradient of the adiabatic energies and the non-\/adiabatic couplings are returned in grad\+\_\+\+BO and NAC. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_a18123f0763bb7734dbed0bad63a530fe}\label{namespaceanalytical__potentials_a18123f0763bb7734dbed0bad63a530fe}} 
+\index{analytical\_potentials@{analytical\_potentials}!non\_adiabatic\_couplings@{non\_adiabatic\_couplings}}
+\index{non\_adiabatic\_couplings@{non\_adiabatic\_couplings}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{non\_adiabatic\_couplings()}{non\_adiabatic\_couplings()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::non\+\_\+adiabatic\+\_\+couplings (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates), intent(in)}]{energy,  }\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(in)}]{gradients,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in)}]{eigenvectors,  }\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(inout)}]{couplings }\end{DoxyParamCaption})}
+
+
+
+Calculation of analytical non-\/adiabatic couplings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em energy} & of the adiabatic states \\
+\hline
+\mbox{\texttt{ in}}  & {\em gradients} & of the adiabatic energies \\
+\hline
+\mbox{\texttt{ in}}  & {\em eigenvectors} & of the electronic Hamiltonian \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em couplings} & matrix representing the non-\/adiabatic couplings \\
+\hline
+ & {\em i,j,k,l} & integer indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matrix of non-\/adiabatic couplings is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_ac78099f4057aa74c56d12bd9414a924a}\label{namespaceanalytical__potentials_ac78099f4057aa74c56d12bd9414a924a}} 
+\index{analytical\_potentials@{analytical\_potentials}!phenol\_potential@{phenol\_potential}}
+\index{phenol\_potential@{phenol\_potential}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{phenol\_potential()}{phenol\_potential()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::phenol\+\_\+potential (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{H,  }\item[{real(kind=dp), intent(in)}]{R,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{grad\+\_\+H,  }\item[{real(kind=dp), intent(inout), optional}]{R\+\_\+crossing }\end{DoxyParamCaption})}
+
+
+
+Definition of the analytical model potentials for the phenol molecule following the work of Faist and Levine published in JCP (1976) DOI\+:10.\+1063/1.432555. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em H} & electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em grad\+\_\+H} & gradient of the electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in}}  & {\em R} & nuclear position \\
+\hline
+ & {\em Acov,Bcov,rhocov,Ccov,Aion,Bion,rhoion,Cion,alpha\+Mp,alpha\+Xm,Eth,A,rho} & parameters of the potentials\+: Note that the used units are electronvolts and and angstroms in the original definition \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The electronic Hamiltonian and its nuclear gradients are returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_aa199013ccfa8f3fdabd157b9c2bcba97}\label{namespaceanalytical__potentials_aa199013ccfa8f3fdabd157b9c2bcba97}} 
+\index{analytical\_potentials@{analytical\_potentials}!plot\_potential@{plot\_potential}}
+\index{plot\_potential@{plot\_potential}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{plot\_potential()}{plot\_potential()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::plot\+\_\+potential}
+
+
+
+Plot the adiabatic and diabatic analytical potentials. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Rmin,Rmax} & limits of the domain to plot the potentials \\
+\hline
+{\em V} & values of the diabatic potentials \\
+\hline
+{\em eps\+BO} & values of the adiabatic potentials \\
+\hline
+{\em nacv} & values of the non-\/adiabatic couplings \\
+\hline
+{\em grad\+\_\+V} & values of the gradients of the diabatic potentials \\
+\hline
+{\em U} & transformation matrix from the diabatic to the adiabatic basis at the current position \\
+\hline
+{\em save\+\_\+U} & transformation matrix from the diabatic to the adiabatic basis at the previous position \\
+\hline
+{\em factor} & control factor for the phase relation between adjacent adiabatic states \\
+\hline
+{\em npoints} & number of grid points in nuclear space to plot the potentials \\
+\hline
+{\em delta} & spatial increment to compute numerical derivatives \\
+\hline
+{\em R} & \\
+\hline
+{\em ground\+\_\+states\+\_\+density} & initial nuclear density consistent with the distribution of classical initial positions and momenta \\
+\hline
+{\em ios} & control variable for output errors \\
+\hline
+{\em ix,i} & integer indices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceanalytical__potentials_a4966b9642bd95ef9c92ef740003b8368}\label{namespaceanalytical__potentials_a4966b9642bd95ef9c92ef740003b8368}} 
+\index{analytical\_potentials@{analytical\_potentials}!subotnikjpca2019@{subotnikjpca2019}}
+\index{subotnikjpca2019@{subotnikjpca2019}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{subotnikjpca2019()}{subotnikjpca2019()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::subotnikjpca2019 (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{H,  }\item[{real(kind=dp), intent(in)}]{R,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{grad\+\_\+H }\end{DoxyParamCaption})}
+
+
+
+Definition of the analytical model potentials for parallel constant PESs. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em H} & electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em grad\+\_\+H} & gradient of the electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in}}  & {\em R} & nuclear position \\
+\hline
+ & {\em A,B} & parameters of the potentials\+: Note that the used units are atomic units \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The electronic Hamiltonian and its nuclear gradients are returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceanalytical__potentials_acc9da3ff3afc5fbee6d045e0b79a5d0e}\label{namespaceanalytical__potentials_acc9da3ff3afc5fbee6d045e0b79a5d0e}} 
+\index{analytical\_potentials@{analytical\_potentials}!tully3@{tully3}}
+\index{tully3@{tully3}!analytical\_potentials@{analytical\_potentials}}
+\doxysubsubsection{\texorpdfstring{tully3()}{tully3()}}
+{\footnotesize\ttfamily subroutine analytical\+\_\+potentials\+::tully3 (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{H,  }\item[{real(kind=dp), intent(in)}]{R,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(inout)}]{grad\+\_\+H }\end{DoxyParamCaption})}
+
+
+
+Definition of the analytical model potential Tully \#3. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em H} & electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em grad\+\_\+H} & gradient of the electronic Hamiltonian in the diabatic basis \\
+\hline
+\mbox{\texttt{ in}}  & {\em R} & nuclear position \\
+\hline
+ & {\em a,b,c} & parameters of the potentials\+: Note that the used units are atomic units \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The electronic Hamiltonian and its nuclear gradients are returned. 
+\end{DoxyReturn}

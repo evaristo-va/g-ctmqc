@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacetrajectories__selection" xml:lang="en-US">
+<title>trajectories_selection Module Reference</title>
+<indexterm><primary>trajectories_selection</primary></indexterm>
+<para>
+
+<para>Subroutine under construction to &quot;manually&quot; select the coupled trajectories in CT-MQC. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_namespacetrajectories__selection_1ab60ff06af8f5dbc681f6e615a315e367"/>subroutine <emphasis role="strong">select_coupled_trajectories</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Subroutine under construction to &quot;manually&quot; select the coupled trajectories in CT-MQC. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+</section>

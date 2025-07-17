@@ -1,0 +1,59 @@
+# make.depends
+
+
+analytical_potentials.o : kinds.o
+analytical_potentials.o : variables.o
+analytical_potentials.o : atomic_masses.o
+
+atomic_masses.o : kinds.o
+
+classical_evolution.o: variables.o
+classical_evolution.o: kinds.o
+
+coefficients_evolution.o: variables.o
+coefficients_evolution.o: kinds.o
+
+coherence_corrections.o: variables.o
+coherence_corrections.o: kinds.o
+coherence_corrections.o: tools.o
+coherence_corrections.o: output.o
+
+electronic_problem.o: variables.o
+electronic_problem.o: kinds.o
+electronic_problem.o: analytical_potentials.o
+
+shopping.o: tools.o
+shopping.o: kinds.o
+shopping.o: variables.o
+
+main.o: variables.o
+main.o: tools.o
+main.o: output.o
+main.o: time_evolution.o
+main.o: wigner_distribution.o
+math.o: variables.o
+math.o: kinds.o
+
+output.o: variables.o
+output.o: kinds.o
+output.o: tools.o
+output.o: analytical_potentials.o
+
+time_evolution.o: variables.o
+time_evolution.o: kinds.o
+time_evolution.o: output.o
+time_evolution.o: electronic_problem.o
+time_evolution.o: coefficients_evolution.o
+time_evolution.o: classical_evolution.o
+time_evolution.o: coherence_corrections.o
+time_evolution.o: shopping.o
+time_evolution.o: trajectories_selection.o 
+
+tools.o: variables.o
+tools.o: kinds.o
+
+variables.o: kinds.o
+
+wigner_distribution.o: kinds.o
+wigner_distribution.o: variables.o
+

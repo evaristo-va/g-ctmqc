@@ -1,0 +1,241 @@
+.TH "coherence_corrections" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+coherence_corrections \- Calculations of quantities for decoherence corrections in CT-MQC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBaccumulated_boforce\fP (coeff, force, trajlabel)"
+.br
+.RI "The adiabatic (or spin-(a)diabatic) force is integrated in time along a trajectory\&. "
+.ti -1c
+.RI "subroutine \fBquantum_momentum\fP (Rcl, acc_force, BOsigma, k_li, qmom, qmom_type)"
+.br
+.RI "Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories\&. "
+.ti -1c
+.RI "subroutine \fBacc_force_ec\fP (Vcl, coeff, acc_force, acc_force_E)"
+.br
+.RI "The accumulated force is corrected to satisfy energy conservation\&. "
+.ti -1c
+.RI "subroutine \fBquantum_momentum\fP (Rcl, acc_force, BOsigma, k_li, qmom, qmom_type)"
+.br
+.RI "Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Calculations of quantities for decoherence corrections in CT-MQC\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine coherence_corrections::acc_force_ec (real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, complex(kind=qp), dimension(ntraj,nstates), intent(in) coeff, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(inout) acc_force_E)"
+
+.PP
+The accumulated force is corrected to satisfy energy conservation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIVcl\fP classical velocities 
+.br
+\fIcoeff\fP electronic coefficientes 
+.br
+\fIacc_force\fP accumulated force along the trajectories 
+.br
+\fIacc_force_E\fP new accumulated force 
+.br
+\fIi_dof\fP index running on the n_dof degrees of freedom 
+.br
+\fIi_traj\fP index running on the n_traj degrees number of trajectories 
+.br
+\fIistate\fP index running on the nstates of electronic states 
+.br
+\fIthreshold\fP electronic population threshold to compute the acc forces 
+.br
+\fIR_threshold\fP velocity threshold to compute the new acc forces 
+.br
+\fInvec\fP vector in the direction of the new acc force 
+.RE
+.PP
+
+.SS "subroutine coherence_corrections::accumulated_boforce (complex(kind=qp), dimension(nstates), intent(in) coeff, real(kind=dp), dimension(n_dof,nstates), intent(inout) force, integer, intent(in) trajlabel)"
+
+.PP
+The adiabatic (or spin-(a)diabatic) force is integrated in time along a trajectory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory along which the equation is integrated 
+.br
+\fIcoeff\fP electronic coefficientes 
+.br
+\fIforce\fP integrated force along the trajectory 
+.br
+\fIi\fP integer index 
+.br
+\fIi_dof\fP index running on the n_dof degrees of freedom 
+.br
+\fIcheck\fP control variable for allocation errors 
+.br
+\fIthreshold\fP electronic population threshold to accumate the force 
+.br
+\fImean_force\fP average electronic force weighted by the electronic population 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the adiabatic (or spin-(a)diabatic) force is returned if the electronic population of the corresponding state is larger than threshold and smaller that one minus the threshold\&. 
+.RE
+.PP
+
+.SS "subroutine coherence_corrections::quantum_momentum (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force, complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,nstates,nstates), intent(inout) k_li, real(kind=dp), dimension(:,:,:), allocatable qmom, integer, dimension(n_dof,ntraj,npairs), intent(inout) qmom_type)"
+
+.PP
+Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIBOsigma\fP electronic density matrix 
+.br
+\fIRcl\fP positions of the trajectories 
+.br
+\fIacc_force\fP force accumulated along the trajectory 
+.br
+\fIk_li\fP term accounting for decoherence effects in CT-MQC 
+.br
+\fIitraj,jtraj\fP indices running on the Ntraj trajectories 
+.br
+\fIi_dof\fP index running on the n_dof degrees of freedom 
+.br
+\fIindex_ij\fP index running on the pairs of electronic states 
+.br
+\fIistate,jstate\fP indices running on the electronic states 
+.br
+\fIgamma\fP variances of the Gaussians centered at the positions of the trajectories and used to reconstruct the nuclear density 
+.br
+\fIg_i\fP sum of Gaussians 
+.br
+\fIprod_g_i\fP product of one-dimensional Gaussians to construct a multi-dimensional Gaussian 
+.br
+\fIw_ij\fP see paper DOI:\&.\&.\&. 
+.br
+\fIslope_i\fP slope of the quantum momentum when it is approximated as a linear function 
+.br
+\fIratio\fP y-intercept when the quantum momentum is approximated as a linear function 
+.br
+\fInum_old\fP numerator in the expression of the y-intercept to approximate the quantum momentum as a linear function when the condition of no-population-transfer between two electronic states is imposed for zero values of the non-adiabatic couplings 
+.br
+\fInum_new\fP numerator in the analytical expression of the y-intercept to approximate the quantum momentum as a linear function 
+.br
+\fInum\fP numerator in the expression of the y-intercept of the linear quantum momentum 
+.br
+\fIdenom\fP denominator in the expression of the y-intercept of the linear quantum momentum 
+.br
+\fIqmom\fP quantum momentum 
+.br
+\fIthreshold\fP for the selection of the num_old or num_old (M_parameter * threshold is the applied distance criterion) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of k_li is returned\&. 
+.RE
+.PP
+This is calculated each time; Consider saving them with a save varaiable
+.PP
+Sigma is standard deviation of wave function; not density, Thus, we need factor 2 in alpha (slope) and in the gauss later
+.PP
+Define alph (slope) for models/special cases
+.PP
+CALCULATE 'gaus matrix' As above, the factor 2 is taken care of We take advantage of the symmetry for efficiency
+.PP
+DENSITY AT EACH TRAJECTORY
+.PP
+standard intercept R_ic Normal intercept, without respecting pop consersevation at NAC=0
+.PP
+fancy intercept R_fi Intercept respecting pop consersevation at NAC=0
+.PP
+Periodicity part 1
+.PP
+Quantum momentum Start with 0 Priority: fancy intercept If too far away: normal intercept If still too far away it stays zero
+.PP
+double fancy intercept R_fi Intercept respecting pop consersevation at NAC=0 only for same Carsten
+.PP
+Quantum momentum Start with 0, will stay 0 if Carsten is zero
+.PP
+Intercepts selected by Carsten of traj/state This may not work for older compilers
+.PP
+dont forget the slope! factor 0\&.5 from using the density insead of wavefunction in def of qmom
+.PP
+output k_li
+.PP
+clean up crew, could be skipped I think
+.SS "subroutine coherence_corrections::quantum_momentum (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force, complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,nstates,nstates), intent(inout) k_li, real(kind=dp), dimension(n_dof,ntraj,npairs), intent(inout) qmom, integer, dimension(n_dof,ntraj,npairs), intent(inout) qmom_type)"
+
+.PP
+Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIBOsigma\fP electronic density matrix 
+.br
+\fIRcl\fP positions of the trajectories 
+.br
+\fIacc_force\fP force accumulated along the trajectory 
+.br
+\fIk_li\fP term accounting for decoherence effects in CT-MQC 
+.br
+\fIitraj,jtraj\fP indices running on the Ntraj trajectories 
+.br
+\fIi_dof\fP index running on the n_dof degrees of freedom 
+.br
+\fIindex_ij\fP index running on the pairs of electronic states 
+.br
+\fIistate,jstate\fP indices running on the electronic states 
+.br
+\fIgamma\fP variances of the Gaussians centered at the positions of the trajectories and used to reconstruct the nuclear density 
+.br
+\fIg_i\fP sum of Gaussians 
+.br
+\fIprod_g_i\fP product of one-dimensional Gaussians to construct a multi-dimensional Gaussian 
+.br
+\fIw_ij\fP see paper DOI:\&.\&.\&. 
+.br
+\fIslope_i\fP slope of the quantum momentum when it is approximated as a linear function 
+.br
+\fIratio\fP y-intercept when the quantum momentum is approximated as a linear function 
+.br
+\fInum_old\fP numerator in the expression of the y-intercept to approximate the quantum momentum as a linear function when the condition of no-population-transfer between two electronic states is imposed for zero values of the non-adiabatic couplings 
+.br
+\fInum_new\fP numerator in the analytical expression of the y-intercept to approximate the quantum momentum as a linear function 
+.br
+\fInum\fP numerator in the expression of the y-intercept of the linear quantum momentum 
+.br
+\fIdenom\fP denominator in the expression of the y-intercept of the linear quantum momentum 
+.br
+\fIqmom\fP quantum momentum 
+.br
+\fIthreshold\fP for the selection of the num_old or num_old (M_parameter * threshold is the applied distance criterion) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of k_li is returned\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

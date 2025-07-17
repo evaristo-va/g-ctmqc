@@ -1,0 +1,128 @@
+.TH "time_evolution" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+time_evolution \- Complete time evolution of Ntraj trajectories with Ehrenfest, surface hopping and CT-MQC , along with time initialization and finalization\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBevolution\fP"
+.br
+.RI "Three algorithms are used to evolve classical nuclear trajectories along with the electronic coefficients: Ehrenfest dynamics, trajectory surface hopping and CT-MQC\&. "
+.ti -1c
+.RI "subroutine \fBinput_summary\fP"
+.br
+.RI "Summary of the input is written on the terminal\&. "
+.ti -1c
+.RI "subroutine \fBinitialize_local_vars\fP"
+.br
+.RI "Variables used in the evolution subroutine are inizialized\&. "
+.ti -1c
+.RI "subroutine \fBfinalize_local_vars\fP"
+.br
+.RI "Variables used in the evolution subroutine are deallocated\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "real(kind=dp), dimension(:,:), allocatable \fBrcl\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:,:), allocatable \fBvcl\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBclassical_force\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBmy_force\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBk_li\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:,:), allocatable \fBtdvp\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBboenergy_old\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBcoup_old\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBqmom\fP"
+.br
+.ti -1c
+.RI "integer, dimension(:,:,:), allocatable \fBqmom_type\fP"
+.br
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBmy_force_e\fP"
+.br
+.ti -1c
+.RI "complex(kind=qp), dimension(:,:,:), allocatable \fBbosigma\fP"
+.br
+.ti -1c
+.RI "complex(kind=qp), dimension(:,:), allocatable \fBbocoeff\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Complete time evolution of Ntraj trajectories with Ehrenfest, surface hopping and CT-MQC , along with time initialization and finalization\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine time_evolution::evolution"
+
+.PP
+Three algorithms are used to evolve classical nuclear trajectories along with the electronic coefficients: Ehrenfest dynamics, trajectory surface hopping and CT-MQC\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP time step 
+.br
+\fIitraj\fP integer index running over the Ntraj trajectories 
+.br
+\fIi,j\fP integer indices 
+.RE
+.PP
+
+.SS "subroutine time_evolution::finalize_local_vars"
+
+.PP
+Variables used in the evolution subroutine are deallocated\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcheck\fP control factor for deallocation errors 
+.RE
+.PP
+
+.SS "subroutine time_evolution::initialize_local_vars"
+
+.PP
+Variables used in the evolution subroutine are inizialized\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIitraj\fP integer index running over the Ntraj trajectories 
+.br
+\fIi,j\fP integer indices 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

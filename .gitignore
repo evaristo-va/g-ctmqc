@@ -1,0 +1,10 @@
+src/*save
+src/*mod
+src/*.o
+src/*.x
+src/*.a
+src/Makefile
+src/shopping_wo_CCT.f90
+src/coherence_corrections_original.f90
+src.tar.gz
+.DS_Store

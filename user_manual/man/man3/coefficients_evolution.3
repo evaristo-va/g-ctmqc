@@ -1,0 +1,109 @@
+.TH "coefficients_evolution" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+coefficients_evolution \- Evolution of the electronic coefficients\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBevolve_coeff\fP (v, coeff, k_li, E_old, NAC_old, trajlabel)"
+.br
+.ti -1c
+.RI "subroutine \fBrk4_coeff\fP (v, coeff, k_li, E, NAC, trajlabel)"
+.br
+.RI "Numerical integration of the non-linear differential equation describing the electronic evolution of the coefficients\&. "
+.ti -1c
+.RI "complex(kind=qp) function \fBcdot\fP (state, kfunction, v, coeff, k_li, E_int, NAC_int, trajlabel)"
+.br
+.RI "Total time derivative of the electronic coefficients as given in the Ehrenfest algorithm, surface hopping algorithm, and CT-MQC\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Evolution of the electronic coefficients\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "complex(kind=qp) function coefficients_evolution::cdot (integer, intent(in) state, complex(kind=qp), intent(in) kfunction, real(kind=dp), dimension(n_dof), intent(in) v, complex(kind=qp), dimension(nstates), intent(in) coeff, real(kind=dp), dimension(nstates,nstates), intent(in) k_li, real(kind=dp), dimension(nstates), intent(in) E_int, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) NAC_int, integer, intent(in) trajlabel)"
+
+.PP
+Total time derivative of the electronic coefficients as given in the Ehrenfest algorithm, surface hopping algorithm, and CT-MQC\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP electronic state for which the time derivative of the coefficients is computer 
+.br
+\fItrajlabel\fP label of the trajectory along which the equation is integrated 
+.br
+\fIv\fP velocity of trajectory along which the time derivative of the coefficient is calculated 
+.br
+\fIk_li\fP term accounting for decoherence effects in CT-MQC 
+.br
+\fIcoeff\fP electronic coefficientes 
+.br
+\fIkfunction\fP function appearing in the expression of the time increment 
+.br
+\fIcdot\fP time derivative of the coefficient 
+.br
+\fInonadiabatic_sum\fP off-diagonal contribution to the time derivative of the coefficients 
+.br
+\fImy_coeff\fP local temporary values of the coefficients 
+.br
+\fIi\fP integer index 
+.br
+\fImy_gap\fP energy-gap threshold between the spin-diabatic states to tune the effect of the spin-orbit coupling 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The values of the time derivative of the electronic coefficientes is returned\&. 
+.RE
+.PP
+
+.SS "subroutine coefficients_evolution::rk4_coeff (real(kind=dp), dimension(n_dof), intent(in) v, complex(kind=qp), dimension(nstates), intent(inout) coeff, real(kind=dp), dimension(nstates,nstates), intent(in) k_li, real(kind=dp), dimension(nstates), intent(in) E, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) NAC, integer, intent(in) trajlabel)"
+
+.PP
+Numerical integration of the non-linear differential equation describing the electronic evolution of the coefficients\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory along which the equation is integrated 
+.br
+\fIv\fP velocity of trajectory along which the equation is integrated 
+.br
+\fIk_li\fP term accounting for decoherence effects in CT-MQC 
+.br
+\fIcoeff\fP electronic coefficientes 
+.br
+\fIi\fP integer index 
+.br
+\fIk1,k2,k3,k4\fP functions appearing in the expression of the time increment 
+.br
+\fIkfunction\fP function appearing in the expression of the time increment 
+.br
+\fImy_coeff\fP local temporary values of the coefficients 
+.br
+\fInormalization\fP norm of the electronic wavefunction after a time step 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The values of the electronic coefficientes are returned after one step of dynamics\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

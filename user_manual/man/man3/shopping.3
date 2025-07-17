@@ -1,0 +1,277 @@
+.TH "shopping" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+shopping \- Surface hopping tools to compute the hop probability, the active state the energy rescaling after the hop, and the energy decoherence correction\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBhopping\fP (my_rho, v, r, trajlabel, k_li)"
+.br
+.RI "The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure\&. "
+.ti -1c
+.RI "subroutine \fBchoose_bostate\fP (v, r, hop_prob, trajlabel, k_li, my_rho)"
+.br
+.RI "According to the fewest switches algorithm, the new active state is selected\&. "
+.ti -1c
+.RI "subroutine \fBmomentum_correction\fP (v, r, old_occ_state, trajlabel, k_li, my_rho)"
+.br
+.RI "Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured\&. "
+.ti -1c
+.RI "subroutine \fBdecoherence_coorection\fP (coeff, v, trajlabel)"
+.br
+.RI "Energy decoherence corrections are applied to surface hopping coefficients according to Granucci and Persico JCP 2007 DOI: 10\&.1063/1\&.2715585\&. "
+.ti -1c
+.RI "subroutine \fBxi_for_model_system\fP (dist, deltaE, xi, Rcl, Vcl, trajlabel)"
+.br
+.ti -1c
+.RI "subroutine \fBhopping\fP (my_rho, v, r, trajlabel)"
+.br
+.RI "The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure\&. "
+.ti -1c
+.RI "subroutine \fBchoose_bostate\fP (v, hop_prob, trajlabel)"
+.br
+.RI "According to the fewest switches algorithm, the new active state is selected\&. "
+.ti -1c
+.RI "subroutine \fBmomentum_correction\fP (v, old_occ_state, trajlabel)"
+.br
+.RI "Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Surface hopping tools to compute the hop probability, the active state the energy rescaling after the hop, and the energy decoherence correction\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine shopping::choose_bostate (real(kind=dp), dimension(n_dof), intent(inout) v, real(kind=dp), dimension(nstates), intent(inout) hop_prob, integer, intent(in) trajlabel)"
+
+.PP
+According to the fewest switches algorithm, the new active state is selected\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory 
+.br
+\fIv\fP nuclear velocity 
+.br
+\fIhop_prob\fP hopping probability for each electronic state 
+.br
+\fImyrand\fP random number 
+.br
+\fIprob_sum\fP cumulative hopping probability 
+.br
+\fIi_state,j_state\fP integer indices running over the nstates electronic states 
+.br
+\fIold_occ_state\fP previous active state 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the hopping probability is returned, along with the new nuclear velocity in case a hop occurred\&. 
+.RE
+.PP
+
+.SS "subroutine shopping::choose_bostate (real(kind=dp), dimension(ntraj,n_dof), intent(inout) v, real(kind=dp), dimension(ntraj,n_dof), intent(in) r, real(kind=dp), dimension(nstates), intent(inout) hop_prob, integer, intent(in) trajlabel, real(kind=dp), dimension(nstates,nstates), intent(in), optional k_li, complex(kind=dp), dimension(nstates,nstates), intent(in), optional my_rho)"
+
+.PP
+According to the fewest switches algorithm, the new active state is selected\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory 
+.br
+\fIv\fP nuclear velocity 
+.br
+\fIhop_prob\fP hopping probability for each electronic state 
+.br
+\fImyrand\fP random number 
+.br
+\fIprob_sum\fP cumulative hopping probability 
+.br
+\fIi_state,j_state\fP integer indices running over the nstates electronic states 
+.br
+\fIold_occ_state\fP previous active state 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the hopping probability is returned, along with the new nuclear velocity in case a hop occurred\&. 
+.RE
+.PP
+
+.SS "subroutine shopping::decoherence_coorection (complex(kind=qp), dimension(nstates), intent(inout) coeff, real(kind=dp), dimension(n_dof), intent(in) v, integer trajlabel)"
+
+.PP
+Energy decoherence corrections are applied to surface hopping coefficients according to Granucci and Persico JCP 2007 DOI: 10\&.1063/1\&.2715585\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcoeff\fP electronic coefficients 
+.br
+\fIv\fP nuclear velocity 
+.br
+\fIdecay_time\fP characteristic time over which the electronic coeffecients of the non-activate states are exponentially damped 
+.br
+\fIdeltaE\fP potential energy difference between the active states and the other electronic states 
+.br
+\fIkinetic_energy\fP nuclear kinetic energy along the trajectory 
+.br
+\fIsum_rho\fP sum of the populations of the non-active states 
+.br
+\fIi_dof\fP integer index running over the n_dof degrees of freedom 
+.br
+\fIi_state\fP integer index running over the nstates electronic states 
+.br
+\fItrajlabel\fP label of the trajectory 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the new nuclear velocity is returned in case a hop occurred\&. 
+.RE
+.PP
+
+.SS "subroutine shopping::hopping (complex(kind=dp), dimension(nstates,nstates), intent(in) my_rho, real(kind=dp), dimension(n_dof), intent(inout) v, real(kind=dp), dimension(n_dof), intent(in) r, integer, intent(in) trajlabel)"
+
+.PP
+The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory 
+.br
+\fImy_rho\fP electronic density matrix 
+.br
+\fIv\fP nuclear velocity 
+.br
+\fIi_state\fP integer index running over the nstates electronic states 
+.br
+\fIi_dof\fP integer index running over the n_dof degrees of freedom 
+.br
+\fIscal2\fP scalar product beteween the nuclear velocity and the non-adiabatic coupling 
+.br
+\fIRe_rhoij\fP real part of the elememts of the electronic density matrix 
+.br
+\fIrhojj\fP population of the electronic states 
+.br
+\fIhop_prob\fP hopping probability for each electronic state 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the nuclear velocity is returned, and it is modified to impose energy conservation if a hop occurred\&. 
+.RE
+.PP
+
+.SS "subroutine shopping::hopping (complex(kind=dp), dimension(nstates,nstates), intent(in) my_rho, real(kind=dp), dimension(ntraj,n_dof), intent(inout) v, real(kind=dp), dimension(ntraj,n_dof), intent(in) r, integer, intent(in) trajlabel, real(kind=dp), dimension(nstates,nstates), intent(in), optional k_li)"
+
+.PP
+The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory 
+.br
+\fImy_rho\fP electronic density matrix 
+.br
+\fIv\fP nuclear velocity 
+.br
+\fIi_state\fP integer index running over the nstates electronic states 
+.br
+\fIi_dof\fP integer index running over the n_dof degrees of freedom 
+.br
+\fIscal2\fP scalar product beteween the nuclear velocity and the non-adiabatic coupling 
+.br
+\fIRe_rhoij\fP real part of the elememts of the electronic density matrix 
+.br
+\fIrhojj\fP population of the electronic states 
+.br
+\fIhop_prob\fP hopping probability for each electronic state 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the nuclear velocity is returned, and it is modified to impose energy conservation if a hop occurred\&. 
+.RE
+.PP
+
+.SS "subroutine shopping::momentum_correction (real(kind=dp), dimension(n_dof), intent(inout) v, integer, intent(in) old_occ_state, integer, intent(in) trajlabel)"
+
+.PP
+Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP nuclear velocity 
+.br
+\fItrajlabel\fP label of the trajectory 
+.br
+\fIold_occ_state\fP previous active state 
+.br
+\fIdeltaE\fP potential energy difference between the old and the new electronic states 
+.br
+\fIscal1\fP squared modulus of the non-adiabatic couplings divided by the nuclear mass 
+.br
+\fIscal2\fP scalar product betweem the nuclear velocity and the non-adiabatic couplings 
+.br
+\fIenergy_check\fP criterion to identify the possibility of jump 
+.br
+\fIscaling_factor\fP factor to rescal the velocities along the non-adiabatic couplings 
+.br
+\fIi_dof\fP integer index running over the n_dof degrees of freedom 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the new nuclear velocity is returned in case a hop occurred\&. 
+.RE
+.PP
+
+.SS "subroutine shopping::momentum_correction (real(kind=dp), dimension(ntraj,n_dof), intent(inout) v, real(kind=dp), dimension(ntraj,n_dof), intent(in) r, integer, intent(in) old_occ_state, integer, intent(in) trajlabel, real(kind=dp), dimension(nstates,nstates), intent(in), optional k_li, complex(kind=dp), dimension(nstates,nstates), intent(in), optional my_rho)"
+
+.PP
+Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP nuclear velocity 
+.br
+\fItrajlabel\fP label of the trajectory 
+.br
+\fIold_occ_state\fP previous active state 
+.br
+\fIdeltaE\fP potential energy difference between the old and the new electronic states 
+.br
+\fIscal1\fP squared modulus of the non-adiabatic couplings divided by the nuclear mass 
+.br
+\fIscal2\fP scalar product betweem the nuclear velocity and the non-adiabatic couplings 
+.br
+\fIenergy_check\fP criterion to identify the possibility of jump 
+.br
+\fIscaling_factor\fP factor to rescal the velocities along the non-adiabatic couplings 
+.br
+\fIi_dof\fP integer index running over the n_dof degrees of freedom 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the new nuclear velocity is returned in case a hop occurred\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

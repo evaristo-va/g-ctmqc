@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacetools" xml:lang="en-US">
+<title>tools Module Reference</title>
+<indexterm><primary>tools</primary></indexterm>
+<para>
+
+<para>Numerical tools for initialization and finalization of the dynamically-allocated vectors, along with initialization of random numbers generators. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespacetools_1a4b9108e3805bcce9a45fa4557c0322b6">initialize_dynamics_vars</link></para>
+
+<para>Initialization of dynamics variables. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacetools_1ae7335914dc8a02a5ac7b2786d96263cd">initialize_trajectory_vars</link></para>
+
+<para>Initialization of trajectory variables. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacetools_1a344621a80584ed041d6abf32851fbb3c">finalize</link></para>
+
+<para>Deallocation of dynamically-allocayed arrays. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacetools_1a36383c074ddfd2d1ad7a4deedd095d31">generate_random_seed</link></para>
+
+<para>Inizialization of random number generator for the initial conditions. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacetools_1aa0f1f6549316781a94605e9cdbac3b7f">generate_random_seed_hop</link></para>
+
+<para>Inizialization of random number generator for the trajectory hops. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Numerical tools for initialization and finalization of the dynamically-allocated vectors, along with initialization of random numbers generators. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespacetools_1a344621a80584ed041d6abf32851fbb3c"/>    <section>
+    <title>finalize()</title>
+<indexterm><primary>finalize</primary><secondary>tools</secondary></indexterm>
+<indexterm><primary>tools</primary><secondary>finalize</secondary></indexterm>
+<para><computeroutput>subroutine tools::finalize</computeroutput></para><para>
+
+<para>Deallocation of dynamically-allocayed arrays. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>check</entry>
+                                <entry>
+<para>control factor for deallocation errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespacetools_1a36383c074ddfd2d1ad7a4deedd095d31"/>    <section>
+    <title>generate_random_seed()</title>
+<indexterm><primary>generate_random_seed</primary><secondary>tools</secondary></indexterm>
+<indexterm><primary>tools</primary><secondary>generate_random_seed</secondary></indexterm>
+<para><computeroutput>subroutine tools::generate_random_seed</computeroutput></para><para>
+
+<para>Inizialization of random number generator for the initial conditions. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>seed</entry>
+                                <entry>
+<para>seed for the random number generator </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>n, i</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespacetools_1aa0f1f6549316781a94605e9cdbac3b7f"/>    <section>
+    <title>generate_random_seed_hop()</title>
+<indexterm><primary>generate_random_seed_hop</primary><secondary>tools</secondary></indexterm>
+<indexterm><primary>tools</primary><secondary>generate_random_seed_hop</secondary></indexterm>
+<para><computeroutput>subroutine tools::generate_random_seed_hop</computeroutput></para><para>
+
+<para>Inizialization of random number generator for the trajectory hops. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>seed</entry>
+                                <entry>
+<para>seed for the random number generator </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>n, i</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespacetools_1a4b9108e3805bcce9a45fa4557c0322b6"/>    <section>
+    <title>initialize_dynamics_vars()</title>
+<indexterm><primary>initialize_dynamics_vars</primary><secondary>tools</secondary></indexterm>
+<indexterm><primary>tools</primary><secondary>initialize_dynamics_vars</secondary></indexterm>
+<para><computeroutput>subroutine tools::initialize_dynamics_vars</computeroutput></para><para>
+
+<para>Initialization of dynamics variables. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>check</entry>
+                                <entry>
+<para>control factor for allocation errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespacetools_1ae7335914dc8a02a5ac7b2786d96263cd"/>    <section>
+    <title>initialize_trajectory_vars()</title>
+<indexterm><primary>initialize_trajectory_vars</primary><secondary>tools</secondary></indexterm>
+<indexterm><primary>tools</primary><secondary>initialize_trajectory_vars</secondary></indexterm>
+<para><computeroutput>subroutine tools::initialize_trajectory_vars</computeroutput></para><para>
+
+<para>Initialization of trajectory variables. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>check</entry>
+                                <entry>
+<para>control factor for allocation errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

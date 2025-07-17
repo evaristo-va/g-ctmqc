@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacewigner__distribution" xml:lang="en-US">
+<title>wigner_distribution Module Reference</title>
+<indexterm><primary>wigner_distribution</primary></indexterm>
+<para>
+
+<para>Sampling of the initial conditions based on the harmonic Wigner distribution using the Box-Muller algorithm. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespacewigner__distribution_1aa2c951a0f0f444c1e379d3071007be0d">initial_conditions</link></para>
+
+<para>If initial conditions are not provided, they are sampled according to Gaussian distributions. </para>
+</listitem>
+            <listitem><para>real(kind=dp) function, dimension(my_nrand) <link linkend="_namespacewigner__distribution_1a8a2514e4fdf5f85b28b8f4839b0c9d6c">gaussian_distribution</link> (xi, nrand, var, x0, my_nrand)</para>
+
+<para>Box-Muller transform to generate normally distributed random number starting with uniformly distributed random numbers between 0 and 1. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Sampling of the initial conditions based on the harmonic Wigner distribution using the Box-Muller algorithm. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespacewigner__distribution_1a8a2514e4fdf5f85b28b8f4839b0c9d6c"/>    <section>
+    <title>gaussian_distribution()</title>
+<indexterm><primary>gaussian_distribution</primary><secondary>wigner_distribution</secondary></indexterm>
+<indexterm><primary>wigner_distribution</primary><secondary>gaussian_distribution</secondary></indexterm>
+<para><computeroutput>real(kind=dp) function, dimension(my_nrand) wigner_distribution::gaussian_distribution (real(kind=dp), dimension(nrand), intent(in) xi, integer, intent(in) nrand, real(kind=dp), intent(in) var, real(kind=dp), intent(in) x0, integer, intent(in) my_nrand)</computeroutput></para><para>
+
+<para>Box-Muller transform to generate normally distributed random number starting with uniformly distributed random numbers between 0 and 1. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>nrand</entry>
+                                <entry>
+<para>amount of normally distributed random numbers to be generated </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>my_nrand</entry>
+                                <entry>
+<para>amount of normally distributed random numbers that are needed </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>xi</entry>
+                                <entry>
+<para>array of uniformly distributed random numbers </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>var</entry>
+                                <entry>
+<para>variance of the Gaussian distribution </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>x0</entry>
+                                <entry>
+<para>mean value of the Gaussian distribution </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>y_tmp</entry>
+                                <entry>
+<para>normally distributed random numbers </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>y</entry>
+                                <entry>
+<para>normally distributed random numbers that are returned by the function </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i, j</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Normally distributed random numbers are generated. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespacewigner__distribution_1aa2c951a0f0f444c1e379d3071007be0d"/>    <section>
+    <title>initial_conditions()</title>
+<indexterm><primary>initial_conditions</primary><secondary>wigner_distribution</secondary></indexterm>
+<indexterm><primary>wigner_distribution</primary><secondary>initial_conditions</secondary></indexterm>
+<para><computeroutput>subroutine wigner_distribution::initial_conditions</computeroutput></para><para>
+
+<para>If initial conditions are not provided, they are sampled according to Gaussian distributions. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xi</entry>
+                                <entry>
+<para>array of random numbers uniformally distributed </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>check</entry>
+                                <entry>
+<para>control factor allocation errors </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>nrand</entry>
+                                <entry>
+<para>integer index </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>i</entry>
+                                <entry>
+<para>integer index </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ios</entry>
+                                <entry>
+<para>control factor output errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Initial positions and initial momenta are generated. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

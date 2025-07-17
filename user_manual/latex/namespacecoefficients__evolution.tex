@@ -1,0 +1,100 @@
+\hypertarget{namespacecoefficients__evolution}{}\doxysection{coefficients\+\_\+evolution Module Reference}
+\label{namespacecoefficients__evolution}\index{coefficients\_evolution@{coefficients\_evolution}}
+
+
+Evolution of the electronic coefficients.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacecoefficients__evolution_a643fd94059d3bbe545866d2e61982330}\label{namespacecoefficients__evolution_a643fd94059d3bbe545866d2e61982330}} 
+subroutine {\bfseries evolve\+\_\+coeff} (v, coeff, k\+\_\+li, E\+\_\+old, NAC\+\_\+old, trajlabel)
+\item 
+subroutine \mbox{\hyperlink{namespacecoefficients__evolution_ac1d60ce85e048272f970a9e1c8701d16}{rk4\+\_\+coeff}} (v, coeff, k\+\_\+li, E, NAC, trajlabel)
+\begin{DoxyCompactList}\small\item\em Numerical integration of the non-\/linear differential equation describing the electronic evolution of the coefficients. \end{DoxyCompactList}\item 
+complex(kind=qp) function \mbox{\hyperlink{namespacecoefficients__evolution_a8e346e6ec68943c650b9cd2f18c3ed7e}{cdot}} (state, kfunction, v, coeff, k\+\_\+li, E\+\_\+int, NAC\+\_\+int, trajlabel)
+\begin{DoxyCompactList}\small\item\em Total time derivative of the electronic coefficients as given in the Ehrenfest algorithm, surface hopping algorithm, and CT-\/\+MQC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Evolution of the electronic coefficients. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacecoefficients__evolution_a8e346e6ec68943c650b9cd2f18c3ed7e}\label{namespacecoefficients__evolution_a8e346e6ec68943c650b9cd2f18c3ed7e}} 
+\index{coefficients\_evolution@{coefficients\_evolution}!cdot@{cdot}}
+\index{cdot@{cdot}!coefficients\_evolution@{coefficients\_evolution}}
+\doxysubsubsection{\texorpdfstring{cdot()}{cdot()}}
+{\footnotesize\ttfamily complex(kind=qp) function coefficients\+\_\+evolution\+::cdot (\begin{DoxyParamCaption}\item[{integer, intent(in)}]{state,  }\item[{complex(kind=qp), intent(in)}]{kfunction,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{v,  }\item[{complex(kind=qp), dimension(nstates), intent(in)}]{coeff,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in)}]{k\+\_\+li,  }\item[{real(kind=dp), dimension(nstates), intent(in)}]{E\+\_\+int,  }\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(in)}]{NAC\+\_\+int,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+Total time derivative of the electronic coefficients as given in the Ehrenfest algorithm, surface hopping algorithm, and CT-\/\+MQC. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & electronic state for which the time derivative of the coefficients is computer \\
+\hline
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory along which the equation is integrated \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & velocity of trajectory along which the time derivative of the coefficient is calculated \\
+\hline
+\mbox{\texttt{ in}}  & {\em k\+\_\+li} & term accounting for decoherence effects in CT-\/\+MQC \\
+\hline
+\mbox{\texttt{ in}}  & {\em coeff} & electronic coefficientes \\
+\hline
+\mbox{\texttt{ in}}  & {\em kfunction} & function appearing in the expression of the time increment \\
+\hline
+ & {\em cdot} & time derivative of the coefficient \\
+\hline
+ & {\em nonadiabatic\+\_\+sum} & off-\/diagonal contribution to the time derivative of the coefficients \\
+\hline
+ & {\em my\+\_\+coeff} & local temporary values of the coefficients \\
+\hline
+ & {\em i} & integer index \\
+\hline
+ & {\em my\+\_\+gap} & energy-\/gap threshold between the spin-\/diabatic states to tune the effect of the spin-\/orbit coupling \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The values of the time derivative of the electronic coefficientes is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacecoefficients__evolution_ac1d60ce85e048272f970a9e1c8701d16}\label{namespacecoefficients__evolution_ac1d60ce85e048272f970a9e1c8701d16}} 
+\index{coefficients\_evolution@{coefficients\_evolution}!rk4\_coeff@{rk4\_coeff}}
+\index{rk4\_coeff@{rk4\_coeff}!coefficients\_evolution@{coefficients\_evolution}}
+\doxysubsubsection{\texorpdfstring{rk4\_coeff()}{rk4\_coeff()}}
+{\footnotesize\ttfamily subroutine coefficients\+\_\+evolution\+::rk4\+\_\+coeff (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{v,  }\item[{complex(kind=qp), dimension(nstates), intent(inout)}]{coeff,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in)}]{k\+\_\+li,  }\item[{real(kind=dp), dimension(nstates), intent(in)}]{E,  }\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(in)}]{NAC,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+Numerical integration of the non-\/linear differential equation describing the electronic evolution of the coefficients. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory along which the equation is integrated \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & velocity of trajectory along which the equation is integrated \\
+\hline
+\mbox{\texttt{ in}}  & {\em k\+\_\+li} & term accounting for decoherence effects in CT-\/\+MQC \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em coeff} & electronic coefficientes \\
+\hline
+ & {\em i} & integer index \\
+\hline
+ & {\em k1,k2,k3,k4} & functions appearing in the expression of the time increment \\
+\hline
+ & {\em kfunction} & function appearing in the expression of the time increment \\
+\hline
+ & {\em my\+\_\+coeff} & local temporary values of the coefficients \\
+\hline
+ & {\em normalization} & norm of the electronic wavefunction after a time step \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The values of the electronic coefficientes are returned after one step of dynamics. 
+\end{DoxyReturn}

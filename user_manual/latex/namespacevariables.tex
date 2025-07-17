@@ -1,0 +1,282 @@
+\hypertarget{namespacevariables}{}\doxysection{variables Module Reference}
+\label{namespacevariables}\index{variables@{variables}}
+
+
+The module defines all common variables.  
+
+
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacevariables_a4f7c4b76127660a6ab1b9c2d0ced2757}\label{namespacevariables_a4f7c4b76127660a6ab1b9c2d0ced2757}} 
+real(kind=dp), parameter \mbox{\hyperlink{namespacevariables_a4f7c4b76127660a6ab1b9c2d0ced2757}{hbar}} = 1.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Reduced Planck constant. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ab23eef0a897c91d12e4c94e471d25eac}\label{namespacevariables_ab23eef0a897c91d12e4c94e471d25eac}} 
+real(kind=dp), parameter \mbox{\hyperlink{namespacevariables_ab23eef0a897c91d12e4c94e471d25eac}{zero}} = 0.\+0000000010\+\_\+dp
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Numerical\char`\"{} zero \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_aad566c0f8837376d5b5051540367006d}\label{namespacevariables_aad566c0f8837376d5b5051540367006d}} 
+real(kind=dp), parameter \mbox{\hyperlink{namespacevariables_aad566c0f8837376d5b5051540367006d}{au\+\_\+to\+\_\+ang}} = 0.\+52917721067121\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Conversion factor from bohr to angstrom. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ad100d946666356c0f02a244f2e27e1d9}\label{namespacevariables_ad100d946666356c0f02a244f2e27e1d9}} 
+real(kind=dp), parameter \mbox{\hyperlink{namespacevariables_ad100d946666356c0f02a244f2e27e1d9}{au\+\_\+to\+\_\+ev}} = 27.\+2114\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Conversion factor from Hartree to electronvolts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac8922cdc14c4f71ec5f1dabc122ea80d}\label{namespacevariables_ac8922cdc14c4f71ec5f1dabc122ea80d}} 
+real(kind=dp), parameter \mbox{\hyperlink{namespacevariables_ac8922cdc14c4f71ec5f1dabc122ea80d}{amu\+\_\+to\+\_\+au}} = 1836.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Conversion factor from atomic mass units to atomic units. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac09a56a235e6e5aaebd2ea6ee32188dd}\label{namespacevariables_ac09a56a235e6e5aaebd2ea6ee32188dd}} 
+complex(kind=qp) \mbox{\hyperlink{namespacevariables_ac09a56a235e6e5aaebd2ea6ee32188dd}{im\+\_\+unit}} = (0.\+0\+\_\+dp, 1.\+0\+\_\+dp)
+\begin{DoxyCompactList}\small\item\em Imaginary unit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac8f8cd80af682db3e55c7b3bcefd78e6}\label{namespacevariables_ac8f8cd80af682db3e55c7b3bcefd78e6}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_ac8f8cd80af682db3e55c7b3bcefd78e6}{pi}} = 3.\+14159265359\+\_\+dp
+\begin{DoxyCompactList}\small\item\em pi \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a2c5902d6bd06e6f763bbc81e9a222144}\label{namespacevariables_a2c5902d6bd06e6f763bbc81e9a222144}} 
+complex(kind=qp) \mbox{\hyperlink{namespacevariables_a2c5902d6bd06e6f763bbc81e9a222144}{cmp}} = CMPLX(0.\+0\+\_\+dp, 1.\+0\+\_\+dp, qp)
+\begin{DoxyCompactList}\small\item\em pi \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_acd07b1bc8413f60cb431816163d6a0e7}\label{namespacevariables_acd07b1bc8413f60cb431816163d6a0e7}} 
+character(len=5) \mbox{\hyperlink{namespacevariables_acd07b1bc8413f60cb431816163d6a0e7}{typ\+\_\+cal}} = \char`\"{}EHREN\char`\"{}
+\begin{DoxyCompactList}\small\item\em Type of dynamics that is executed\+: EHREN for Ehrenfest dynamics, TSHLZ for surface hopping with Landau-\/\+Zener hopping probability, TSHFS for surface hopping with fewest-\/switches hopping probability, CTMQC for CT-\/\+MQC, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a7986629993fb0d34559b416ad7f87292}\label{namespacevariables_a7986629993fb0d34559b416ad7f87292}} 
+character(len=100) \mbox{\hyperlink{namespacevariables_a7986629993fb0d34559b416ad7f87292}{model\+\_\+potential}} = \char`\"{}unknown\char`\"{}
+\begin{DoxyCompactList}\small\item\em Name of the model potential as it is defined in Quantum\+Model\+Lib, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a8b6dcca1275e70e8632e27d1a246883f}\label{namespacevariables_a8b6dcca1275e70e8632e27d1a246883f}} 
+integer \mbox{\hyperlink{namespacevariables_a8b6dcca1275e70e8632e27d1a246883f}{option}} = 1
+\begin{DoxyCompactList}\small\item\em Only used for Tully models and can be 1, 2, or 3, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a3834e5921df11cbddfa2c96ccda4bd08}\label{namespacevariables_a3834e5921df11cbddfa2c96ccda4bd08}} 
+logical \mbox{\hyperlink{namespacevariables_a3834e5921df11cbddfa2c96ccda4bd08}{new\+\_\+potential}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em It is FALSE if the Quantum\+Model\+Lib potential library is used; it is TRUE if the potentials in analytical\+\_\+potentials.\+f90 are used, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a668867c2ac7e34a0663f1915b2165387}\label{namespacevariables_a668867c2ac7e34a0663f1915b2165387}} 
+integer \mbox{\hyperlink{namespacevariables_a668867c2ac7e34a0663f1915b2165387}{n\+\_\+dof}} = 1
+\begin{DoxyCompactList}\small\item\em Number of degrees of nuclear freedom, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_af011425a070282cdf4f7869cc91b2e7c}\label{namespacevariables_af011425a070282cdf4f7869cc91b2e7c}} 
+integer \mbox{\hyperlink{namespacevariables_af011425a070282cdf4f7869cc91b2e7c}{nstates}} = 2
+\begin{DoxyCompactList}\small\item\em Number of electronic states, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a836f9ab38c17f0326b50b960414bbe66}\label{namespacevariables_a836f9ab38c17f0326b50b960414bbe66}} 
+integer \mbox{\hyperlink{namespacevariables_a836f9ab38c17f0326b50b960414bbe66}{npairs}} = 1
+\begin{DoxyCompactList}\small\item\em Number of pairs of electronic states. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_af3a802c960ad30a6d3a9051be122c45e}\label{namespacevariables_af3a802c960ad30a6d3a9051be122c45e}} 
+logical, dimension(100) \mbox{\hyperlink{namespacevariables_af3a802c960ad30a6d3a9051be122c45e}{periodic\+\_\+variable}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em It is TRUE for each periodic nuclear coordinate, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a3fe769ab8229f34d093882ebc9446765}\label{namespacevariables_a3fe769ab8229f34d093882ebc9446765}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_a3fe769ab8229f34d093882ebc9446765}{periodicity}} = 0.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Periodicity of the correspoding nuclear nuclear coordinate in unit of pi, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a444e15df2d8c65636cef6aec1c7e7af3}\label{namespacevariables_a444e15df2d8c65636cef6aec1c7e7af3}} 
+character(len=2) \mbox{\hyperlink{namespacevariables_a444e15df2d8c65636cef6aec1c7e7af3}{type\+\_\+deco}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em Type of decoherence scheme applied on surface hooping\+: CT based on coupled trajectories and on quantum momentum, ED which is the energy-\/decoherence correction, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ad3352953ff5eccddec7ebb9ae9a866b3}\label{namespacevariables_ad3352953ff5eccddec7ebb9ae9a866b3}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_ad3352953ff5eccddec7ebb9ae9a866b3}{c\+\_\+parameter}} = 0.\+1\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Value of the parameter C in the energy-\/decoherence correction used in surface hopping, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a149d7da8cd6d060ce7e448e7b1c0d579}\label{namespacevariables_a149d7da8cd6d060ce7e448e7b1c0d579}} 
+integer \mbox{\hyperlink{namespacevariables_a149d7da8cd6d060ce7e448e7b1c0d579}{jump\+\_\+seed}} = -\/100
+\begin{DoxyCompactList}\small\item\em Seed for the random number generator used for the probability jump is surface hopping, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ad5868a222f4b3b059586dc101d59e051}\label{namespacevariables_ad5868a222f4b3b059586dc101d59e051}} 
+integer \mbox{\hyperlink{namespacevariables_ad5868a222f4b3b059586dc101d59e051}{initial\+\_\+condition\+\_\+seed}} = -\/100
+\begin{DoxyCompactList}\small\item\em Seed for the random number generator used for the selection of initial conditions, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a1ae63226ec18c8ec6ba7e4f5c763781f}\label{namespacevariables_a1ae63226ec18c8ec6ba7e4f5c763781f}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_a1ae63226ec18c8ec6ba7e4f5c763781f}{adia\+\_\+nrg\+\_\+gap}} = 10000.\+0\+D0
+\begin{DoxyCompactList}\small\item\em Energy treshold to compute the non-\/adiabatic coupling vectors for the classical force or the Landau-\/\+Zener probability. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a46404dab43f15f563d6ec19241a144bb}\label{namespacevariables_a46404dab43f15f563d6ec19241a144bb}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_a46404dab43f15f563d6ec19241a144bb}{lz\+\_\+dist\+\_\+cutoff}} = 0.\+20\+D0
+\begin{DoxyCompactList}\small\item\em Distance cutoff from the crossing region to compute the Landau-\/\+Zener probability. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a773129925702c06b767ee5948e6d8369}\label{namespacevariables_a773129925702c06b767ee5948e6d8369}} 
+logical \mbox{\hyperlink{namespacevariables_a773129925702c06b767ee5948e6d8369}{nrg\+\_\+check}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em It is TRUE if the spin-\/orbit coupling is switched-\/off when the energy gap between spin-\/diabatic states is above a certain treshold, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a0ffb326d7311be33ba677ed84d5b6ba4}\label{namespacevariables_a0ffb326d7311be33ba677ed84d5b6ba4}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_a0ffb326d7311be33ba677ed84d5b6ba4}{nrg\+\_\+gap}} = 10000.\+0\+D0
+\begin{DoxyCompactList}\small\item\em Energy treshold to switch-\/off the spin-\/orbit coupling, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ab043484be6fb6d8c4ad8598b38118394}\label{namespacevariables_ab043484be6fb6d8c4ad8598b38118394}} 
+logical \mbox{\hyperlink{namespacevariables_ab043484be6fb6d8c4ad8598b38118394}{spin\+\_\+dia}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em It is TRUE when the spin-\/diabatic basis is used in CT-\/\+MQC, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a610698c08f69dd42fe82f46c85dc5538}\label{namespacevariables_a610698c08f69dd42fe82f46c85dc5538}} 
+logical \mbox{\hyperlink{namespacevariables_a610698c08f69dd42fe82f46c85dc5538}{qmom\+\_\+force}} = .TRUE.
+\begin{DoxyCompactList}\small\item\em It is TRUE when quantum-\/momentum force is used in CT-\/\+MQC, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ad3aca0bd36d443d13d7a42b19a0730a2}\label{namespacevariables_ad3aca0bd36d443d13d7a42b19a0730a2}} 
+logical \mbox{\hyperlink{namespacevariables_ad3aca0bd36d443d13d7a42b19a0730a2}{f\+\_\+correction}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em It is TRUE when energy conserving acc\+\_\+force is used in CT-\/\+MQC (CTMQC-\/E), read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a10bdfc62fa2e099a9b26dc76a0d92136}\label{namespacevariables_a10bdfc62fa2e099a9b26dc76a0d92136}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_a10bdfc62fa2e099a9b26dc76a0d92136}{r\+\_\+threshold}} = 0.\+001\+\_\+dp
+\begin{DoxyCompactList}\small\item\em R\+\_\+threshold only used when f\+\_\+correction= TRUE to determine cut-\/off for computation of modified acc force in CTMQC-\/E. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_af92d991704258f8297b8b198e53135f3}\label{namespacevariables_af92d991704258f8297b8b198e53135f3}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_af92d991704258f8297b8b198e53135f3}{m\+\_\+parameter}} = 100.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em M\+\_\+parameter is used only when cl\+\_\+qmom = TRUE to determine \char`\"{}how far\char`\"{} each trajectory has to search to find its neighbours, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a67853176cd74cfdd734649670ab693c0}\label{namespacevariables_a67853176cd74cfdd734649670ab693c0}} 
+integer \mbox{\hyperlink{namespacevariables_a67853176cd74cfdd734649670ab693c0}{rescaling\+\_\+type}} = 2
+\begin{DoxyCompactList}\small\item\em type of momentum rescaling after hop\+: 0 = isotropical, 2 = along NACV, 1 = along NACV, if frustrated isotropical \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a40e1c1db110064956c54d17714746854}\label{namespacevariables_a40e1c1db110064956c54d17714746854}} 
+logical \mbox{\hyperlink{namespacevariables_a40e1c1db110064956c54d17714746854}{reflect\+\_\+frust}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em It is TRUE if you want to invert the full velocity vector after frustrated hop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a6ff65842b71f60bb3a3052141a200931}\label{namespacevariables_a6ff65842b71f60bb3a3052141a200931}} 
+logical \mbox{\hyperlink{namespacevariables_a6ff65842b71f60bb3a3052141a200931}{force\+\_\+hops}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em Adds a threshold to force hops in CTTSH. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a915b979662a86b17d3fba6d10aab8f83}\label{namespacevariables_a915b979662a86b17d3fba6d10aab8f83}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_a915b979662a86b17d3fba6d10aab8f83}{hop\+\_\+thr}} = 0.\+6
+\begin{DoxyCompactList}\small\item\em Above this threshold of population a trajectory is forced to hop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a4b91238018eb797ab22b504f8c77471a}\label{namespacevariables_a4b91238018eb797ab22b504f8c77471a}} 
+logical \mbox{\hyperlink{namespacevariables_a4b91238018eb797ab22b504f8c77471a}{energy\+\_\+sharing}} = .FALSE.
+\begin{DoxyCompactList}\small\item\em Option to share energy for CCT TSH. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_aa13c9d7ee528a1fd56f828ff27c0534d}\label{namespacevariables_aa13c9d7ee528a1fd56f828ff27c0534d}} 
+integer \mbox{\hyperlink{namespacevariables_aa13c9d7ee528a1fd56f828ff27c0534d}{sharing\+\_\+type}} = 0
+\begin{DoxyCompactList}\small\item\em Types of energy sharing\+: 0 = equity based, 1 = overlap based, 2 = Qmom based. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a006a5474c4d319a36a5a423323da1055}\label{namespacevariables_a006a5474c4d319a36a5a423323da1055}} 
+logical \mbox{\hyperlink{namespacevariables_a006a5474c4d319a36a5a423323da1055}{doubleintercept}} = .true.
+\begin{DoxyCompactList}\small\item\em If true then Qmom is calculated using double intercept. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a04a20627dc53fd751d742d6432dbec4f}\label{namespacevariables_a04a20627dc53fd751d742d6432dbec4f}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_a04a20627dc53fd751d742d6432dbec4f}{dt}} = 0.\+1\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Time step, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a40aad0c031e023db50cf3038bacdfc96}\label{namespacevariables_a40aad0c031e023db50cf3038bacdfc96}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_a40aad0c031e023db50cf3038bacdfc96}{final\+\_\+time}} = 0.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Length of the simulations, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a69578646e2aa0d32889120d5b8359110}\label{namespacevariables_a69578646e2aa0d32889120d5b8359110}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_a69578646e2aa0d32889120d5b8359110}{r\+\_\+init}}
+\begin{DoxyCompactList}\small\item\em Mean positions to initialize nuclear positions, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a9cd0eab367bc3601efcf4bf89c26af6a}\label{namespacevariables_a9cd0eab367bc3601efcf4bf89c26af6a}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_a9cd0eab367bc3601efcf4bf89c26af6a}{k\+\_\+init}}
+\begin{DoxyCompactList}\small\item\em Mean momenta to initialize nuclear momenta, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a7c9d49f132811737854b272426c79008}\label{namespacevariables_a7c9d49f132811737854b272426c79008}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_a7c9d49f132811737854b272426c79008}{mass\+\_\+input}} = 0.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Nuclear masses, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ae25d2599dbf45a48a5bcf469c3d17ec8}\label{namespacevariables_ae25d2599dbf45a48a5bcf469c3d17ec8}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_ae25d2599dbf45a48a5bcf469c3d17ec8}{sigmar\+\_\+init}}
+\begin{DoxyCompactList}\small\item\em Position variances to initialize nuclear positions, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_aba9995d51a0298c8111345f0a656b16c}\label{namespacevariables_aba9995d51a0298c8111345f0a656b16c}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_aba9995d51a0298c8111345f0a656b16c}{sigmap\+\_\+init}} = -\/100.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Momentum variances to initialize nuclear momenta, only necessary for non-\/\+Wigner sampling, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a8995c056c032e0032610f890f8ccc59d}\label{namespacevariables_a8995c056c032e0032610f890f8ccc59d}} 
+integer \mbox{\hyperlink{namespacevariables_a8995c056c032e0032610f890f8ccc59d}{ntraj}} = 100
+\begin{DoxyCompactList}\small\item\em Number of nuclear trajectories, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a55efc2aa607a220f981be3b6fa94a1d0}\label{namespacevariables_a55efc2aa607a220f981be3b6fa94a1d0}} 
+integer \mbox{\hyperlink{namespacevariables_a55efc2aa607a220f981be3b6fa94a1d0}{nsteps}} = 100
+\begin{DoxyCompactList}\small\item\em Total number of dynamics time steps. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a2085be9ec56048026f1a3d7c2eec1739}\label{namespacevariables_a2085be9ec56048026f1a3d7c2eec1739}} 
+integer \mbox{\hyperlink{namespacevariables_a2085be9ec56048026f1a3d7c2eec1739}{nesteps}} = 20
+\begin{DoxyCompactList}\small\item\em Number of electronic time-\/steps per nuclear time-\/step. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac2dd52281771ef47435419abdbdc1a7a}\label{namespacevariables_ac2dd52281771ef47435419abdbdc1a7a}} 
+integer \mbox{\hyperlink{namespacevariables_ac2dd52281771ef47435419abdbdc1a7a}{dump}} = 1
+\begin{DoxyCompactList}\small\item\em Number of time steps after which the output is dumped, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a54d9fd995f19db5f6c7d693866d83845}\label{namespacevariables_a54d9fd995f19db5f6c7d693866d83845}} 
+integer \mbox{\hyperlink{namespacevariables_a54d9fd995f19db5f6c7d693866d83845}{n\+\_\+init\+\_\+bo}} = 1
+\begin{DoxyCompactList}\small\item\em Number of initially populated electronic state(s), read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a00783cdec02323bcfced7a7c59f0d24f}\label{namespacevariables_a00783cdec02323bcfced7a7c59f0d24f}} 
+integer, dimension(100) \mbox{\hyperlink{namespacevariables_a00783cdec02323bcfced7a7c59f0d24f}{init\+\_\+bostate}} = -\/1
+\begin{DoxyCompactList}\small\item\em Initial electronic state(s), read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a42f165bff4450e56564de9d70b04e3ab}\label{namespacevariables_a42f165bff4450e56564de9d70b04e3ab}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_a42f165bff4450e56564de9d70b04e3ab}{weight\+\_\+initbo}} = 1.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Weight(s) of the initially populated electronic state(s), read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac7649e52f87a2abc61635e627871ec8d}\label{namespacevariables_ac7649e52f87a2abc61635e627871ec8d}} 
+real(kind=dp), dimension(100) \mbox{\hyperlink{namespacevariables_ac7649e52f87a2abc61635e627871ec8d}{phase\+\_\+initbo}} = 0.\+0\+\_\+dp
+\begin{DoxyCompactList}\small\item\em Phase(s) of the initially populated electronic state(s), read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_adbab92a50e7cdee9a6e5c6aae5e315df}\label{namespacevariables_adbab92a50e7cdee9a6e5c6aae5e315df}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_adbab92a50e7cdee9a6e5c6aae5e315df}{r0}}
+\begin{DoxyCompactList}\small\item\em Mean nuclear positions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac899ae2f2df0c3aa9e5d99c6ba034fda}\label{namespacevariables_ac899ae2f2df0c3aa9e5d99c6ba034fda}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_ac899ae2f2df0c3aa9e5d99c6ba034fda}{r02}}
+\begin{DoxyCompactList}\small\item\em Mean nuclear positions squared. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a2baa17a4e682051a99a5a9aae3fef710}\label{namespacevariables_a2baa17a4e682051a99a5a9aae3fef710}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a2baa17a4e682051a99a5a9aae3fef710}{k0}}
+\begin{DoxyCompactList}\small\item\em Mean nuclear momenta. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a484805cd4b1e767609503180d3d179d1}\label{namespacevariables_a484805cd4b1e767609503180d3d179d1}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a484805cd4b1e767609503180d3d179d1}{initial\+\_\+bostate}}
+\begin{DoxyCompactList}\small\item\em BO states with non-\/zero initial occupation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac28cfcf5df137ef402d7b4bf747e5313}\label{namespacevariables_ac28cfcf5df137ef402d7b4bf747e5313}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_ac28cfcf5df137ef402d7b4bf747e5313}{weight\+\_\+bostate}}
+\begin{DoxyCompactList}\small\item\em Occupation of the BO states with non-\/zero initial occupation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac1bc79a883c1d6f4317cfad0e408f15c}\label{namespacevariables_ac1bc79a883c1d6f4317cfad0e408f15c}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_ac1bc79a883c1d6f4317cfad0e408f15c}{phase\+\_\+bostate}}
+\begin{DoxyCompactList}\small\item\em Phases of the BO coefficients. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_abc7d9f91b11cface87a798188bfa8de5}\label{namespacevariables_abc7d9f91b11cface87a798188bfa8de5}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_abc7d9f91b11cface87a798188bfa8de5}{period}}
+\begin{DoxyCompactList}\small\item\em Periodicity of the periodic nuclear nuclear coordinate in unit of pi. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ab398c69cdb91e1c214f4c55dda9aaf9f}\label{namespacevariables_ab398c69cdb91e1c214f4c55dda9aaf9f}} 
+logical, dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_ab398c69cdb91e1c214f4c55dda9aaf9f}{periodic\+\_\+in}}
+\begin{DoxyCompactList}\small\item\em It is TRUE for each periodic nuclear coordinate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_aa7131651bfffd1fdaff88b51a2abd678}\label{namespacevariables_aa7131651bfffd1fdaff88b51a2abd678}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_aa7131651bfffd1fdaff88b51a2abd678}{mass}}
+\begin{DoxyCompactList}\small\item\em Nuclear masses. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a52086073bad64f461333d8f6b0381eb0}\label{namespacevariables_a52086073bad64f461333d8f6b0381eb0}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a52086073bad64f461333d8f6b0381eb0}{sigma}}
+\begin{DoxyCompactList}\small\item\em Position variances to initialize nuclear positions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a8fb4033efb4387a7058333d13806444d}\label{namespacevariables_a8fb4033efb4387a7058333d13806444d}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a8fb4033efb4387a7058333d13806444d}{var\+\_\+momentum}}
+\begin{DoxyCompactList}\small\item\em Momentum variances to initialize nuclear momenta. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a2545c7aae8865e43afa2222be48b3762}\label{namespacevariables_a2545c7aae8865e43afa2222be48b3762}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_a2545c7aae8865e43afa2222be48b3762}{boforce}}
+\begin{DoxyCompactList}\small\item\em Gradients of the electronic energies, either adiabatic or spin-\/(a)diabatic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a7a298857dffd47b31fa1c97cdd1f4d78}\label{namespacevariables_a7a298857dffd47b31fa1c97cdd1f4d78}} 
+real(kind=dp), dimension(\+:,\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_a7a298857dffd47b31fa1c97cdd1f4d78}{coup}}
+\begin{DoxyCompactList}\small\item\em Non-\/adiabatic couplings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_adb5e68519739d37f48ee0d140fb9b63f}\label{namespacevariables_adb5e68519739d37f48ee0d140fb9b63f}} 
+complex(kind=qp), dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_adb5e68519739d37f48ee0d140fb9b63f}{coup\+\_\+so}}
+\begin{DoxyCompactList}\small\item\em Spin-\/orbit coupling. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a767fd537b71696ddaa20d6e81d503756}\label{namespacevariables_a767fd537b71696ddaa20d6e81d503756}} 
+real(kind=dp), dimension(\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_a767fd537b71696ddaa20d6e81d503756}{boenergy}}
+\begin{DoxyCompactList}\small\item\em Electronic energies, either adiabatic or spin-\/(a)diabatic. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a2a73e8becd0149734da585f50a1d47bb}\label{namespacevariables_a2a73e8becd0149734da585f50a1d47bb}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a2a73e8becd0149734da585f50a1d47bb}{bo\+\_\+pop}}
+\begin{DoxyCompactList}\small\item\em Populations of the electronic states computed from the electronic coefficients. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a01a9d3567cc98f502a8e010d52c19297}\label{namespacevariables_a01a9d3567cc98f502a8e010d52c19297}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a01a9d3567cc98f502a8e010d52c19297}{bo\+\_\+pop\+\_\+sh}}
+\begin{DoxyCompactList}\small\item\em Populations of the electronic states computed in surface hopping as the ratio of trajectories running in each state over the total number of trajectories. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_acf66d08390267e6ce4de07169f2dc591}\label{namespacevariables_acf66d08390267e6ce4de07169f2dc591}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_acf66d08390267e6ce4de07169f2dc591}{dia\+\_\+pop}}
+\begin{DoxyCompactList}\small\item\em diabatic Populations of the electronic states computed from the electronic coefficients \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_afb6f8c4aeabffd06a2f747ba356ee4ca}\label{namespacevariables_afb6f8c4aeabffd06a2f747ba356ee4ca}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_afb6f8c4aeabffd06a2f747ba356ee4ca}{bo\+\_\+coh}}
+\begin{DoxyCompactList}\small\item\em Electronic coherences. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ae65a513175ce0fad4cc4db9741ce91f0}\label{namespacevariables_ae65a513175ce0fad4cc4db9741ce91f0}} 
+real(kind=dp) \mbox{\hyperlink{namespacevariables_ae65a513175ce0fad4cc4db9741ce91f0}{ctmqc\+\_\+e}}
+\begin{DoxyCompactList}\small\item\em Trajectory-\/averaged CTMQC Energy. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a5543ce933ba875fb285c8f593b608377}\label{namespacevariables_a5543ce933ba875fb285c8f593b608377}} 
+real(kind=dp), dimension(\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_a5543ce933ba875fb285c8f593b608377}{initial\+\_\+positions}}
+\begin{DoxyCompactList}\small\item\em Initial nuclear positions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac2ee0b3f3771e6aea98fada2bfab02ac}\label{namespacevariables_ac2ee0b3f3771e6aea98fada2bfab02ac}} 
+real(kind=dp), dimension(\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_ac2ee0b3f3771e6aea98fada2bfab02ac}{initial\+\_\+momenta}}
+\begin{DoxyCompactList}\small\item\em Initial nuclear momenta. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a99f474690efde6532bcd05bb72366dee}\label{namespacevariables_a99f474690efde6532bcd05bb72366dee}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a99f474690efde6532bcd05bb72366dee}{weight}}
+\begin{DoxyCompactList}\small\item\em Weight of each trajectory (usually it is equal to unity) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac4c8578ccf88450e0247d06aff091871}\label{namespacevariables_ac4c8578ccf88450e0247d06aff091871}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_ac4c8578ccf88450e0247d06aff091871}{tdpes}}
+\begin{DoxyCompactList}\small\item\em Gauge invariant part of the TDPES in CT-\/\+MQC calculation and mean Ehrenfest potential in Ehrenfest dynamics. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a915d7262ff7c820f1d4f5dfd73bacb46}\label{namespacevariables_a915d7262ff7c820f1d4f5dfd73bacb46}} 
+real(kind=dp), dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a915d7262ff7c820f1d4f5dfd73bacb46}{density}}
+\begin{DoxyCompactList}\small\item\em Nuclear density. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ad5c48996717183560da978058f4b0e06}\label{namespacevariables_ad5c48996717183560da978058f4b0e06}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_ad5c48996717183560da978058f4b0e06}{occ\+\_\+state}}
+\begin{DoxyCompactList}\small\item\em Active or force state in surface hopping. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a67f7abe9cb469937f2be51f51665e973}\label{namespacevariables_a67f7abe9cb469937f2be51f51665e973}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a67f7abe9cb469937f2be51f51665e973}{lz\+\_\+hop}}
+\begin{DoxyCompactList}\small\item\em Keeps track of jumps in Landau-\/\+Zener surface hopping. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac6c6fd7ebd7b4f6d470cc28727ae8d29}\label{namespacevariables_ac6c6fd7ebd7b4f6d470cc28727ae8d29}} 
+integer \mbox{\hyperlink{namespacevariables_ac6c6fd7ebd7b4f6d470cc28727ae8d29}{count\+\_\+traj}}
+\begin{DoxyCompactList}\small\item\em Counts the trajectories that go through the avoided crossing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a1ea4a43be146aeac04e4232412664f5d}\label{namespacevariables_a1ea4a43be146aeac04e4232412664f5d}} 
+integer, dimension(\+:), allocatable \mbox{\hyperlink{namespacevariables_a1ea4a43be146aeac04e4232412664f5d}{list\+\_\+coupled\+\_\+trajectories}}
+\begin{DoxyCompactList}\small\item\em List of coupled trajectories in CT-\/\+MQC (in the current version all trajectories are coupled) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a797331f3913bc754836bd7e54b33a341}\label{namespacevariables_a797331f3913bc754836bd7e54b33a341}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_a797331f3913bc754836bd7e54b33a341}{vec0}}
+\begin{DoxyCompactList}\small\item\em NACV used to assure the Phase following from Qmodel\+Lib. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a23661a7ead9e8460c18617f484138dea}\label{namespacevariables_a23661a7ead9e8460c18617f484138dea}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_a23661a7ead9e8460c18617f484138dea}{previous\+\_\+eigenv}}
+\begin{DoxyCompactList}\small\item\em If NEW\+\_\+\+POTENTIAL == .TRUE. this variable is needed to check the phase of neighboring eigenvectors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a626978223ef684c66a5f9cd090a1a5eb}\label{namespacevariables_a626978223ef684c66a5f9cd090a1a5eb}} 
+real(kind=dp), dimension(\+:,\+:,\+:,\+:), allocatable \mbox{\hyperlink{namespacevariables_a626978223ef684c66a5f9cd090a1a5eb}{previous\+\_\+coup}}
+\begin{DoxyCompactList}\small\item\em Checks that the NACVs are continous along a trajectory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a3f2c830ce792853fd73714fa944315e4}\label{namespacevariables_a3f2c830ce792853fd73714fa944315e4}} 
+logical {\bfseries initial\+\_\+coup} = .TRUE.
+\item 
+\mbox{\Hypertarget{namespacevariables_ab828aa682351077d000aa22678370409}\label{namespacevariables_ab828aa682351077d000aa22678370409}} 
+character(len=400) \mbox{\hyperlink{namespacevariables_ab828aa682351077d000aa22678370409}{positions\+\_\+file}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em Path to the file here initial positions are listed in case they are generated by another program, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_a497dfe6ec833d5836b449fa765e12e99}\label{namespacevariables_a497dfe6ec833d5836b449fa765e12e99}} 
+character(len=400) \mbox{\hyperlink{namespacevariables_a497dfe6ec833d5836b449fa765e12e99}{momenta\+\_\+file}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em Path to the file here initial momenta are listed in case they are generated by another program, read in input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacevariables_ac58599b7c2bb340a4b0ac797c9184ae3}\label{namespacevariables_ac58599b7c2bb340a4b0ac797c9184ae3}} 
+character(len=400) \mbox{\hyperlink{namespacevariables_ac58599b7c2bb340a4b0ac797c9184ae3}{output\+\_\+folder}} = \char`\"{}./\char`\"{}
+\begin{DoxyCompactList}\small\item\em Path to the directory where the output is written, read in input; note that in such directory, two sub-\/directories (coeff and trajectories) have to be created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The module defines all common variables. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}

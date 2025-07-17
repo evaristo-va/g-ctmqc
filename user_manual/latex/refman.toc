@@ -1,0 +1,89 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble }{}
+\contentsline {chapter}{\numberline {1}Modules Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Modules List}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Module Documentation}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}analytical\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}potentials Module Reference}{3}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Detailed Description}{4}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{4}{subsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2.1}check\_overlap()}{4}{subsubsection.2.1.2.1}
+\contentsline {subsubsection}{\numberline {2.1.2.2}diagonalize()}{4}{subsubsection.2.1.2.2}
+\contentsline {subsubsection}{\numberline {2.1.2.3}doublewell\_potential()}{5}{subsubsection.2.1.2.3}
+\contentsline {subsubsection}{\numberline {2.1.2.4}ibr\_potential()}{5}{subsubsection.2.1.2.4}
+\contentsline {subsubsection}{\numberline {2.1.2.5}nai\_potential()}{6}{subsubsection.2.1.2.5}
+\contentsline {subsubsection}{\numberline {2.1.2.6}new\_model\_potentials()}{6}{subsubsection.2.1.2.6}
+\contentsline {subsubsection}{\numberline {2.1.2.7}non\_adiabatic\_couplings()}{7}{subsubsection.2.1.2.7}
+\contentsline {subsubsection}{\numberline {2.1.2.8}phenol\_potential()}{7}{subsubsection.2.1.2.8}
+\contentsline {subsubsection}{\numberline {2.1.2.9}plot\_potential()}{8}{subsubsection.2.1.2.9}
+\contentsline {subsubsection}{\numberline {2.1.2.10}subotnikjpca2019()}{9}{subsubsection.2.1.2.10}
+\contentsline {subsubsection}{\numberline {2.1.2.11}tully3()}{9}{subsubsection.2.1.2.11}
+\contentsline {section}{\numberline {2.2}atomic\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}masses Module Reference}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Detailed Description}{10}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}classical\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}evolution Module Reference}{10}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Detailed Description}{10}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{10}{subsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2.1}non\_adiabatic\_force()}{11}{subsubsection.2.3.2.1}
+\contentsline {subsubsection}{\numberline {2.3.2.2}update\_position()}{11}{subsubsection.2.3.2.2}
+\contentsline {subsubsection}{\numberline {2.3.2.3}update\_velocity()}{12}{subsubsection.2.3.2.3}
+\contentsline {section}{\numberline {2.4}coefficients\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}evolution Module Reference}{12}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Detailed Description}{12}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{12}{subsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.2.1}cdot()}{13}{subsubsection.2.4.2.1}
+\contentsline {subsubsection}{\numberline {2.4.2.2}rk4\_coeff()}{13}{subsubsection.2.4.2.2}
+\contentsline {section}{\numberline {2.5}coherence\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}corrections Module Reference}{14}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Detailed Description}{14}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{14}{subsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.2.1}acc\_force\_ec()}{14}{subsubsection.2.5.2.1}
+\contentsline {subsubsection}{\numberline {2.5.2.2}accumulated\_boforce()}{15}{subsubsection.2.5.2.2}
+\contentsline {subsubsection}{\numberline {2.5.2.3}quantum\_momentum()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/2]}}{15}{subsubsection.2.5.2.3}
+\contentsline {subsubsection}{\numberline {2.5.2.4}quantum\_momentum()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/2]}}{17}{subsubsection.2.5.2.4}
+\contentsline {section}{\numberline {2.6}electronic\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}problem Module Reference}{18}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Detailed Description}{18}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{18}{subsection.2.6.2}
+\contentsline {subsubsection}{\numberline {2.6.2.1}boproblem()}{18}{subsubsection.2.6.2.1}
+\contentsline {subsubsection}{\numberline {2.6.2.2}check\_nac\_overlap()}{19}{subsubsection.2.6.2.2}
+\contentsline {section}{\numberline {2.7}kinds Module Reference}{19}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Detailed Description}{19}{subsection.2.7.1}
+\contentsline {section}{\numberline {2.8}output Module Reference}{19}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Detailed Description}{20}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{20}{subsection.2.8.2}
+\contentsline {subsubsection}{\numberline {2.8.2.1}compute\_energy()}{20}{subsubsection.2.8.2.1}
+\contentsline {subsubsection}{\numberline {2.8.2.2}initialize\_output()}{21}{subsubsection.2.8.2.2}
+\contentsline {subsubsection}{\numberline {2.8.2.3}plot()}{21}{subsubsection.2.8.2.3}
+\contentsline {subsubsection}{\numberline {2.8.2.4}plot\_coefficients()}{22}{subsubsection.2.8.2.4}
+\contentsline {subsubsection}{\numberline {2.8.2.5}plot\_qmom()}{22}{subsubsection.2.8.2.5}
+\contentsline {subsubsection}{\numberline {2.8.2.6}plot\_r\_p\_e()}{23}{subsubsection.2.8.2.6}
+\contentsline {subsubsection}{\numberline {2.8.2.7}plot\_stc()}{23}{subsubsection.2.8.2.7}
+\contentsline {section}{\numberline {2.9}shopping Module Reference}{24}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}Detailed Description}{24}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{24}{subsection.2.9.2}
+\contentsline {subsubsection}{\numberline {2.9.2.1}choose\_bostate()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/2]}}{24}{subsubsection.2.9.2.1}
+\contentsline {subsubsection}{\numberline {2.9.2.2}choose\_bostate()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/2]}}{25}{subsubsection.2.9.2.2}
+\contentsline {subsubsection}{\numberline {2.9.2.3}decoherence\_coorection()}{25}{subsubsection.2.9.2.3}
+\contentsline {subsubsection}{\numberline {2.9.2.4}hopping()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/2]}}{26}{subsubsection.2.9.2.4}
+\contentsline {subsubsection}{\numberline {2.9.2.5}hopping()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/2]}}{27}{subsubsection.2.9.2.5}
+\contentsline {subsubsection}{\numberline {2.9.2.6}momentum\_correction()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [1/2]}}{27}{subsubsection.2.9.2.6}
+\contentsline {subsubsection}{\numberline {2.9.2.7}momentum\_correction()\hspace {0.1cm}{\relax \fontsize {8}{9.5}\selectfont \abovedisplayskip 6\p@ plus2\p@ minus4\p@ \abovedisplayshortskip \z@ plus\p@ \belowdisplayshortskip 3\p@ plus\p@ minus2\p@ \def \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ {\leftmargin \leftmargini \topsep 3\p@ plus\p@ minus\p@ \parsep 2\p@ plus\p@ minus\p@ \itemsep \parsep }\belowdisplayskip \abovedisplayskip \ttfamily [2/2]}}{28}{subsubsection.2.9.2.7}
+\contentsline {section}{\numberline {2.10}time\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}evolution Module Reference}{28}{section.2.10}
+\contentsline {subsection}{\numberline {2.10.1}Detailed Description}{29}{subsection.2.10.1}
+\contentsline {subsection}{\numberline {2.10.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{29}{subsection.2.10.2}
+\contentsline {subsubsection}{\numberline {2.10.2.1}evolution()}{29}{subsubsection.2.10.2.1}
+\contentsline {subsubsection}{\numberline {2.10.2.2}finalize\_local\_vars()}{30}{subsubsection.2.10.2.2}
+\contentsline {subsubsection}{\numberline {2.10.2.3}initialize\_local\_vars()}{30}{subsubsection.2.10.2.3}
+\contentsline {section}{\numberline {2.11}tools Module Reference}{30}{section.2.11}
+\contentsline {subsection}{\numberline {2.11.1}Detailed Description}{31}{subsection.2.11.1}
+\contentsline {subsection}{\numberline {2.11.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{31}{subsection.2.11.2}
+\contentsline {subsubsection}{\numberline {2.11.2.1}finalize()}{31}{subsubsection.2.11.2.1}
+\contentsline {subsubsection}{\numberline {2.11.2.2}generate\_random\_seed()}{31}{subsubsection.2.11.2.2}
+\contentsline {subsubsection}{\numberline {2.11.2.3}generate\_random\_seed\_hop()}{31}{subsubsection.2.11.2.3}
+\contentsline {subsubsection}{\numberline {2.11.2.4}initialize\_dynamics\_vars()}{33}{subsubsection.2.11.2.4}
+\contentsline {subsubsection}{\numberline {2.11.2.5}initialize\_trajectory\_vars()}{33}{subsubsection.2.11.2.5}
+\contentsline {section}{\numberline {2.12}trajectories\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}selection Module Reference}{33}{section.2.12}
+\contentsline {subsection}{\numberline {2.12.1}Detailed Description}{33}{subsection.2.12.1}
+\contentsline {section}{\numberline {2.13}variables Module Reference}{34}{section.2.13}
+\contentsline {subsection}{\numberline {2.13.1}Detailed Description}{37}{subsection.2.13.1}
+\contentsline {section}{\numberline {2.14}wigner\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}distribution Module Reference}{37}{section.2.14}
+\contentsline {subsection}{\numberline {2.14.1}Detailed Description}{38}{subsection.2.14.1}
+\contentsline {subsection}{\numberline {2.14.2}Function/\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Subroutine Documentation}{38}{subsection.2.14.2}
+\contentsline {subsubsection}{\numberline {2.14.2.1}gaussian\_distribution()}{38}{subsubsection.2.14.2.1}
+\contentsline {subsubsection}{\numberline {2.14.2.2}initial\_conditions()}{39}{subsubsection.2.14.2.2}
+\contentsline {chapter}{Index}{41}{section*.16}

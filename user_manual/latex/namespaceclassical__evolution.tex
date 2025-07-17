@@ -1,0 +1,105 @@
+\hypertarget{namespaceclassical__evolution}{}\doxysection{classical\+\_\+evolution Module Reference}
+\label{namespaceclassical__evolution}\index{classical\_evolution@{classical\_evolution}}
+
+
+The module contains a collection of subroutines used in the classical evolution of the nuclei.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespaceclassical__evolution_aa56590b0cb9845368cd3d5345b908857}{update\+\_\+position}} (x, v)
+\begin{DoxyCompactList}\small\item\em Update of the classical positions according to the velocity Verlet algorithm. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceclassical__evolution_a59905627b30c87e644aeb0b1c008579f}{update\+\_\+velocity}} (v, force)
+\begin{DoxyCompactList}\small\item\em Update of the classical velocities according to the velocity Verlet algorithm. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceclassical__evolution_ae1c31050918fc14c897af2fe659432fc}{non\+\_\+adiabatic\+\_\+force}} (coeff, force, acc\+\_\+force, k\+\_\+li, trajlabel)
+\begin{DoxyCompactList}\small\item\em Definition of the classical nuclear force depending on the type of calculation that is executed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The module contains a collection of subroutines used in the classical evolution of the nuclei. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespaceclassical__evolution_ae1c31050918fc14c897af2fe659432fc}\label{namespaceclassical__evolution_ae1c31050918fc14c897af2fe659432fc}} 
+\index{classical\_evolution@{classical\_evolution}!non\_adiabatic\_force@{non\_adiabatic\_force}}
+\index{non\_adiabatic\_force@{non\_adiabatic\_force}!classical\_evolution@{classical\_evolution}}
+\doxysubsubsection{\texorpdfstring{non\_adiabatic\_force()}{non\_adiabatic\_force()}}
+{\footnotesize\ttfamily subroutine classical\+\_\+evolution\+::non\+\_\+adiabatic\+\_\+force (\begin{DoxyParamCaption}\item[{complex(kind=qp), dimension(nstates), intent(in)}]{coeff,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(inout)}]{force,  }\item[{real(kind=dp), dimension(n\+\_\+dof,nstates), intent(in)}]{acc\+\_\+force,  }\item[{real(kind=dp), dimension(nstates,nstates), intent(in)}]{k\+\_\+li,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+Definition of the classical nuclear force depending on the type of calculation that is executed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label indicating the trajectory number in the swarm \\
+\hline
+\mbox{\texttt{ in}}  & {\em coeff} & coefficients of the expansion of the electronic time-\/dependent wavefunction in the basis used for the dynamics \\
+\hline
+\mbox{\texttt{ in}}  & {\em acc\+\_\+force} & gradient of the adiabatic or diabatic force accumulated over time along the trajectory trajlabel \\
+\hline
+\mbox{\texttt{ in}}  & {\em k\+\_\+li} & quantity related to the quantum momentum and responsible for decoherence; it is identically zero for Ehrenfest and surface hopping calculations \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em force} & classical force used to evolve the trajectory trajlabel \\
+\hline
+ & {\em i,j} & integer indices \\
+\hline
+ & {\em i\+\_\+dof} & index running on the n\+\_\+dof degrees of freedom \\
+\hline
+ & {\em check} & control variable for allocation errors \\
+\hline
+ & {\em my\+\_\+rho} & temporary array of the electronic density matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the classical force at the position of the trajectory is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceclassical__evolution_aa56590b0cb9845368cd3d5345b908857}\label{namespaceclassical__evolution_aa56590b0cb9845368cd3d5345b908857}} 
+\index{classical\_evolution@{classical\_evolution}!update\_position@{update\_position}}
+\index{update\_position@{update\_position}!classical\_evolution@{classical\_evolution}}
+\doxysubsubsection{\texorpdfstring{update\_position()}{update\_position()}}
+{\footnotesize\ttfamily subroutine classical\+\_\+evolution\+::update\+\_\+position (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(n\+\_\+dof), intent(inout)}]{x,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{v }\end{DoxyParamCaption})}
+
+
+
+Update of the classical positions according to the velocity Verlet algorithm. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em x} & nuclear position \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & nuclear velocity \\
+\hline
+ & {\em my\+\_\+x} & temporary nuclear position for internal calculations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated nuclear position is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceclassical__evolution_a59905627b30c87e644aeb0b1c008579f}\label{namespaceclassical__evolution_a59905627b30c87e644aeb0b1c008579f}} 
+\index{classical\_evolution@{classical\_evolution}!update\_velocity@{update\_velocity}}
+\index{update\_velocity@{update\_velocity}!classical\_evolution@{classical\_evolution}}
+\doxysubsubsection{\texorpdfstring{update\_velocity()}{update\_velocity()}}
+{\footnotesize\ttfamily subroutine classical\+\_\+evolution\+::update\+\_\+velocity (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(n\+\_\+dof), intent(inout)}]{v,  }\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{force }\end{DoxyParamCaption})}
+
+
+
+Update of the classical velocities according to the velocity Verlet algorithm. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em force} & nuclear force \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em v} & nuclear velocity \\
+\hline
+ & {\em my\+\_\+v} & temporary nuclear velocity for internal calculations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated nuclear velocity is returned. 
+\end{DoxyReturn}

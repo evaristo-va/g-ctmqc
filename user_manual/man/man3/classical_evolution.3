@@ -1,0 +1,114 @@
+.TH "classical_evolution" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+classical_evolution \- The module contains a collection of subroutines used in the classical evolution of the nuclei\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBupdate_position\fP (x, v)"
+.br
+.RI "Update of the classical positions according to the velocity Verlet algorithm\&. "
+.ti -1c
+.RI "subroutine \fBupdate_velocity\fP (v, force)"
+.br
+.RI "Update of the classical velocities according to the velocity Verlet algorithm\&. "
+.ti -1c
+.RI "subroutine \fBnon_adiabatic_force\fP (coeff, force, acc_force, k_li, trajlabel)"
+.br
+.RI "Definition of the classical nuclear force depending on the type of calculation that is executed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The module contains a collection of subroutines used in the classical evolution of the nuclei\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine classical_evolution::non_adiabatic_force (complex(kind=qp), dimension(nstates), intent(in) coeff, real(kind=dp), dimension(n_dof), intent(inout) force, real(kind=dp), dimension(n_dof,nstates), intent(in) acc_force, real(kind=dp), dimension(nstates,nstates), intent(in) k_li, integer, intent(in) trajlabel)"
+
+.PP
+Definition of the classical nuclear force depending on the type of calculation that is executed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label indicating the trajectory number in the swarm 
+.br
+\fIcoeff\fP coefficients of the expansion of the electronic time-dependent wavefunction in the basis used for the dynamics 
+.br
+\fIacc_force\fP gradient of the adiabatic or diabatic force accumulated over time along the trajectory trajlabel 
+.br
+\fIk_li\fP quantity related to the quantum momentum and responsible for decoherence; it is identically zero for Ehrenfest and surface hopping calculations 
+.br
+\fIforce\fP classical force used to evolve the trajectory trajlabel 
+.br
+\fIi,j\fP integer indices 
+.br
+\fIi_dof\fP index running on the n_dof degrees of freedom 
+.br
+\fIcheck\fP control variable for allocation errors 
+.br
+\fImy_rho\fP temporary array of the electronic density matrix 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the classical force at the position of the trajectory is returned\&. 
+.RE
+.PP
+
+.SS "subroutine classical_evolution::update_position (real(kind=dp), dimension(n_dof), intent(inout) x, real(kind=dp), dimension(n_dof), intent(in) v)"
+
+.PP
+Update of the classical positions according to the velocity Verlet algorithm\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP nuclear position 
+.br
+\fIv\fP nuclear velocity 
+.br
+\fImy_x\fP temporary nuclear position for internal calculations 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The updated nuclear position is returned\&. 
+.RE
+.PP
+
+.SS "subroutine classical_evolution::update_velocity (real(kind=dp), dimension(n_dof), intent(inout) v, real(kind=dp), dimension(n_dof), intent(in) force)"
+
+.PP
+Update of the classical velocities according to the velocity Verlet algorithm\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIforce\fP nuclear force 
+.br
+\fIv\fP nuclear velocity 
+.br
+\fImy_v\fP temporary nuclear velocity for internal calculations 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The updated nuclear velocity is returned\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

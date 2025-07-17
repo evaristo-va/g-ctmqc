@@ -1,0 +1,109 @@
+.TH "tools" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tools \- Numerical tools for initialization and finalization of the dynamically-allocated vectors, along with initialization of random numbers generators\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBinitialize_dynamics_vars\fP"
+.br
+.RI "Initialization of dynamics variables\&. "
+.ti -1c
+.RI "subroutine \fBinitialize_trajectory_vars\fP"
+.br
+.RI "Initialization of trajectory variables\&. "
+.ti -1c
+.RI "subroutine \fBfinalize\fP"
+.br
+.RI "Deallocation of dynamically-allocayed arrays\&. "
+.ti -1c
+.RI "subroutine \fBgenerate_random_seed\fP"
+.br
+.RI "Inizialization of random number generator for the initial conditions\&. "
+.ti -1c
+.RI "subroutine \fBgenerate_random_seed_hop\fP"
+.br
+.RI "Inizialization of random number generator for the trajectory hops\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Numerical tools for initialization and finalization of the dynamically-allocated vectors, along with initialization of random numbers generators\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine tools::finalize"
+
+.PP
+Deallocation of dynamically-allocayed arrays\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcheck\fP control factor for deallocation errors 
+.RE
+.PP
+
+.SS "subroutine tools::generate_random_seed"
+
+.PP
+Inizialization of random number generator for the initial conditions\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIseed\fP seed for the random number generator 
+.br
+\fIn,i\fP integer indices 
+.RE
+.PP
+
+.SS "subroutine tools::generate_random_seed_hop"
+
+.PP
+Inizialization of random number generator for the trajectory hops\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIseed\fP seed for the random number generator 
+.br
+\fIn,i\fP integer indices 
+.RE
+.PP
+
+.SS "subroutine tools::initialize_dynamics_vars"
+
+.PP
+Initialization of dynamics variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcheck\fP control factor for allocation errors 
+.RE
+.PP
+
+.SS "subroutine tools::initialize_trajectory_vars"
+
+.PP
+Initialization of trajectory variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcheck\fP control factor for allocation errors 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacecoherence__corrections" xml:lang="en-US">
+<title>coherence_corrections Module Reference</title>
+<indexterm><primary>coherence_corrections</primary></indexterm>
+<para>
+
+<para>Calculations of quantities for decoherence corrections in CT-MQC. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespacecoherence__corrections_1af2109e0117f30acd569e33fc9642148f">accumulated_boforce</link> (coeff, force, trajlabel)</para>
+
+<para>The adiabatic (or spin-(a)diabatic) force is integrated in time along a trajectory. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacecoherence__corrections_1aac477a8d07aa3b7a9091642386d171c3">quantum_momentum</link> (Rcl, acc_force, BOsigma, k_li, qmom, qmom_type)</para>
+
+<para>Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacecoherence__corrections_1a1a615b125e53e24db6af11d769d93e57">acc_force_ec</link> (Vcl, coeff, acc_force, acc_force_E)</para>
+
+<para>The accumulated force is corrected to satisfy energy conservation. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacecoherence__corrections_1aac477a8d07aa3b7a9091642386d171c3">quantum_momentum</link> (Rcl, acc_force, BOsigma, k_li, qmom, qmom_type)</para>
+
+<para>Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Calculations of quantities for decoherence corrections in CT-MQC. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespacecoherence__corrections_1a1a615b125e53e24db6af11d769d93e57"/>    <section>
+    <title>acc_force_ec()</title>
+<indexterm><primary>acc_force_ec</primary><secondary>coherence_corrections</secondary></indexterm>
+<indexterm><primary>coherence_corrections</primary><secondary>acc_force_ec</secondary></indexterm>
+<para><computeroutput>subroutine coherence_corrections::acc_force_ec (real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, complex(kind=qp), dimension(ntraj,nstates), intent(in) coeff, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(inout) acc_force_E)</computeroutput></para><para>
+
+<para>The accumulated force is corrected to satisfy energy conservation. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Vcl</entry>
+                                <entry>
+<para>classical velocities </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>coeff</entry>
+                                <entry>
+<para>electronic coefficientes </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>acc_force</entry>
+                                <entry>
+<para>accumulated force along the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>acc_force_E</entry>
+                                <entry>
+<para>new accumulated force </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>index running on the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_traj</entry>
+                                <entry>
+<para>index running on the n_traj degrees number of trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>istate</entry>
+                                <entry>
+<para>index running on the nstates of electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>threshold</entry>
+                                <entry>
+<para>electronic population threshold to compute the acc forces </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>R_threshold</entry>
+                                <entry>
+<para>velocity threshold to compute the new acc forces </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>nvec</entry>
+                                <entry>
+<para>vector in the direction of the new acc force </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespacecoherence__corrections_1af2109e0117f30acd569e33fc9642148f"/>    <section>
+    <title>accumulated_boforce()</title>
+<indexterm><primary>accumulated_boforce</primary><secondary>coherence_corrections</secondary></indexterm>
+<indexterm><primary>coherence_corrections</primary><secondary>accumulated_boforce</secondary></indexterm>
+<para><computeroutput>subroutine coherence_corrections::accumulated_boforce (complex(kind=qp), dimension(nstates), intent(in) coeff, real(kind=dp), dimension(n_dof,nstates), intent(inout) force, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>The adiabatic (or spin-(a)diabatic) force is integrated in time along a trajectory. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory along which the equation is integrated </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>coeff</entry>
+                                <entry>
+<para>electronic coefficientes </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>force</entry>
+                                <entry>
+<para>integrated force along the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i</entry>
+                                <entry>
+<para>integer index </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>index running on the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>check</entry>
+                                <entry>
+<para>control variable for allocation errors </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>threshold</entry>
+                                <entry>
+<para>electronic population threshold to accumate the force </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>mean_force</entry>
+                                <entry>
+<para>average electronic force weighted by the electronic population </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the adiabatic (or spin-(a)diabatic) force is returned if the electronic population of the corresponding state is larger than threshold and smaller that one minus the threshold. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespacecoherence__corrections_1aac477a8d07aa3b7a9091642386d171c3"/>    <section>
+    <title>quantum_momentum()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>quantum_momentum</primary><secondary>coherence_corrections</secondary></indexterm>
+<indexterm><primary>coherence_corrections</primary><secondary>quantum_momentum</secondary></indexterm>
+<para><computeroutput>subroutine coherence_corrections::quantum_momentum (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force, complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,nstates,nstates), intent(inout) k_li, real(kind=dp), dimension(:,:,:), allocatable qmom, integer, dimension(n_dof,ntraj,npairs), intent(inout) qmom_type)</computeroutput></para><para>
+
+<para>Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>BOsigma</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Rcl</entry>
+                                <entry>
+<para>positions of the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>acc_force</entry>
+                                <entry>
+<para>force accumulated along the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>k_li</entry>
+                                <entry>
+<para>term accounting for decoherence effects in CT-MQC </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>itraj, jtraj</entry>
+                                <entry>
+<para>indices running on the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>index running on the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>index_ij</entry>
+                                <entry>
+<para>index running on the pairs of electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>istate, jstate</entry>
+                                <entry>
+<para>indices running on the electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>gamma</entry>
+                                <entry>
+<para>variances of the Gaussians centered at the positions of the trajectories and used to reconstruct the nuclear density </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>g_i</entry>
+                                <entry>
+<para>sum of Gaussians </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>prod_g_i</entry>
+                                <entry>
+<para>product of one-dimensional Gaussians to construct a multi-dimensional Gaussian </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>w_ij</entry>
+                                <entry>
+<para>see paper DOI:... </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>slope_i</entry>
+                                <entry>
+<para>slope of the quantum momentum when it is approximated as a linear function </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>ratio</entry>
+                                <entry>
+<para>y-intercept when the quantum momentum is approximated as a linear function </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>num_old</entry>
+                                <entry>
+<para>numerator in the expression of the y-intercept to approximate the quantum momentum as a linear function when the condition of no-population-transfer between two electronic states is imposed for zero values of the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>num_new</entry>
+                                <entry>
+<para>numerator in the analytical expression of the y-intercept to approximate the quantum momentum as a linear function </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>num</entry>
+                                <entry>
+<para>numerator in the expression of the y-intercept of the linear quantum momentum </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>denom</entry>
+                                <entry>
+<para>denominator in the expression of the y-intercept of the linear quantum momentum </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>qmom</entry>
+                                <entry>
+<para>quantum momentum </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>threshold</entry>
+                                <entry>
+<para>for the selection of the num_old or num_old (M_parameter * threshold is the applied distance criterion) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of k_li is returned. </para>
+</formalpara>
+</para>
+
+<para>This is calculated each time; Consider saving them with a save varaiable</para>
+
+<para>Sigma is standard deviation of wave function; not density, Thus, we need factor 2 in alpha (slope) and in the gauss later</para>
+
+<para>Define alph (slope) for models/special cases</para>
+
+<para>CALCULATE &quot;gaus matrix&quot; As above, the factor 2 is taken care of We take advantage of the symmetry for efficiency</para>
+
+<para>DENSITY AT EACH TRAJECTORY</para>
+
+<para>standard intercept R_ic Normal intercept, without respecting pop consersevation at NAC=0</para>
+
+<para>fancy intercept R_fi Intercept respecting pop consersevation at NAC=0</para>
+
+<para>Periodicity part 1</para>
+
+<para>Quantum momentum Start with 0 Priority: fancy intercept If too far away: normal intercept If still too far away it stays zero</para>
+
+<para>double fancy intercept R_fi Intercept respecting pop consersevation at NAC=0 only for same Carsten</para>
+
+<para>Quantum momentum Start with 0, will stay 0 if Carsten is zero</para>
+
+<para>Intercepts selected by Carsten of traj/state This may not work for older compilers</para>
+
+<para>dont forget the slope! factor 0.5 from using the density insead of wavefunction in def of qmom</para>
+
+<para>output k_li</para>
+
+<para>clean up crew, could be skipped I think</para>
+    </section><anchor xml:id="_namespacecoherence__corrections_1aac477a8d07aa3b7a9091642386d171c3"/>    <section>
+    <title>quantum_momentum()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>quantum_momentum</primary><secondary>coherence_corrections</secondary></indexterm>
+<indexterm><primary>coherence_corrections</primary><secondary>quantum_momentum</secondary></indexterm>
+<para><computeroutput>subroutine coherence_corrections::quantum_momentum (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force, complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,nstates,nstates), intent(inout) k_li, real(kind=dp), dimension(n_dof,ntraj,npairs), intent(inout) qmom, integer, dimension(n_dof,ntraj,npairs), intent(inout) qmom_type)</computeroutput></para><para>
+
+<para>Calculation of the quantum momentum by reconstructing the nuclear density as a sum of Gaussians centered at the positions of the trajectories. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>BOsigma</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Rcl</entry>
+                                <entry>
+<para>positions of the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>acc_force</entry>
+                                <entry>
+<para>force accumulated along the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>k_li</entry>
+                                <entry>
+<para>term accounting for decoherence effects in CT-MQC </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>itraj, jtraj</entry>
+                                <entry>
+<para>indices running on the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>index running on the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>index_ij</entry>
+                                <entry>
+<para>index running on the pairs of electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>istate, jstate</entry>
+                                <entry>
+<para>indices running on the electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>gamma</entry>
+                                <entry>
+<para>variances of the Gaussians centered at the positions of the trajectories and used to reconstruct the nuclear density </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>g_i</entry>
+                                <entry>
+<para>sum of Gaussians </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>prod_g_i</entry>
+                                <entry>
+<para>product of one-dimensional Gaussians to construct a multi-dimensional Gaussian </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>w_ij</entry>
+                                <entry>
+<para>see paper DOI:... </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>slope_i</entry>
+                                <entry>
+<para>slope of the quantum momentum when it is approximated as a linear function </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>ratio</entry>
+                                <entry>
+<para>y-intercept when the quantum momentum is approximated as a linear function </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>num_old</entry>
+                                <entry>
+<para>numerator in the expression of the y-intercept to approximate the quantum momentum as a linear function when the condition of no-population-transfer between two electronic states is imposed for zero values of the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>num_new</entry>
+                                <entry>
+<para>numerator in the analytical expression of the y-intercept to approximate the quantum momentum as a linear function </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>num</entry>
+                                <entry>
+<para>numerator in the expression of the y-intercept of the linear quantum momentum </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>denom</entry>
+                                <entry>
+<para>denominator in the expression of the y-intercept of the linear quantum momentum </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>qmom</entry>
+                                <entry>
+<para>quantum momentum </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>threshold</entry>
+                                <entry>
+<para>for the selection of the num_old or num_old (M_parameter * threshold is the applied distance criterion) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of k_li is returned. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

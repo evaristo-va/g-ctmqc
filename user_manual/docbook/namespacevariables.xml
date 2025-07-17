@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacevariables" xml:lang="en-US">
+<title>variables Module Reference</title>
+<indexterm><primary>variables</primary></indexterm>
+<para>
+
+<para>The module defines all common variables. </para>
+ 
+</para>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_namespacevariables_1a4f7c4b76127660a6ab1b9c2d0ced2757"/>real(kind=dp), parameter <link linkend="_namespacevariables_1a4f7c4b76127660a6ab1b9c2d0ced2757">hbar</link> = 1.0_dp</para>
+
+<para>Reduced Planck constant. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ab23eef0a897c91d12e4c94e471d25eac"/>real(kind=dp), parameter <link linkend="_namespacevariables_1ab23eef0a897c91d12e4c94e471d25eac">zero</link> = 0.0000000010_dp</para>
+
+<para>&quot;Numerical&quot; zero </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1aad566c0f8837376d5b5051540367006d"/>real(kind=dp), parameter <link linkend="_namespacevariables_1aad566c0f8837376d5b5051540367006d">au_to_ang</link> = 0.52917721067121_dp</para>
+
+<para>Conversion factor from bohr to angstrom. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ad100d946666356c0f02a244f2e27e1d9"/>real(kind=dp), parameter <link linkend="_namespacevariables_1ad100d946666356c0f02a244f2e27e1d9">au_to_ev</link> = 27.2114_dp</para>
+
+<para>Conversion factor from Hartree to electronvolts. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac8922cdc14c4f71ec5f1dabc122ea80d"/>real(kind=dp), parameter <link linkend="_namespacevariables_1ac8922cdc14c4f71ec5f1dabc122ea80d">amu_to_au</link> = 1836.0_dp</para>
+
+<para>Conversion factor from atomic mass units to atomic units. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac09a56a235e6e5aaebd2ea6ee32188dd"/>complex(kind=qp) <link linkend="_namespacevariables_1ac09a56a235e6e5aaebd2ea6ee32188dd">im_unit</link> = (0.0_dp, 1.0_dp)</para>
+
+<para>Imaginary unit. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac8f8cd80af682db3e55c7b3bcefd78e6"/>real(kind=dp) <link linkend="_namespacevariables_1ac8f8cd80af682db3e55c7b3bcefd78e6">pi</link> = 3.14159265359_dp</para>
+
+<para>pi </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a2c5902d6bd06e6f763bbc81e9a222144"/>complex(kind=qp) <link linkend="_namespacevariables_1a2c5902d6bd06e6f763bbc81e9a222144">cmp</link> = CMPLX(0.0_dp, 1.0_dp, qp)</para>
+
+<para>pi </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1acd07b1bc8413f60cb431816163d6a0e7"/>character(len=5) <link linkend="_namespacevariables_1acd07b1bc8413f60cb431816163d6a0e7">typ_cal</link> = &quot;EHREN&quot;</para>
+
+<para>Type of dynamics that is executed: EHREN for Ehrenfest dynamics, TSHLZ for surface hopping with Landau-Zener hopping probability, TSHFS for surface hopping with fewest-switches hopping probability, CTMQC for CT-MQC, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a7986629993fb0d34559b416ad7f87292"/>character(len=100) <link linkend="_namespacevariables_1a7986629993fb0d34559b416ad7f87292">model_potential</link> = &quot;unknown&quot;</para>
+
+<para>Name of the model potential as it is defined in QuantumModelLib, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a8b6dcca1275e70e8632e27d1a246883f"/>integer <link linkend="_namespacevariables_1a8b6dcca1275e70e8632e27d1a246883f">option</link> = 1</para>
+
+<para>Only used for Tully models and can be 1, 2, or 3, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a3834e5921df11cbddfa2c96ccda4bd08"/>logical <link linkend="_namespacevariables_1a3834e5921df11cbddfa2c96ccda4bd08">new_potential</link> = .FALSE.</para>
+
+<para>It is FALSE if the QuantumModelLib potential library is used; it is TRUE if the potentials in analytical_potentials.f90 are used, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a668867c2ac7e34a0663f1915b2165387"/>integer <link linkend="_namespacevariables_1a668867c2ac7e34a0663f1915b2165387">n_dof</link> = 1</para>
+
+<para>Number of degrees of nuclear freedom, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1af011425a070282cdf4f7869cc91b2e7c"/>integer <link linkend="_namespacevariables_1af011425a070282cdf4f7869cc91b2e7c">nstates</link> = 2</para>
+
+<para>Number of electronic states, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a836f9ab38c17f0326b50b960414bbe66"/>integer <link linkend="_namespacevariables_1a836f9ab38c17f0326b50b960414bbe66">npairs</link> = 1</para>
+
+<para>Number of pairs of electronic states. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1af3a802c960ad30a6d3a9051be122c45e"/>logical, dimension(100) <link linkend="_namespacevariables_1af3a802c960ad30a6d3a9051be122c45e">periodic_variable</link> = .FALSE.</para>
+
+<para>It is TRUE for each periodic nuclear coordinate, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a3fe769ab8229f34d093882ebc9446765"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1a3fe769ab8229f34d093882ebc9446765">periodicity</link> = 0.0_dp</para>
+
+<para>Periodicity of the correspoding nuclear nuclear coordinate in unit of pi, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a444e15df2d8c65636cef6aec1c7e7af3"/>character(len=2) <link linkend="_namespacevariables_1a444e15df2d8c65636cef6aec1c7e7af3">type_deco</link> = &quot;&quot;</para>
+
+<para>Type of decoherence scheme applied on surface hooping: CT based on coupled trajectories and on quantum momentum, ED which is the energy-decoherence correction, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ad3352953ff5eccddec7ebb9ae9a866b3"/>real(kind=dp) <link linkend="_namespacevariables_1ad3352953ff5eccddec7ebb9ae9a866b3">c_parameter</link> = 0.1_dp</para>
+
+<para>Value of the parameter C in the energy-decoherence correction used in surface hopping, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a149d7da8cd6d060ce7e448e7b1c0d579"/>integer <link linkend="_namespacevariables_1a149d7da8cd6d060ce7e448e7b1c0d579">jump_seed</link> = -100</para>
+
+<para>Seed for the random number generator used for the probability jump is surface hopping, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ad5868a222f4b3b059586dc101d59e051"/>integer <link linkend="_namespacevariables_1ad5868a222f4b3b059586dc101d59e051">initial_condition_seed</link> = -100</para>
+
+<para>Seed for the random number generator used for the selection of initial conditions, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a1ae63226ec18c8ec6ba7e4f5c763781f"/>real(kind=dp) <link linkend="_namespacevariables_1a1ae63226ec18c8ec6ba7e4f5c763781f">adia_nrg_gap</link> = 10000.0D0</para>
+
+<para>Energy treshold to compute the non-adiabatic coupling vectors for the classical force or the Landau-Zener probability. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a46404dab43f15f563d6ec19241a144bb"/>real(kind=dp) <link linkend="_namespacevariables_1a46404dab43f15f563d6ec19241a144bb">lz_dist_cutoff</link> = 0.20D0</para>
+
+<para>Distance cutoff from the crossing region to compute the Landau-Zener probability. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a773129925702c06b767ee5948e6d8369"/>logical <link linkend="_namespacevariables_1a773129925702c06b767ee5948e6d8369">nrg_check</link> = .FALSE.</para>
+
+<para>It is TRUE if the spin-orbit coupling is switched-off when the energy gap between spin-diabatic states is above a certain treshold, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a0ffb326d7311be33ba677ed84d5b6ba4"/>real(kind=dp) <link linkend="_namespacevariables_1a0ffb326d7311be33ba677ed84d5b6ba4">nrg_gap</link> = 10000.0D0</para>
+
+<para>Energy treshold to switch-off the spin-orbit coupling, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ab043484be6fb6d8c4ad8598b38118394"/>logical <link linkend="_namespacevariables_1ab043484be6fb6d8c4ad8598b38118394">spin_dia</link> = .FALSE.</para>
+
+<para>It is TRUE when the spin-diabatic basis is used in CT-MQC, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a610698c08f69dd42fe82f46c85dc5538"/>logical <link linkend="_namespacevariables_1a610698c08f69dd42fe82f46c85dc5538">qmom_force</link> = .TRUE.</para>
+
+<para>It is TRUE when quantum-momentum force is used in CT-MQC, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ad3aca0bd36d443d13d7a42b19a0730a2"/>logical <link linkend="_namespacevariables_1ad3aca0bd36d443d13d7a42b19a0730a2">f_correction</link> = .FALSE.</para>
+
+<para>It is TRUE when energy conserving acc_force is used in CT-MQC (CTMQC-E), read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a10bdfc62fa2e099a9b26dc76a0d92136"/>real(kind=dp) <link linkend="_namespacevariables_1a10bdfc62fa2e099a9b26dc76a0d92136">r_threshold</link> = 0.001_dp</para>
+
+<para>R_threshold only used when f_correction= TRUE to determine cut-off for computation of modified acc force in CTMQC-E. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1af92d991704258f8297b8b198e53135f3"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1af92d991704258f8297b8b198e53135f3">m_parameter</link> = 100.0_dp</para>
+
+<para>M_parameter is used only when cl_qmom = TRUE to determine &quot;how far&quot; each trajectory has to search to find its neighbours, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a67853176cd74cfdd734649670ab693c0"/>integer <link linkend="_namespacevariables_1a67853176cd74cfdd734649670ab693c0">rescaling_type</link> = 2</para>
+
+<para>type of momentum rescaling after hop: 0 = isotropical, 2 = along NACV, 1 = along NACV, if frustrated isotropical </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a40e1c1db110064956c54d17714746854"/>logical <link linkend="_namespacevariables_1a40e1c1db110064956c54d17714746854">reflect_frust</link> = .FALSE.</para>
+
+<para>It is TRUE if you want to invert the full velocity vector after frustrated hop. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a6ff65842b71f60bb3a3052141a200931"/>logical <link linkend="_namespacevariables_1a6ff65842b71f60bb3a3052141a200931">force_hops</link> = .FALSE.</para>
+
+<para>Adds a threshold to force hops in CTTSH. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a915b979662a86b17d3fba6d10aab8f83"/>real(kind=dp) <link linkend="_namespacevariables_1a915b979662a86b17d3fba6d10aab8f83">hop_thr</link> = 0.6</para>
+
+<para>Above this threshold of population a trajectory is forced to hop. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a4b91238018eb797ab22b504f8c77471a"/>logical <link linkend="_namespacevariables_1a4b91238018eb797ab22b504f8c77471a">energy_sharing</link> = .FALSE.</para>
+
+<para>Option to share energy for CCT TSH. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1aa13c9d7ee528a1fd56f828ff27c0534d"/>integer <link linkend="_namespacevariables_1aa13c9d7ee528a1fd56f828ff27c0534d">sharing_type</link> = 0</para>
+
+<para>Types of energy sharing: 0 = equity based, 1 = overlap based, 2 = Qmom based. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a006a5474c4d319a36a5a423323da1055"/>logical <link linkend="_namespacevariables_1a006a5474c4d319a36a5a423323da1055">doubleintercept</link> = .true.</para>
+
+<para>If true then Qmom is calculated using double intercept. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a04a20627dc53fd751d742d6432dbec4f"/>real(kind=dp) <link linkend="_namespacevariables_1a04a20627dc53fd751d742d6432dbec4f">dt</link> = 0.1_dp</para>
+
+<para>Time step, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a40aad0c031e023db50cf3038bacdfc96"/>real(kind=dp) <link linkend="_namespacevariables_1a40aad0c031e023db50cf3038bacdfc96">final_time</link> = 0.0_dp</para>
+
+<para>Length of the simulations, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a69578646e2aa0d32889120d5b8359110"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1a69578646e2aa0d32889120d5b8359110">r_init</link></para>
+
+<para>Mean positions to initialize nuclear positions, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a9cd0eab367bc3601efcf4bf89c26af6a"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1a9cd0eab367bc3601efcf4bf89c26af6a">k_init</link></para>
+
+<para>Mean momenta to initialize nuclear momenta, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a7c9d49f132811737854b272426c79008"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1a7c9d49f132811737854b272426c79008">mass_input</link> = 0.0_dp</para>
+
+<para>Nuclear masses, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ae25d2599dbf45a48a5bcf469c3d17ec8"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1ae25d2599dbf45a48a5bcf469c3d17ec8">sigmar_init</link></para>
+
+<para>Position variances to initialize nuclear positions, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1aba9995d51a0298c8111345f0a656b16c"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1aba9995d51a0298c8111345f0a656b16c">sigmap_init</link> = -100.0_dp</para>
+
+<para>Momentum variances to initialize nuclear momenta, only necessary for non-Wigner sampling, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a8995c056c032e0032610f890f8ccc59d"/>integer <link linkend="_namespacevariables_1a8995c056c032e0032610f890f8ccc59d">ntraj</link> = 100</para>
+
+<para>Number of nuclear trajectories, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a55efc2aa607a220f981be3b6fa94a1d0"/>integer <link linkend="_namespacevariables_1a55efc2aa607a220f981be3b6fa94a1d0">nsteps</link> = 100</para>
+
+<para>Total number of dynamics time steps. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a2085be9ec56048026f1a3d7c2eec1739"/>integer <link linkend="_namespacevariables_1a2085be9ec56048026f1a3d7c2eec1739">nesteps</link> = 20</para>
+
+<para>Number of electronic time-steps per nuclear time-step. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac2dd52281771ef47435419abdbdc1a7a"/>integer <link linkend="_namespacevariables_1ac2dd52281771ef47435419abdbdc1a7a">dump</link> = 1</para>
+
+<para>Number of time steps after which the output is dumped, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a54d9fd995f19db5f6c7d693866d83845"/>integer <link linkend="_namespacevariables_1a54d9fd995f19db5f6c7d693866d83845">n_init_bo</link> = 1</para>
+
+<para>Number of initially populated electronic state(s), read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a00783cdec02323bcfced7a7c59f0d24f"/>integer, dimension(100) <link linkend="_namespacevariables_1a00783cdec02323bcfced7a7c59f0d24f">init_bostate</link> = -1</para>
+
+<para>Initial electronic state(s), read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a42f165bff4450e56564de9d70b04e3ab"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1a42f165bff4450e56564de9d70b04e3ab">weight_initbo</link> = 1.0_dp</para>
+
+<para>Weight(s) of the initially populated electronic state(s), read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac7649e52f87a2abc61635e627871ec8d"/>real(kind=dp), dimension(100) <link linkend="_namespacevariables_1ac7649e52f87a2abc61635e627871ec8d">phase_initbo</link> = 0.0_dp</para>
+
+<para>Phase(s) of the initially populated electronic state(s), read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1adbab92a50e7cdee9a6e5c6aae5e315df"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1adbab92a50e7cdee9a6e5c6aae5e315df">r0</link></para>
+
+<para>Mean nuclear positions. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac899ae2f2df0c3aa9e5d99c6ba034fda"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1ac899ae2f2df0c3aa9e5d99c6ba034fda">r02</link></para>
+
+<para>Mean nuclear positions squared. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a2baa17a4e682051a99a5a9aae3fef710"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1a2baa17a4e682051a99a5a9aae3fef710">k0</link></para>
+
+<para>Mean nuclear momenta. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a484805cd4b1e767609503180d3d179d1"/>integer, dimension(:), allocatable <link linkend="_namespacevariables_1a484805cd4b1e767609503180d3d179d1">initial_bostate</link></para>
+
+<para>BO states with non-zero initial occupation. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac28cfcf5df137ef402d7b4bf747e5313"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1ac28cfcf5df137ef402d7b4bf747e5313">weight_bostate</link></para>
+
+<para>Occupation of the BO states with non-zero initial occupation. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac1bc79a883c1d6f4317cfad0e408f15c"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1ac1bc79a883c1d6f4317cfad0e408f15c">phase_bostate</link></para>
+
+<para>Phases of the BO coefficients. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1abc7d9f91b11cface87a798188bfa8de5"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1abc7d9f91b11cface87a798188bfa8de5">period</link></para>
+
+<para>Periodicity of the periodic nuclear nuclear coordinate in unit of pi. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ab398c69cdb91e1c214f4c55dda9aaf9f"/>logical, dimension(:), allocatable <link linkend="_namespacevariables_1ab398c69cdb91e1c214f4c55dda9aaf9f">periodic_in</link></para>
+
+<para>It is TRUE for each periodic nuclear coordinate. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1aa7131651bfffd1fdaff88b51a2abd678"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1aa7131651bfffd1fdaff88b51a2abd678">mass</link></para>
+
+<para>Nuclear masses. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a52086073bad64f461333d8f6b0381eb0"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1a52086073bad64f461333d8f6b0381eb0">sigma</link></para>
+
+<para>Position variances to initialize nuclear positions. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a8fb4033efb4387a7058333d13806444d"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1a8fb4033efb4387a7058333d13806444d">var_momentum</link></para>
+
+<para>Momentum variances to initialize nuclear momenta. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a2545c7aae8865e43afa2222be48b3762"/>real(kind=dp), dimension(:,:,:), allocatable <link linkend="_namespacevariables_1a2545c7aae8865e43afa2222be48b3762">boforce</link></para>
+
+<para>Gradients of the electronic energies, either adiabatic or spin-(a)diabatic. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a7a298857dffd47b31fa1c97cdd1f4d78"/>real(kind=dp), dimension(:,:,:,:), allocatable <link linkend="_namespacevariables_1a7a298857dffd47b31fa1c97cdd1f4d78">coup</link></para>
+
+<para>Non-adiabatic couplings. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1adb5e68519739d37f48ee0d140fb9b63f"/>complex(kind=qp), dimension(:,:,:), allocatable <link linkend="_namespacevariables_1adb5e68519739d37f48ee0d140fb9b63f">coup_so</link></para>
+
+<para>Spin-orbit coupling. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a767fd537b71696ddaa20d6e81d503756"/>real(kind=dp), dimension(:,:), allocatable <link linkend="_namespacevariables_1a767fd537b71696ddaa20d6e81d503756">boenergy</link></para>
+
+<para>Electronic energies, either adiabatic or spin-(a)diabatic. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a2a73e8becd0149734da585f50a1d47bb"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1a2a73e8becd0149734da585f50a1d47bb">bo_pop</link></para>
+
+<para>Populations of the electronic states computed from the electronic coefficients. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a01a9d3567cc98f502a8e010d52c19297"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1a01a9d3567cc98f502a8e010d52c19297">bo_pop_sh</link></para>
+
+<para>Populations of the electronic states computed in surface hopping as the ratio of trajectories running in each state over the total number of trajectories. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1acf66d08390267e6ce4de07169f2dc591"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1acf66d08390267e6ce4de07169f2dc591">dia_pop</link></para>
+
+<para>diabatic Populations of the electronic states computed from the electronic coefficients </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1afb6f8c4aeabffd06a2f747ba356ee4ca"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1afb6f8c4aeabffd06a2f747ba356ee4ca">bo_coh</link></para>
+
+<para>Electronic coherences. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ae65a513175ce0fad4cc4db9741ce91f0"/>real(kind=dp) <link linkend="_namespacevariables_1ae65a513175ce0fad4cc4db9741ce91f0">ctmqc_e</link></para>
+
+<para>Trajectory-averaged CTMQC Energy. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a5543ce933ba875fb285c8f593b608377"/>real(kind=dp), dimension(:,:), allocatable <link linkend="_namespacevariables_1a5543ce933ba875fb285c8f593b608377">initial_positions</link></para>
+
+<para>Initial nuclear positions. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac2ee0b3f3771e6aea98fada2bfab02ac"/>real(kind=dp), dimension(:,:), allocatable <link linkend="_namespacevariables_1ac2ee0b3f3771e6aea98fada2bfab02ac">initial_momenta</link></para>
+
+<para>Initial nuclear momenta. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a99f474690efde6532bcd05bb72366dee"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1a99f474690efde6532bcd05bb72366dee">weight</link></para>
+
+<para>Weight of each trajectory (usually it is equal to unity) </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac4c8578ccf88450e0247d06aff091871"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1ac4c8578ccf88450e0247d06aff091871">tdpes</link></para>
+
+<para>Gauge invariant part of the TDPES in CT-MQC calculation and mean Ehrenfest potential in Ehrenfest dynamics. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a915d7262ff7c820f1d4f5dfd73bacb46"/>real(kind=dp), dimension(:), allocatable <link linkend="_namespacevariables_1a915d7262ff7c820f1d4f5dfd73bacb46">density</link></para>
+
+<para>Nuclear density. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ad5c48996717183560da978058f4b0e06"/>integer, dimension(:), allocatable <link linkend="_namespacevariables_1ad5c48996717183560da978058f4b0e06">occ_state</link></para>
+
+<para>Active or force state in surface hopping. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a67f7abe9cb469937f2be51f51665e973"/>integer, dimension(:), allocatable <link linkend="_namespacevariables_1a67f7abe9cb469937f2be51f51665e973">lz_hop</link></para>
+
+<para>Keeps track of jumps in Landau-Zener surface hopping. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac6c6fd7ebd7b4f6d470cc28727ae8d29"/>integer <link linkend="_namespacevariables_1ac6c6fd7ebd7b4f6d470cc28727ae8d29">count_traj</link></para>
+
+<para>Counts the trajectories that go through the avoided crossing. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a1ea4a43be146aeac04e4232412664f5d"/>integer, dimension(:), allocatable <link linkend="_namespacevariables_1a1ea4a43be146aeac04e4232412664f5d">list_coupled_trajectories</link></para>
+
+<para>List of coupled trajectories in CT-MQC (in the current version all trajectories are coupled) </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a797331f3913bc754836bd7e54b33a341"/>real(kind=dp), dimension(:,:,:), allocatable <link linkend="_namespacevariables_1a797331f3913bc754836bd7e54b33a341">vec0</link></para>
+
+<para>NACV used to assure the Phase following from QmodelLib. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a23661a7ead9e8460c18617f484138dea"/>real(kind=dp), dimension(:,:,:), allocatable <link linkend="_namespacevariables_1a23661a7ead9e8460c18617f484138dea">previous_eigenv</link></para>
+
+<para>If NEW_POTENTIAL == .TRUE. this variable is needed to check the phase of neighboring eigenvectors. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a626978223ef684c66a5f9cd090a1a5eb"/>real(kind=dp), dimension(:,:,:,:), allocatable <link linkend="_namespacevariables_1a626978223ef684c66a5f9cd090a1a5eb">previous_coup</link></para>
+
+<para>Checks that the NACVs are continous along a trajectory. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a3f2c830ce792853fd73714fa944315e4"/>logical <emphasis role="strong">initial_coup</emphasis> = .TRUE.</para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ab828aa682351077d000aa22678370409"/>character(len=400) <link linkend="_namespacevariables_1ab828aa682351077d000aa22678370409">positions_file</link> = &quot;&quot;</para>
+
+<para>Path to the file here initial positions are listed in case they are generated by another program, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1a497dfe6ec833d5836b449fa765e12e99"/>character(len=400) <link linkend="_namespacevariables_1a497dfe6ec833d5836b449fa765e12e99">momenta_file</link> = &quot;&quot;</para>
+
+<para>Path to the file here initial momenta are listed in case they are generated by another program, read in input. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacevariables_1ac58599b7c2bb340a4b0ac797c9184ae3"/>character(len=400) <link linkend="_namespacevariables_1ac58599b7c2bb340a4b0ac797c9184ae3">output_folder</link> = &quot;./&quot;</para>
+
+<para>Path to the directory where the output is written, read in input; note that in such directory, two sub-directories (coeff and trajectories) have to be created. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The module defines all common variables. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+</section>

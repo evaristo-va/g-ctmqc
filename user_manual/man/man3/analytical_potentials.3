@@ -1,0 +1,359 @@
+.TH "analytical_potentials" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+analytical_potentials \- Diabatic low dimensional potentials\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBnew_model_potentials\fP (Hel, grad_BO, NAC, Q)"
+.br
+.RI "Definition of electronic structure properties, ie, energies, gradients and derivative couplings on model potentials integrated in the G-CTMQC\&. "
+.ti -1c
+.RI "subroutine \fBcheck_overlap\fP (eigenv1, eigenv2, factor)"
+.br
+.RI "Check that adjacent adiabatic states are continuous in nuclear space\&. "
+.ti -1c
+.RI "subroutine \fBdiagonalize\fP (matrix, eigenvalues, eigenvectors)"
+.br
+.RI "Diagonalization of a real symmetric matrix with the Lapac procedure dsyevd\&. "
+.ti -1c
+.RI "subroutine \fBnon_adiabatic_couplings\fP (energy, gradients, eigenvectors, couplings)"
+.br
+.RI "Calculation of analytical non-adiabatic couplings\&. "
+.ti -1c
+.RI "subroutine \fBnai_potential\fP (H, R, grad_H, R_crossing)"
+.br
+.RI "Definition of the analytical model potentials for the diatomic molecule NaI following the work of Faist and Levine published in JCP (1976) DOI:10\&.1063/1\&.432555\&. "
+.ti -1c
+.RI "subroutine \fBibr_potential\fP (H, R, grad_H, R_crossing)"
+.br
+.RI "Definition of the analytical model potentials for the diatomic molecule NaI following the work of Guo published in JCP (1993) DOI:10\&.1063/1\&.465285\&. "
+.ti -1c
+.RI "subroutine \fBdoublewell_potential\fP (H, R, grad_H, R_crossing)"
+.br
+.RI "Definition of the analytical model potentials a double well\&. "
+.ti -1c
+.RI "subroutine \fBtully3\fP (H, R, grad_H)"
+.br
+.RI "Definition of the analytical model potential Tully #3\&. "
+.ti -1c
+.RI "subroutine \fBsubotnikjpca2019\fP (H, R, grad_H)"
+.br
+.RI "Definition of the analytical model potentials for parallel constant PESs\&. "
+.ti -1c
+.RI "subroutine \fBphenol_potential\fP (H, R, grad_H, R_crossing)"
+.br
+.RI "Definition of the analytical model potentials for the phenol molecule following the work of Faist and Levine published in JCP (1976) DOI:10\&.1063/1\&.432555\&. "
+.ti -1c
+.RI "subroutine \fBplot_potential\fP ()"
+.br
+.RI "Plot the adiabatic and diabatic analytical potentials\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Diabatic low dimensional potentials\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine analytical_potentials::check_overlap (real(kind=dp), dimension(nstates,nstates), intent(in) eigenv1, real(kind=dp), dimension(nstates,nstates), intent(in) eigenv2, real(kind=dp), dimension(nstates), intent(inout) factor)"
+
+.PP
+Check that adjacent adiabatic states are continuous in nuclear space\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIeigenv1,eigenv2\fP eigenstates of the electronic Hamiltonian at adjecent points in nuclear space 
+.br
+\fIfactor\fP control factor for the phase relation between adjacent adiabatic states 
+.br
+\fIsum\fP scalar product between eigenv1 and eigenv2 
+.br
+\fIi,j\fP integer indices 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The values of factor is returned: it is 1 if the two vectors are in phase or -1 if the two vectors are out of phase\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::diagonalize (real(kind=dp), dimension(nstates,nstates), intent(in) matrix, real(kind=dp), dimension(nstates), intent(inout) eigenvalues, real(kind=dp), dimension(:,:), intent(inout) eigenvectors)"
+
+.PP
+Diagonalization of a real symmetric matrix with the Lapac procedure dsyevd\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImatrix\fP to be diagonalized 
+.br
+\fIeigenvalues\fP of the matrix 
+.br
+\fIeigenvectors\fP of the matrix 
+.br
+\fIioerr\fP control variable for diagonalization errors 
+.br
+\fIlwork\fP dimension of the array work 
+.br
+\fIdim_work\fP temporary dimension of the array work 
+.br
+\fIliwork\fP dimension of the array iwork 
+.br
+\fIdim_iwork\fP temporary dimension of the array iwork 
+.br
+\fIiwork\fP integer array 
+.br
+\fIwork\fP double precision array 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The eigenvalues and eigenvectors of the matrix are returned\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::doublewell_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)"
+
+.PP
+Definition of the analytical model potentials a double well\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIH\fP electronic Hamiltonian in the diabatic basis 
+.br
+\fIgrad_H\fP gradient of the electronic Hamiltonian in the diabatic basis 
+.br
+\fIR\fP nuclear position 
+.br
+\fIKX,DELTA,X1,X2,X3,GAMMA,ALPHA\fP parameters of the potentials: Note that the used units are atomic units 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The electronic Hamiltonian and its nuclear gradients are returned\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::ibr_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)"
+
+.PP
+Definition of the analytical model potentials for the diatomic molecule NaI following the work of Guo published in JCP (1993) DOI:10\&.1063/1\&.465285\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIH\fP electronic Hamiltonian in the diabatic basis 
+.br
+\fIgrad_H\fP gradient of the electronic Hamiltonian in the diabatic basis 
+.br
+\fIR\fP nuclear position 
+.br
+\fIA0,alpha0,r0,A1,alpha1,r1,D,A2,alpha2,B2,beta2,h12\fP parameters of the potentials: Note that the used units are atomic units 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The electronic Hamiltonian and its nuclear gradients are returned\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::nai_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)"
+
+.PP
+Definition of the analytical model potentials for the diatomic molecule NaI following the work of Faist and Levine published in JCP (1976) DOI:10\&.1063/1\&.432555\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIH\fP electronic Hamiltonian in the diabatic basis 
+.br
+\fIgrad_H\fP gradient of the electronic Hamiltonian in the diabatic basis 
+.br
+\fIR\fP nuclear position 
+.br
+\fIAcov,Bcov,rhocov,Ccov,Aion,Bion,rhoion,Cion,alphaMp,alphaXm,Eth,A,rho\fP parameters of the potentials: Note that the used units are electronvolts and and angstroms in the original definition 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The electronic Hamiltonian and its nuclear gradients are returned\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::new_model_potentials (real(kind=dp), dimension(nstates,nstates), intent(inout) Hel, real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) grad_BO, real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) NAC, real(kind=dp), dimension(n_dof), intent(in) Q)"
+
+.PP
+Definition of electronic structure properties, ie, energies, gradients and derivative couplings on model potentials integrated in the G-CTMQC\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIHel\fP electronic Hamiltonian at the trajectory position 
+.br
+\fIgrad_BO\fP gradient of the adiabatic energy at the trajectory position 
+.br
+\fINAC\fP non-adiabatic coupling vector at the trajectory position 
+.br
+\fIQ\fP trajectory position 
+.br
+\fIEbo\fP adiabatic energy at the trajectory position 
+.br
+\fIgrad_Hel\fP gradient of the electronic Hamiltonian at the trajectory position 
+.br
+\fIU\fP transformation matrix from the diabatic to the adiabatic basis 
+.br
+\fIfactor\fP control factor for the phase relation between adjacent adiabatic states 
+.br
+\fIdelta\fP spatial increment to compute numerical derivatives 
+.br
+\fIi_dof\fP index running on the n_dof degrees of freedom 
+.br
+\fIix,i\fP integer indices 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The values of the adiabatic energies are returned as the diagonal elements of Hel; the gradient of the adiabatic energies and the non-adiabatic couplings are returned in grad_BO and NAC\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::non_adiabatic_couplings (real(kind=dp), dimension(nstates), intent(in) energy, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) gradients, real(kind=dp), dimension(nstates,nstates), intent(in) eigenvectors, real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) couplings)"
+
+.PP
+Calculation of analytical non-adiabatic couplings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenergy\fP of the adiabatic states 
+.br
+\fIgradients\fP of the adiabatic energies 
+.br
+\fIeigenvectors\fP of the electronic Hamiltonian 
+.br
+\fIcouplings\fP matrix representing the non-adiabatic couplings 
+.br
+\fIi,j,k,l\fP integer indices 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The matrix of non-adiabatic couplings is returned\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::phenol_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)"
+
+.PP
+Definition of the analytical model potentials for the phenol molecule following the work of Faist and Levine published in JCP (1976) DOI:10\&.1063/1\&.432555\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIH\fP electronic Hamiltonian in the diabatic basis 
+.br
+\fIgrad_H\fP gradient of the electronic Hamiltonian in the diabatic basis 
+.br
+\fIR\fP nuclear position 
+.br
+\fIAcov,Bcov,rhocov,Ccov,Aion,Bion,rhoion,Cion,alphaMp,alphaXm,Eth,A,rho\fP parameters of the potentials: Note that the used units are electronvolts and and angstroms in the original definition 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The electronic Hamiltonian and its nuclear gradients are returned\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::plot_potential"
+
+.PP
+Plot the adiabatic and diabatic analytical potentials\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIRmin,Rmax\fP limits of the domain to plot the potentials 
+.br
+\fIV\fP values of the diabatic potentials 
+.br
+\fIepsBO\fP values of the adiabatic potentials 
+.br
+\fInacv\fP values of the non-adiabatic couplings 
+.br
+\fIgrad_V\fP values of the gradients of the diabatic potentials 
+.br
+\fIU\fP transformation matrix from the diabatic to the adiabatic basis at the current position 
+.br
+\fIsave_U\fP transformation matrix from the diabatic to the adiabatic basis at the previous position 
+.br
+\fIfactor\fP control factor for the phase relation between adjacent adiabatic states 
+.br
+\fInpoints\fP number of grid points in nuclear space to plot the potentials 
+.br
+\fIdelta\fP spatial increment to compute numerical derivatives 
+.br
+\fIR\fP 
+.br
+\fIground_states_density\fP initial nuclear density consistent with the distribution of classical initial positions and momenta 
+.br
+\fIios\fP control variable for output errors 
+.br
+\fIix,i\fP integer indices 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::subotnikjpca2019 (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H)"
+
+.PP
+Definition of the analytical model potentials for parallel constant PESs\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIH\fP electronic Hamiltonian in the diabatic basis 
+.br
+\fIgrad_H\fP gradient of the electronic Hamiltonian in the diabatic basis 
+.br
+\fIR\fP nuclear position 
+.br
+\fIA,B\fP parameters of the potentials: Note that the used units are atomic units 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The electronic Hamiltonian and its nuclear gradients are returned\&. 
+.RE
+.PP
+
+.SS "subroutine analytical_potentials::tully3 (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H)"
+
+.PP
+Definition of the analytical model potential Tully #3\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIH\fP electronic Hamiltonian in the diabatic basis 
+.br
+\fIgrad_H\fP gradient of the electronic Hamiltonian in the diabatic basis 
+.br
+\fIR\fP nuclear position 
+.br
+\fIa,b,c\fP parameters of the potentials: Note that the used units are atomic units 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The electronic Hamiltonian and its nuclear gradients are returned\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

@@ -1,0 +1,214 @@
+.TH "output" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+output \- Output subroutines that print: electronic populations and coherences as functions of time; electronic coefficients as functions of positions at different time steps; positions, momenta and energies at different time steps\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBplot\fP (BOsigma, Rcl, Vcl, time)"
+.br
+.RI "Subroutine which writes electronic populations and coherences in output and calls additional output subroutines\&. "
+.ti -1c
+.RI "subroutine \fBplot_coefficients\fP (BOsigma, Rcl, time)"
+.br
+.RI "Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics\&. "
+.ti -1c
+.RI "subroutine \fBplot_r_p_e\fP (Rcl, Vcl, time)"
+.br
+.RI "Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics\&. "
+.ti -1c
+.RI "subroutine \fBplot_qmom\fP (Rcl, qmom, qmom_type, time)"
+.br
+.RI "Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt\&. "
+.ti -1c
+.RI "subroutine \fBplot_stc\fP (k_ll, BOsigma, acc_force_E, Vcl, time)"
+.br
+.RI "Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt\&. "
+.ti -1c
+.RI "subroutine \fBcompute_energy\fP (my_rho, e_BO, trajlabel)"
+.br
+.RI "The subroutine computes the expectation value of the electronic Hamiltonian on the time-dependent electronic wavefunction, yielding the gauge-invariant part of the TDPES in CT-MQC or the mean Ehrenfest potential\&. "
+.ti -1c
+.RI "subroutine \fBinitialize_output\fP"
+.br
+.RI "The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are opened in this subroutine\&. "
+.ti -1c
+.RI "subroutine \fBfinalize_output\fP"
+.br
+.RI "The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are closed in this subroutine\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Output subroutines that print: electronic populations and coherences as functions of time; electronic coefficients as functions of positions at different time steps; positions, momenta and energies at different time steps\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine output::compute_energy (complex(kind=qp), dimension(nstates,nstates), intent(in) my_rho, real(kind=dp), dimension(nstates), intent(in) e_BO, integer, intent(in) trajlabel)"
+
+.PP
+The subroutine computes the expectation value of the electronic Hamiltonian on the time-dependent electronic wavefunction, yielding the gauge-invariant part of the TDPES in CT-MQC or the mean Ehrenfest potential\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory 
+.br
+\fImy_rho\fP electronic density matrix 
+.br
+\fIe_BO\fP adiabatic or spin-(a)diabatic energy 
+.br
+\fIi\fP integer index 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the TDPES is returned, where 'TDPES' means either the gauge-invariant part of the TDPES in CT-MQC or the mean Ehrenfest potential\&. 
+.RE
+.PP
+
+.SS "subroutine output::initialize_output"
+
+.PP
+The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are opened in this subroutine\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIios\fP control variable for output errors 
+.RE
+.PP
+
+.SS "subroutine output::plot (complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, integer, intent(in) time)"
+
+.PP
+Subroutine which writes electronic populations and coherences in output and calls additional output subroutines\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP time step 
+.br
+\fIRcl\fP positions of the trajectories 
+.br
+\fIVcl\fP velocities of the trajectories 
+.br
+\fIBOsigma\fP electronic density matrix 
+.br
+\fIi,j\fP integer indices 
+.br
+\fIitraj\fP integer index running over the Ntraj trajectories 
+.br
+\fIindex_ij\fP integer index running over the pairs of electronic states 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Energies, forces and non-adiabatic couplings are stored in the arrays BOenergy, BOforce, coup\&. 
+.RE
+.PP
+
+.SS "subroutine output::plot_coefficients (complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, integer, intent(in) time)"
+
+.PP
+Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP time step 
+.br
+\fIRcl\fP positions of the trajectories 
+.br
+\fIBOsigma\fP electronic density matrix 
+.br
+\fIidx\fP index labelling the output files from 000 to 999 
+.br
+\fIfilename\fP name of the output file 
+.br
+\fIitraj\fP integer index running over the Ntraj trajectories 
+.br
+\fIios\fP control variable for output errors 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+In the directory coeff the files coeff\&.XXX\&.dat are created, labelled from 000 to 999 (those indices label the time steps)\&. 
+.RE
+.PP
+
+.SS "subroutine output::plot_qmom (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(n_dof,ntraj,npairs), intent(in) qmom, integer, dimension(n_dof,ntraj,npairs), intent(in) qmom_type, integer, intent(in) time)"
+
+.PP
+Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP time step 
+.RE
+.PP
+
+.SS "subroutine output::plot_r_p_e (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, integer, intent(in) time)"
+
+.PP
+Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP time step 
+.br
+\fIRcl\fP positions of the trajectories 
+.br
+\fIVcl\fP velocities of the trajectories 
+.br
+\fIidx\fP index labelling the output files from 000 to 999 
+.br
+\fIfilename\fP name of the output file 
+.br
+\fIitraj\fP integer index running over the Ntraj trajectories 
+.br
+\fIios\fP control variable for output errors 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+In the directory trajectories the files RPE\&.XXX\&.dat are created, labelled from 000 to 999 (those indices label the time steps)\&. 
+.RE
+.PP
+
+.SS "subroutine output::plot_stc (real(kind=dp), dimension(ntraj,nstates,nstates), intent(in) k_ll, complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force_E, real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, integer, intent(in) time)"
+
+.PP
+Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP time step 
+.br
+\fIBOsigma\fP electronic density matrix 
+.br
+\fIk_ll\fP qmom*acc_force 
+.br
+\fIitraj\fP integer index running over the Ntraj trajectories 
+.br
+\fIios\fP control variable for output errors 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+In main directory STC\&.dat is created 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

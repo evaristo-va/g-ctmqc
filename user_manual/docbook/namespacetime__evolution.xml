@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacetime__evolution" xml:lang="en-US">
+<title>time_evolution Module Reference</title>
+<indexterm><primary>time_evolution</primary></indexterm>
+<para>
+
+<para>Complete time evolution of Ntraj trajectories with Ehrenfest, surface hopping and CT-MQC , along with time initialization and finalization. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespacetime__evolution_1adf197da88c58ecd1eba0f4984aaf1b48">evolution</link></para>
+
+<para>Three algorithms are used to evolve classical nuclear trajectories along with the electronic coefficients: Ehrenfest dynamics, trajectory surface hopping and CT-MQC. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1afc191c30095888ec125f2655fa18bab6"/>subroutine <link linkend="_namespacetime__evolution_1afc191c30095888ec125f2655fa18bab6">input_summary</link></para>
+
+<para>Summary of the input is written on the terminal. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacetime__evolution_1ae14704faae68a3ad26368714937ebbbf">initialize_local_vars</link></para>
+
+<para>Variables used in the evolution subroutine are inizialized. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacetime__evolution_1aeb6d3ae23cd9aa89ba1d65e5a84674f0">finalize_local_vars</link></para>
+
+<para>Variables used in the evolution subroutine are deallocated. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a8b47f0e4068cefb6882176fc50bce59b"/>real(kind=dp), dimension(:,:), allocatable <emphasis role="strong">rcl</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1aa8e42cd8e2cced352ccbe27d78ac6b47"/>real(kind=dp), dimension(:,:), allocatable <emphasis role="strong">vcl</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a31b14d710f09ad80155a285e042d6750"/>real(kind=dp), dimension(:), allocatable <emphasis role="strong">classical_force</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a9e6dd8baff8ee492f608ddbf065f1e55"/>real(kind=dp), dimension(:,:,:), allocatable <emphasis role="strong">my_force</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a090b86991c4ac03700524805420c1aa7"/>real(kind=dp), dimension(:,:,:), allocatable <emphasis role="strong">k_li</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a9a2c81343b2c3d55fb1bae9b3fa42a73"/>real(kind=dp), dimension(:,:), allocatable <emphasis role="strong">tdvp</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a9ce8535e077ebbe34377ab58a5522b87"/>real(kind=dp), dimension(:), allocatable <emphasis role="strong">boenergy_old</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a3ef895461221639f24ba08a41dd944ee"/>real(kind=dp), dimension(:,:,:), allocatable <emphasis role="strong">coup_old</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a9db8042f4d4bfa877d7104f6e305be98"/>real(kind=dp), dimension(:,:,:), allocatable <emphasis role="strong">qmom</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a0a4d3d7c19bcc9d4f668194e24e9f892"/>integer, dimension(:,:,:), allocatable <emphasis role="strong">qmom_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a8cb3d8d326e4f66de736507a39fa0a8a"/>real(kind=dp), dimension(:,:,:), allocatable <emphasis role="strong">my_force_e</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a567b699b62120b0f5347de8dbafd3e21"/>complex(kind=qp), dimension(:,:,:), allocatable <emphasis role="strong">bosigma</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespacetime__evolution_1a0ddebfdca84add9c40ae109d996117a7"/>complex(kind=qp), dimension(:,:), allocatable <emphasis role="strong">bocoeff</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Complete time evolution of Ntraj trajectories with Ehrenfest, surface hopping and CT-MQC , along with time initialization and finalization. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespacetime__evolution_1adf197da88c58ecd1eba0f4984aaf1b48"/>    <section>
+    <title>evolution()</title>
+<indexterm><primary>evolution</primary><secondary>time_evolution</secondary></indexterm>
+<indexterm><primary>time_evolution</primary><secondary>evolution</secondary></indexterm>
+<para><computeroutput>subroutine time_evolution::evolution</computeroutput></para><para>
+
+<para>Three algorithms are used to evolve classical nuclear trajectories along with the electronic coefficients: Ehrenfest dynamics, trajectory surface hopping and CT-MQC. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>time</entry>
+                                <entry>
+<para>time step </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>itraj</entry>
+                                <entry>
+<para>integer index running over the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>i, j</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespacetime__evolution_1aeb6d3ae23cd9aa89ba1d65e5a84674f0"/>    <section>
+    <title>finalize_local_vars()</title>
+<indexterm><primary>finalize_local_vars</primary><secondary>time_evolution</secondary></indexterm>
+<indexterm><primary>time_evolution</primary><secondary>finalize_local_vars</secondary></indexterm>
+<para><computeroutput>subroutine time_evolution::finalize_local_vars</computeroutput></para><para>
+
+<para>Variables used in the evolution subroutine are deallocated. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>check</entry>
+                                <entry>
+<para>control factor for deallocation errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespacetime__evolution_1ae14704faae68a3ad26368714937ebbbf"/>    <section>
+    <title>initialize_local_vars()</title>
+<indexterm><primary>initialize_local_vars</primary><secondary>time_evolution</secondary></indexterm>
+<indexterm><primary>time_evolution</primary><secondary>initialize_local_vars</secondary></indexterm>
+<para><computeroutput>subroutine time_evolution::initialize_local_vars</computeroutput></para><para>
+
+<para>Variables used in the evolution subroutine are inizialized. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>itraj</entry>
+                                <entry>
+<para>integer index running over the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>i, j</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

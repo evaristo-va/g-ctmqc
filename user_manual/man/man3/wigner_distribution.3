@@ -1,0 +1,92 @@
+.TH "wigner_distribution" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+wigner_distribution \- Sampling of the initial conditions based on the harmonic Wigner distribution using the Box-Muller algorithm\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBinitial_conditions\fP"
+.br
+.RI "If initial conditions are not provided, they are sampled according to Gaussian distributions\&. "
+.ti -1c
+.RI "real(kind=dp) function, dimension(my_nrand) \fBgaussian_distribution\fP (xi, nrand, var, x0, my_nrand)"
+.br
+.RI "Box-Muller transform to generate normally distributed random number starting with uniformly distributed random numbers between 0 and 1\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sampling of the initial conditions based on the harmonic Wigner distribution using the Box-Muller algorithm\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "real(kind=dp) function, dimension(my_nrand) wigner_distribution::gaussian_distribution (real(kind=dp), dimension(nrand), intent(in) xi, integer, intent(in) nrand, real(kind=dp), intent(in) var, real(kind=dp), intent(in) x0, integer, intent(in) my_nrand)"
+
+.PP
+Box-Muller transform to generate normally distributed random number starting with uniformly distributed random numbers between 0 and 1\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInrand\fP amount of normally distributed random numbers to be generated 
+.br
+\fImy_nrand\fP amount of normally distributed random numbers that are needed 
+.br
+\fIxi\fP array of uniformly distributed random numbers 
+.br
+\fIvar\fP variance of the Gaussian distribution 
+.br
+\fIx0\fP mean value of the Gaussian distribution 
+.br
+\fIy_tmp\fP normally distributed random numbers 
+.br
+\fIy\fP normally distributed random numbers that are returned by the function 
+.br
+\fIi,j\fP integer indices 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Normally distributed random numbers are generated\&. 
+.RE
+.PP
+
+.SS "subroutine wigner_distribution::initial_conditions"
+
+.PP
+If initial conditions are not provided, they are sampled according to Gaussian distributions\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIxi\fP array of random numbers uniformally distributed 
+.br
+\fIcheck\fP control factor allocation errors 
+.br
+\fInrand\fP integer index 
+.br
+\fIi\fP integer index 
+.br
+\fIios\fP control factor output errors 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Initial positions and initial momenta are generated\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

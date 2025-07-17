@@ -1,0 +1,83 @@
+\hypertarget{namespacewigner__distribution}{}\doxysection{wigner\+\_\+distribution Module Reference}
+\label{namespacewigner__distribution}\index{wigner\_distribution@{wigner\_distribution}}
+
+
+Sampling of the initial conditions based on the harmonic Wigner distribution using the Box-\/\+Muller algorithm.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacewigner__distribution_aa2c951a0f0f444c1e379d3071007be0d}{initial\+\_\+conditions}}
+\begin{DoxyCompactList}\small\item\em If initial conditions are not provided, they are sampled according to Gaussian distributions. \end{DoxyCompactList}\item 
+real(kind=dp) function, dimension(my\+\_\+nrand) \mbox{\hyperlink{namespacewigner__distribution_a8a2514e4fdf5f85b28b8f4839b0c9d6c}{gaussian\+\_\+distribution}} (xi, nrand, var, x0, my\+\_\+nrand)
+\begin{DoxyCompactList}\small\item\em Box-\/\+Muller transform to generate normally distributed random number starting with uniformly distributed random numbers between 0 and 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sampling of the initial conditions based on the harmonic Wigner distribution using the Box-\/\+Muller algorithm. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacewigner__distribution_a8a2514e4fdf5f85b28b8f4839b0c9d6c}\label{namespacewigner__distribution_a8a2514e4fdf5f85b28b8f4839b0c9d6c}} 
+\index{wigner\_distribution@{wigner\_distribution}!gaussian\_distribution@{gaussian\_distribution}}
+\index{gaussian\_distribution@{gaussian\_distribution}!wigner\_distribution@{wigner\_distribution}}
+\doxysubsubsection{\texorpdfstring{gaussian\_distribution()}{gaussian\_distribution()}}
+{\footnotesize\ttfamily real(kind=dp) function, dimension(my\+\_\+nrand) wigner\+\_\+distribution\+::gaussian\+\_\+distribution (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nrand), intent(in)}]{xi,  }\item[{integer, intent(in)}]{nrand,  }\item[{real(kind=dp), intent(in)}]{var,  }\item[{real(kind=dp), intent(in)}]{x0,  }\item[{integer, intent(in)}]{my\+\_\+nrand }\end{DoxyParamCaption})}
+
+
+
+Box-\/\+Muller transform to generate normally distributed random number starting with uniformly distributed random numbers between 0 and 1. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nrand} & amount of normally distributed random numbers to be generated \\
+\hline
+\mbox{\texttt{ in}}  & {\em my\+\_\+nrand} & amount of normally distributed random numbers that are needed \\
+\hline
+\mbox{\texttt{ in}}  & {\em xi} & array of uniformly distributed random numbers \\
+\hline
+\mbox{\texttt{ in}}  & {\em var} & variance of the Gaussian distribution \\
+\hline
+\mbox{\texttt{ in}}  & {\em x0} & mean value of the Gaussian distribution \\
+\hline
+ & {\em y\+\_\+tmp} & normally distributed random numbers \\
+\hline
+ & {\em y} & normally distributed random numbers that are returned by the function \\
+\hline
+ & {\em i,j} & integer indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Normally distributed random numbers are generated. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacewigner__distribution_aa2c951a0f0f444c1e379d3071007be0d}\label{namespacewigner__distribution_aa2c951a0f0f444c1e379d3071007be0d}} 
+\index{wigner\_distribution@{wigner\_distribution}!initial\_conditions@{initial\_conditions}}
+\index{initial\_conditions@{initial\_conditions}!wigner\_distribution@{wigner\_distribution}}
+\doxysubsubsection{\texorpdfstring{initial\_conditions()}{initial\_conditions()}}
+{\footnotesize\ttfamily subroutine wigner\+\_\+distribution\+::initial\+\_\+conditions}
+
+
+
+If initial conditions are not provided, they are sampled according to Gaussian distributions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xi} & array of random numbers uniformally distributed \\
+\hline
+{\em check} & control factor allocation errors \\
+\hline
+{\em nrand} & integer index \\
+\hline
+{\em i} & integer index \\
+\hline
+{\em ios} & control factor output errors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initial positions and initial momenta are generated. 
+\end{DoxyReturn}

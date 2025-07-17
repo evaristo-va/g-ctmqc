@@ -1,0 +1,110 @@
+\hypertarget{namespacetools}{}\doxysection{tools Module Reference}
+\label{namespacetools}\index{tools@{tools}}
+
+
+Numerical tools for initialization and finalization of the dynamically-\/allocated vectors, along with initialization of random numbers generators.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacetools_a4b9108e3805bcce9a45fa4557c0322b6}{initialize\+\_\+dynamics\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Initialization of dynamics variables. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacetools_ae7335914dc8a02a5ac7b2786d96263cd}{initialize\+\_\+trajectory\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Initialization of trajectory variables. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacetools_a344621a80584ed041d6abf32851fbb3c}{finalize}}
+\begin{DoxyCompactList}\small\item\em Deallocation of dynamically-\/allocayed arrays. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacetools_a36383c074ddfd2d1ad7a4deedd095d31}{generate\+\_\+random\+\_\+seed}}
+\begin{DoxyCompactList}\small\item\em Inizialization of random number generator for the initial conditions. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacetools_aa0f1f6549316781a94605e9cdbac3b7f}{generate\+\_\+random\+\_\+seed\+\_\+hop}}
+\begin{DoxyCompactList}\small\item\em Inizialization of random number generator for the trajectory hops. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Numerical tools for initialization and finalization of the dynamically-\/allocated vectors, along with initialization of random numbers generators. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacetools_a344621a80584ed041d6abf32851fbb3c}\label{namespacetools_a344621a80584ed041d6abf32851fbb3c}} 
+\index{tools@{tools}!finalize@{finalize}}
+\index{finalize@{finalize}!tools@{tools}}
+\doxysubsubsection{\texorpdfstring{finalize()}{finalize()}}
+{\footnotesize\ttfamily subroutine tools\+::finalize}
+
+
+
+Deallocation of dynamically-\/allocayed arrays. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em check} & control factor for deallocation errors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetools_a36383c074ddfd2d1ad7a4deedd095d31}\label{namespacetools_a36383c074ddfd2d1ad7a4deedd095d31}} 
+\index{tools@{tools}!generate\_random\_seed@{generate\_random\_seed}}
+\index{generate\_random\_seed@{generate\_random\_seed}!tools@{tools}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_seed()}{generate\_random\_seed()}}
+{\footnotesize\ttfamily subroutine tools\+::generate\+\_\+random\+\_\+seed}
+
+
+
+Inizialization of random number generator for the initial conditions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & seed for the random number generator \\
+\hline
+{\em n,i} & integer indices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetools_aa0f1f6549316781a94605e9cdbac3b7f}\label{namespacetools_aa0f1f6549316781a94605e9cdbac3b7f}} 
+\index{tools@{tools}!generate\_random\_seed\_hop@{generate\_random\_seed\_hop}}
+\index{generate\_random\_seed\_hop@{generate\_random\_seed\_hop}!tools@{tools}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_seed\_hop()}{generate\_random\_seed\_hop()}}
+{\footnotesize\ttfamily subroutine tools\+::generate\+\_\+random\+\_\+seed\+\_\+hop}
+
+
+
+Inizialization of random number generator for the trajectory hops. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & seed for the random number generator \\
+\hline
+{\em n,i} & integer indices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetools_a4b9108e3805bcce9a45fa4557c0322b6}\label{namespacetools_a4b9108e3805bcce9a45fa4557c0322b6}} 
+\index{tools@{tools}!initialize\_dynamics\_vars@{initialize\_dynamics\_vars}}
+\index{initialize\_dynamics\_vars@{initialize\_dynamics\_vars}!tools@{tools}}
+\doxysubsubsection{\texorpdfstring{initialize\_dynamics\_vars()}{initialize\_dynamics\_vars()}}
+{\footnotesize\ttfamily subroutine tools\+::initialize\+\_\+dynamics\+\_\+vars}
+
+
+
+Initialization of dynamics variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em check} & control factor for allocation errors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetools_ae7335914dc8a02a5ac7b2786d96263cd}\label{namespacetools_ae7335914dc8a02a5ac7b2786d96263cd}} 
+\index{tools@{tools}!initialize\_trajectory\_vars@{initialize\_trajectory\_vars}}
+\index{initialize\_trajectory\_vars@{initialize\_trajectory\_vars}!tools@{tools}}
+\doxysubsubsection{\texorpdfstring{initialize\_trajectory\_vars()}{initialize\_trajectory\_vars()}}
+{\footnotesize\ttfamily subroutine tools\+::initialize\+\_\+trajectory\+\_\+vars}
+
+
+
+Initialization of trajectory variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em check} & control factor for allocation errors \\
+\hline
+\end{DoxyParams}

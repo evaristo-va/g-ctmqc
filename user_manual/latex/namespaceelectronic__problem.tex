@@ -1,0 +1,77 @@
+\hypertarget{namespaceelectronic__problem}{}\doxysection{electronic\+\_\+problem Module Reference}
+\label{namespaceelectronic__problem}\index{electronic\_problem@{electronic\_problem}}
+
+
+On-\/the-\/fly electronic-\/structure calculations.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespaceelectronic__problem_a15695c174f3d1f57d393e0fa7511e475}{boproblem}} (Q, trajlabel)
+\begin{DoxyCompactList}\small\item\em Electronic energies (adiabatic or spin-\/(a)diabatic), forces and non-\/adiabatic couplings are compueted at the trajectory position. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceelectronic__problem_a5cf2f19d0a19b5af652ffe09f425874e}{check\+\_\+nac\+\_\+overlap}} (NACij, NACij\+\_\+old)
+\begin{DoxyCompactList}\small\item\em Arbitrary sign changes in the NACs due to the diagonalization are fixed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+On-\/the-\/fly electronic-\/structure calculations. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespaceelectronic__problem_a15695c174f3d1f57d393e0fa7511e475}\label{namespaceelectronic__problem_a15695c174f3d1f57d393e0fa7511e475}} 
+\index{electronic\_problem@{electronic\_problem}!boproblem@{boproblem}}
+\index{boproblem@{boproblem}!electronic\_problem@{electronic\_problem}}
+\doxysubsubsection{\texorpdfstring{boproblem()}{boproblem()}}
+{\footnotesize\ttfamily subroutine electronic\+\_\+problem\+::boproblem (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(n\+\_\+dof), intent(in)}]{Q,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+Electronic energies (adiabatic or spin-\/(a)diabatic), forces and non-\/adiabatic couplings are compueted at the trajectory position. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in}}  & {\em Q} & position of the trajectory \\
+\hline
+ & {\em istate} & integer index running over the electronic states \\
+\hline
+ & {\em V} & array of (a)diabatic Hamiltonian \\
+\hline
+ & {\em G} & array of gradients of the (a)diabatic Hamiltonian \\
+\hline
+ & {\em NAC} & array of non-\/adiabatic couplings \\
+\hline
+ & {\em NAC\+\_\+old} & array of non-\/adiabatic couplings at previous time step \\
+\hline
+ & {\em initialize} & logical to initialize the QMLLibrary potentials \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Energies, forces and non-\/adiabatic couplings are stored in the arrays BOenergy, BOforce, coup. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceelectronic__problem_a5cf2f19d0a19b5af652ffe09f425874e}\label{namespaceelectronic__problem_a5cf2f19d0a19b5af652ffe09f425874e}} 
+\index{electronic\_problem@{electronic\_problem}!check\_nac\_overlap@{check\_nac\_overlap}}
+\index{check\_nac\_overlap@{check\_nac\_overlap}!electronic\_problem@{electronic\_problem}}
+\doxysubsubsection{\texorpdfstring{check\_nac\_overlap()}{check\_nac\_overlap()}}
+{\footnotesize\ttfamily subroutine electronic\+\_\+problem\+::check\+\_\+nac\+\_\+overlap (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(inout)}]{NACij,  }\item[{real(kind=dp), dimension(nstates,nstates,n\+\_\+dof), intent(in)}]{NACij\+\_\+old }\end{DoxyParamCaption})}
+
+
+
+Arbitrary sign changes in the NACs due to the diagonalization are fixed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em NACij\+\_\+old} & NAC between two electronic states at time t \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em NACij} & NAC between two electronic states at time t+dt param snac\+\_\+old magnitude of NAC vector at time t param snac magnitude of NAC vector at time t+dt ovlp overlap between NAC\+\_\+ij(t) and NAC\+\_\+ij(t+dt) eps threshold for the overlap \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NAC at time t+dt with right sign respect to previous timestep 
+\end{DoxyReturn}

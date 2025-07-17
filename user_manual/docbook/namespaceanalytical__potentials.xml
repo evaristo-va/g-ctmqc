@@ -1,0 +1,807 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceanalytical__potentials" xml:lang="en-US">
+<title>analytical_potentials Module Reference</title>
+<indexterm><primary>analytical_potentials</primary></indexterm>
+<para>
+
+<para>Diabatic low dimensional potentials. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1aee08711dfb0552ba00cc2a8f005201df">new_model_potentials</link> (Hel, grad_BO, NAC, Q)</para>
+
+<para>Definition of electronic structure properties, ie, energies, gradients and derivative couplings on model potentials integrated in the G-CTMQC. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1a00c558ee0bcbfb79260952a640a9566c">check_overlap</link> (eigenv1, eigenv2, factor)</para>
+
+<para>Check that adjacent adiabatic states are continuous in nuclear space. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1a659155b761baaa9ff7d93276000a0a7d">diagonalize</link> (matrix, eigenvalues, eigenvectors)</para>
+
+<para>Diagonalization of a real symmetric matrix with the Lapac procedure dsyevd. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1a18123f0763bb7734dbed0bad63a530fe">non_adiabatic_couplings</link> (energy, gradients, eigenvectors, couplings)</para>
+
+<para>Calculation of analytical non-adiabatic couplings. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1a36f45f8d12cae33ecb59bb2169602e81">nai_potential</link> (H, R, grad_H, R_crossing)</para>
+
+<para>Definition of the analytical model potentials for the diatomic molecule NaI following the work of Faist and Levine published in JCP (1976) DOI:10.1063/1.432555. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1a92dea072762aea74022fc6cbaa71cf0e">ibr_potential</link> (H, R, grad_H, R_crossing)</para>
+
+<para>Definition of the analytical model potentials for the diatomic molecule NaI following the work of Guo published in JCP (1993) DOI:10.1063/1.465285. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1aefac04951599dc62193ec625a8132de1">doublewell_potential</link> (H, R, grad_H, R_crossing)</para>
+
+<para>Definition of the analytical model potentials a double well. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1acc9da3ff3afc5fbee6d045e0b79a5d0e">tully3</link> (H, R, grad_H)</para>
+
+<para>Definition of the analytical model potential Tully #3. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1a4966b9642bd95ef9c92ef740003b8368">subotnikjpca2019</link> (H, R, grad_H)</para>
+
+<para>Definition of the analytical model potentials for parallel constant PESs. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1ac78099f4057aa74c56d12bd9414a924a">phenol_potential</link> (H, R, grad_H, R_crossing)</para>
+
+<para>Definition of the analytical model potentials for the phenol molecule following the work of Faist and Levine published in JCP (1976) DOI:10.1063/1.432555. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceanalytical__potentials_1aa199013ccfa8f3fdabd157b9c2bcba97">plot_potential</link> ()</para>
+
+<para>Plot the adiabatic and diabatic analytical potentials. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Diabatic low dimensional potentials. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespaceanalytical__potentials_1a00c558ee0bcbfb79260952a640a9566c"/>    <section>
+    <title>check_overlap()</title>
+<indexterm><primary>check_overlap</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>check_overlap</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::check_overlap (real(kind=dp), dimension(nstates,nstates), intent(in) eigenv1, real(kind=dp), dimension(nstates,nstates), intent(in) eigenv2, real(kind=dp), dimension(nstates), intent(inout) factor)</computeroutput></para><para>
+
+<para>Check that adjacent adiabatic states are continuous in nuclear space. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>eigenv1, eigenv2</entry>
+                                <entry>
+<para>eigenstates of the electronic Hamiltonian at adjecent points in nuclear space </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>factor</entry>
+                                <entry>
+<para>control factor for the phase relation between adjacent adiabatic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>sum</entry>
+                                <entry>
+<para>scalar product between eigenv1 and eigenv2 </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i, j</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The values of factor is returned: it is 1 if the two vectors are in phase or -1 if the two vectors are out of phase. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1a659155b761baaa9ff7d93276000a0a7d"/>    <section>
+    <title>diagonalize()</title>
+<indexterm><primary>diagonalize</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>diagonalize</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::diagonalize (real(kind=dp), dimension(nstates,nstates), intent(in) matrix, real(kind=dp), dimension(nstates), intent(inout) eigenvalues, real(kind=dp), dimension(:,:), intent(inout) eigenvectors)</computeroutput></para><para>
+
+<para>Diagonalization of a real symmetric matrix with the Lapac procedure dsyevd. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>matrix</entry>
+                                <entry>
+<para>to be diagonalized </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>eigenvalues</entry>
+                                <entry>
+<para>of the matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>eigenvectors</entry>
+                                <entry>
+<para>of the matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>ioerr</entry>
+                                <entry>
+<para>control variable for diagonalization errors </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>lwork</entry>
+                                <entry>
+<para>dimension of the array work </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>dim_work</entry>
+                                <entry>
+<para>temporary dimension of the array work </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>liwork</entry>
+                                <entry>
+<para>dimension of the array iwork </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>dim_iwork</entry>
+                                <entry>
+<para>temporary dimension of the array iwork </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>iwork</entry>
+                                <entry>
+<para>integer array </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>work</entry>
+                                <entry>
+<para>double precision array </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The eigenvalues and eigenvectors of the matrix are returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1aefac04951599dc62193ec625a8132de1"/>    <section>
+    <title>doublewell_potential()</title>
+<indexterm><primary>doublewell_potential</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>doublewell_potential</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::doublewell_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)</computeroutput></para><para>
+
+<para>Definition of the analytical model potentials a double well. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>H</entry>
+                                <entry>
+<para>electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>grad_H</entry>
+                                <entry>
+<para>gradient of the electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>R</entry>
+                                <entry>
+<para>nuclear position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>KX, DELTA, X1, X2, X3, GAMMA, ALPHA</entry>
+                                <entry>
+<para>parameters of the potentials: Note that the used units are atomic units </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The electronic Hamiltonian and its nuclear gradients are returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1a92dea072762aea74022fc6cbaa71cf0e"/>    <section>
+    <title>ibr_potential()</title>
+<indexterm><primary>ibr_potential</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>ibr_potential</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::ibr_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)</computeroutput></para><para>
+
+<para>Definition of the analytical model potentials for the diatomic molecule NaI following the work of Guo published in JCP (1993) DOI:10.1063/1.465285. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>H</entry>
+                                <entry>
+<para>electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>grad_H</entry>
+                                <entry>
+<para>gradient of the electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>R</entry>
+                                <entry>
+<para>nuclear position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>A0, alpha0, r0, A1, alpha1, r1, D, A2, alpha2, B2, beta2, h12</entry>
+                                <entry>
+<para>parameters of the potentials: Note that the used units are atomic units </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The electronic Hamiltonian and its nuclear gradients are returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1a36f45f8d12cae33ecb59bb2169602e81"/>    <section>
+    <title>nai_potential()</title>
+<indexterm><primary>nai_potential</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>nai_potential</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::nai_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)</computeroutput></para><para>
+
+<para>Definition of the analytical model potentials for the diatomic molecule NaI following the work of Faist and Levine published in JCP (1976) DOI:10.1063/1.432555. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>H</entry>
+                                <entry>
+<para>electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>grad_H</entry>
+                                <entry>
+<para>gradient of the electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>R</entry>
+                                <entry>
+<para>nuclear position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>Acov, Bcov, rhocov, Ccov, Aion, Bion, rhoion, Cion, alphaMp, alphaXm, Eth, A, rho</entry>
+                                <entry>
+<para>parameters of the potentials: Note that the used units are electronvolts and and angstroms in the original definition </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The electronic Hamiltonian and its nuclear gradients are returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1aee08711dfb0552ba00cc2a8f005201df"/>    <section>
+    <title>new_model_potentials()</title>
+<indexterm><primary>new_model_potentials</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>new_model_potentials</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::new_model_potentials (real(kind=dp), dimension(nstates,nstates), intent(inout) Hel, real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) grad_BO, real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) NAC, real(kind=dp), dimension(n_dof), intent(in) Q)</computeroutput></para><para>
+
+<para>Definition of electronic structure properties, ie, energies, gradients and derivative couplings on model potentials integrated in the G-CTMQC. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>Hel</entry>
+                                <entry>
+<para>electronic Hamiltonian at the trajectory position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>grad_BO</entry>
+                                <entry>
+<para>gradient of the adiabatic energy at the trajectory position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>NAC</entry>
+                                <entry>
+<para>non-adiabatic coupling vector at the trajectory position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Q</entry>
+                                <entry>
+<para>trajectory position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>Ebo</entry>
+                                <entry>
+<para>adiabatic energy at the trajectory position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>grad_Hel</entry>
+                                <entry>
+<para>gradient of the electronic Hamiltonian at the trajectory position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>U</entry>
+                                <entry>
+<para>transformation matrix from the diabatic to the adiabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>factor</entry>
+                                <entry>
+<para>control factor for the phase relation between adjacent adiabatic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>delta</entry>
+                                <entry>
+<para>spatial increment to compute numerical derivatives </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>index running on the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>ix, i</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The values of the adiabatic energies are returned as the diagonal elements of Hel; the gradient of the adiabatic energies and the non-adiabatic couplings are returned in grad_BO and NAC. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1a18123f0763bb7734dbed0bad63a530fe"/>    <section>
+    <title>non_adiabatic_couplings()</title>
+<indexterm><primary>non_adiabatic_couplings</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>non_adiabatic_couplings</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::non_adiabatic_couplings (real(kind=dp), dimension(nstates), intent(in) energy, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) gradients, real(kind=dp), dimension(nstates,nstates), intent(in) eigenvectors, real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) couplings)</computeroutput></para><para>
+
+<para>Calculation of analytical non-adiabatic couplings. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>energy</entry>
+                                <entry>
+<para>of the adiabatic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>gradients</entry>
+                                <entry>
+<para>of the adiabatic energies </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>eigenvectors</entry>
+                                <entry>
+<para>of the electronic Hamiltonian </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>couplings</entry>
+                                <entry>
+<para>matrix representing the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i, j, k, l</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The matrix of non-adiabatic couplings is returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1ac78099f4057aa74c56d12bd9414a924a"/>    <section>
+    <title>phenol_potential()</title>
+<indexterm><primary>phenol_potential</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>phenol_potential</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::phenol_potential (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H, real(kind=dp), intent(inout), optional R_crossing)</computeroutput></para><para>
+
+<para>Definition of the analytical model potentials for the phenol molecule following the work of Faist and Levine published in JCP (1976) DOI:10.1063/1.432555. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>H</entry>
+                                <entry>
+<para>electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>grad_H</entry>
+                                <entry>
+<para>gradient of the electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>R</entry>
+                                <entry>
+<para>nuclear position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>Acov, Bcov, rhocov, Ccov, Aion, Bion, rhoion, Cion, alphaMp, alphaXm, Eth, A, rho</entry>
+                                <entry>
+<para>parameters of the potentials: Note that the used units are electronvolts and and angstroms in the original definition </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The electronic Hamiltonian and its nuclear gradients are returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1aa199013ccfa8f3fdabd157b9c2bcba97"/>    <section>
+    <title>plot_potential()</title>
+<indexterm><primary>plot_potential</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>plot_potential</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::plot_potential</computeroutput></para><para>
+
+<para>Plot the adiabatic and diabatic analytical potentials. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>Rmin, Rmax</entry>
+                                <entry>
+<para>limits of the domain to plot the potentials </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>V</entry>
+                                <entry>
+<para>values of the diabatic potentials </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>epsBO</entry>
+                                <entry>
+<para>values of the adiabatic potentials </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>nacv</entry>
+                                <entry>
+<para>values of the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>grad_V</entry>
+                                <entry>
+<para>values of the gradients of the diabatic potentials </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>U</entry>
+                                <entry>
+<para>transformation matrix from the diabatic to the adiabatic basis at the current position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>save_U</entry>
+                                <entry>
+<para>transformation matrix from the diabatic to the adiabatic basis at the previous position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>factor</entry>
+                                <entry>
+<para>control factor for the phase relation between adjacent adiabatic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>npoints</entry>
+                                <entry>
+<para>number of grid points in nuclear space to plot the potentials </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>delta</entry>
+                                <entry>
+<para>spatial increment to compute numerical derivatives </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>R</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ground_states_density</entry>
+                                <entry>
+<para>initial nuclear density consistent with the distribution of classical initial positions and momenta </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ios</entry>
+                                <entry>
+<para>control variable for output errors </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ix, i</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1a4966b9642bd95ef9c92ef740003b8368"/>    <section>
+    <title>subotnikjpca2019()</title>
+<indexterm><primary>subotnikjpca2019</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>subotnikjpca2019</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::subotnikjpca2019 (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H)</computeroutput></para><para>
+
+<para>Definition of the analytical model potentials for parallel constant PESs. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>H</entry>
+                                <entry>
+<para>electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>grad_H</entry>
+                                <entry>
+<para>gradient of the electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>R</entry>
+                                <entry>
+<para>nuclear position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>A, B</entry>
+                                <entry>
+<para>parameters of the potentials: Note that the used units are atomic units </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The electronic Hamiltonian and its nuclear gradients are returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceanalytical__potentials_1acc9da3ff3afc5fbee6d045e0b79a5d0e"/>    <section>
+    <title>tully3()</title>
+<indexterm><primary>tully3</primary><secondary>analytical_potentials</secondary></indexterm>
+<indexterm><primary>analytical_potentials</primary><secondary>tully3</secondary></indexterm>
+<para><computeroutput>subroutine analytical_potentials::tully3 (real(kind=dp), dimension(nstates,nstates), intent(inout) H, real(kind=dp), intent(in) R, real(kind=dp), dimension(nstates,nstates), intent(inout) grad_H)</computeroutput></para><para>
+
+<para>Definition of the analytical model potential Tully #3. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>H</entry>
+                                <entry>
+<para>electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>grad_H</entry>
+                                <entry>
+<para>gradient of the electronic Hamiltonian in the diabatic basis </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>R</entry>
+                                <entry>
+<para>nuclear position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>a, b, c</entry>
+                                <entry>
+<para>parameters of the potentials: Note that the used units are atomic units </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The electronic Hamiltonian and its nuclear gradients are returned. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

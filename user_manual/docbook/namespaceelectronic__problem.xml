@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceelectronic__problem" xml:lang="en-US">
+<title>electronic_problem Module Reference</title>
+<indexterm><primary>electronic_problem</primary></indexterm>
+<para>
+
+<para>On-the-fly electronic-structure calculations. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespaceelectronic__problem_1a15695c174f3d1f57d393e0fa7511e475">boproblem</link> (Q, trajlabel)</para>
+
+<para>Electronic energies (adiabatic or spin-(a)diabatic), forces and non-adiabatic couplings are compueted at the trajectory position. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceelectronic__problem_1a5cf2f19d0a19b5af652ffe09f425874e">check_nac_overlap</link> (NACij, NACij_old)</para>
+
+<para>Arbitrary sign changes in the NACs due to the diagonalization are fixed. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>On-the-fly electronic-structure calculations. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespaceelectronic__problem_1a15695c174f3d1f57d393e0fa7511e475"/>    <section>
+    <title>boproblem()</title>
+<indexterm><primary>boproblem</primary><secondary>electronic_problem</secondary></indexterm>
+<indexterm><primary>electronic_problem</primary><secondary>boproblem</secondary></indexterm>
+<para><computeroutput>subroutine electronic_problem::boproblem (real(kind=dp), dimension(n_dof), intent(in) Q, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>Electronic energies (adiabatic or spin-(a)diabatic), forces and non-adiabatic couplings are compueted at the trajectory position. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Q</entry>
+                                <entry>
+<para>position of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>istate</entry>
+                                <entry>
+<para>integer index running over the electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>V</entry>
+                                <entry>
+<para>array of (a)diabatic Hamiltonian </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>G</entry>
+                                <entry>
+<para>array of gradients of the (a)diabatic Hamiltonian </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>NAC</entry>
+                                <entry>
+<para>array of non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>NAC_old</entry>
+                                <entry>
+<para>array of non-adiabatic couplings at previous time step </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>initialize</entry>
+                                <entry>
+<para>logical to initialize the QMLLibrary potentials </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Energies, forces and non-adiabatic couplings are stored in the arrays BOenergy, BOforce, coup. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceelectronic__problem_1a5cf2f19d0a19b5af652ffe09f425874e"/>    <section>
+    <title>check_nac_overlap()</title>
+<indexterm><primary>check_nac_overlap</primary><secondary>electronic_problem</secondary></indexterm>
+<indexterm><primary>electronic_problem</primary><secondary>check_nac_overlap</secondary></indexterm>
+<para><computeroutput>subroutine electronic_problem::check_nac_overlap (real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) NACij, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) NACij_old)</computeroutput></para><para>
+
+<para>Arbitrary sign changes in the NACs due to the diagonalization are fixed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>NACij_old</entry>
+                                <entry>
+<para>NAC between two electronic states at time t </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>NACij</entry>
+                                <entry>
+<para>NAC between two electronic states at time t+dt param snac_old magnitude of NAC vector at time t param snac magnitude of NAC vector at time t+dt ovlp overlap between NAC_ij(t) and NAC_ij(t+dt) eps threshold for the overlap </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>NAC at time t+dt with right sign respect to previous timestep </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

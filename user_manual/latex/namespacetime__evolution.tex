@@ -1,0 +1,123 @@
+\hypertarget{namespacetime__evolution}{}\doxysection{time\+\_\+evolution Module Reference}
+\label{namespacetime__evolution}\index{time\_evolution@{time\_evolution}}
+
+
+Complete time evolution of Ntraj trajectories with Ehrenfest, surface hopping and CT-\/\+MQC , along with time initialization and finalization.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacetime__evolution_adf197da88c58ecd1eba0f4984aaf1b48}{evolution}}
+\begin{DoxyCompactList}\small\item\em Three algorithms are used to evolve classical nuclear trajectories along with the electronic coefficients\+: Ehrenfest dynamics, trajectory surface hopping and CT-\/\+MQC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacetime__evolution_afc191c30095888ec125f2655fa18bab6}\label{namespacetime__evolution_afc191c30095888ec125f2655fa18bab6}} 
+subroutine \mbox{\hyperlink{namespacetime__evolution_afc191c30095888ec125f2655fa18bab6}{input\+\_\+summary}}
+\begin{DoxyCompactList}\small\item\em Summary of the input is written on the terminal. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacetime__evolution_ae14704faae68a3ad26368714937ebbbf}{initialize\+\_\+local\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Variables used in the evolution subroutine are inizialized. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacetime__evolution_aeb6d3ae23cd9aa89ba1d65e5a84674f0}{finalize\+\_\+local\+\_\+vars}}
+\begin{DoxyCompactList}\small\item\em Variables used in the evolution subroutine are deallocated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a8b47f0e4068cefb6882176fc50bce59b}\label{namespacetime__evolution_a8b47f0e4068cefb6882176fc50bce59b}} 
+real(kind=dp), dimension(\+:,\+:), allocatable {\bfseries rcl}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_aa8e42cd8e2cced352ccbe27d78ac6b47}\label{namespacetime__evolution_aa8e42cd8e2cced352ccbe27d78ac6b47}} 
+real(kind=dp), dimension(\+:,\+:), allocatable {\bfseries vcl}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a31b14d710f09ad80155a285e042d6750}\label{namespacetime__evolution_a31b14d710f09ad80155a285e042d6750}} 
+real(kind=dp), dimension(\+:), allocatable {\bfseries classical\+\_\+force}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a9e6dd8baff8ee492f608ddbf065f1e55}\label{namespacetime__evolution_a9e6dd8baff8ee492f608ddbf065f1e55}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable {\bfseries my\+\_\+force}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a090b86991c4ac03700524805420c1aa7}\label{namespacetime__evolution_a090b86991c4ac03700524805420c1aa7}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable {\bfseries k\+\_\+li}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a9a2c81343b2c3d55fb1bae9b3fa42a73}\label{namespacetime__evolution_a9a2c81343b2c3d55fb1bae9b3fa42a73}} 
+real(kind=dp), dimension(\+:,\+:), allocatable {\bfseries tdvp}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a9ce8535e077ebbe34377ab58a5522b87}\label{namespacetime__evolution_a9ce8535e077ebbe34377ab58a5522b87}} 
+real(kind=dp), dimension(\+:), allocatable {\bfseries boenergy\+\_\+old}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a3ef895461221639f24ba08a41dd944ee}\label{namespacetime__evolution_a3ef895461221639f24ba08a41dd944ee}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable {\bfseries coup\+\_\+old}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a9db8042f4d4bfa877d7104f6e305be98}\label{namespacetime__evolution_a9db8042f4d4bfa877d7104f6e305be98}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable {\bfseries qmom}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a0a4d3d7c19bcc9d4f668194e24e9f892}\label{namespacetime__evolution_a0a4d3d7c19bcc9d4f668194e24e9f892}} 
+integer, dimension(\+:,\+:,\+:), allocatable {\bfseries qmom\+\_\+type}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a8cb3d8d326e4f66de736507a39fa0a8a}\label{namespacetime__evolution_a8cb3d8d326e4f66de736507a39fa0a8a}} 
+real(kind=dp), dimension(\+:,\+:,\+:), allocatable {\bfseries my\+\_\+force\+\_\+e}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a567b699b62120b0f5347de8dbafd3e21}\label{namespacetime__evolution_a567b699b62120b0f5347de8dbafd3e21}} 
+complex(kind=qp), dimension(\+:,\+:,\+:), allocatable {\bfseries bosigma}
+\item 
+\mbox{\Hypertarget{namespacetime__evolution_a0ddebfdca84add9c40ae109d996117a7}\label{namespacetime__evolution_a0ddebfdca84add9c40ae109d996117a7}} 
+complex(kind=qp), dimension(\+:,\+:), allocatable {\bfseries bocoeff}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Complete time evolution of Ntraj trajectories with Ehrenfest, surface hopping and CT-\/\+MQC , along with time initialization and finalization. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacetime__evolution_adf197da88c58ecd1eba0f4984aaf1b48}\label{namespacetime__evolution_adf197da88c58ecd1eba0f4984aaf1b48}} 
+\index{time\_evolution@{time\_evolution}!evolution@{evolution}}
+\index{evolution@{evolution}!time\_evolution@{time\_evolution}}
+\doxysubsubsection{\texorpdfstring{evolution()}{evolution()}}
+{\footnotesize\ttfamily subroutine time\+\_\+evolution\+::evolution}
+
+
+
+Three algorithms are used to evolve classical nuclear trajectories along with the electronic coefficients\+: Ehrenfest dynamics, trajectory surface hopping and CT-\/\+MQC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & time step \\
+\hline
+{\em itraj} & integer index running over the Ntraj trajectories \\
+\hline
+{\em i,j} & integer indices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetime__evolution_aeb6d3ae23cd9aa89ba1d65e5a84674f0}\label{namespacetime__evolution_aeb6d3ae23cd9aa89ba1d65e5a84674f0}} 
+\index{time\_evolution@{time\_evolution}!finalize\_local\_vars@{finalize\_local\_vars}}
+\index{finalize\_local\_vars@{finalize\_local\_vars}!time\_evolution@{time\_evolution}}
+\doxysubsubsection{\texorpdfstring{finalize\_local\_vars()}{finalize\_local\_vars()}}
+{\footnotesize\ttfamily subroutine time\+\_\+evolution\+::finalize\+\_\+local\+\_\+vars}
+
+
+
+Variables used in the evolution subroutine are deallocated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em check} & control factor for deallocation errors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacetime__evolution_ae14704faae68a3ad26368714937ebbbf}\label{namespacetime__evolution_ae14704faae68a3ad26368714937ebbbf}} 
+\index{time\_evolution@{time\_evolution}!initialize\_local\_vars@{initialize\_local\_vars}}
+\index{initialize\_local\_vars@{initialize\_local\_vars}!time\_evolution@{time\_evolution}}
+\doxysubsubsection{\texorpdfstring{initialize\_local\_vars()}{initialize\_local\_vars()}}
+{\footnotesize\ttfamily subroutine time\+\_\+evolution\+::initialize\+\_\+local\+\_\+vars}
+
+
+
+Variables used in the evolution subroutine are inizialized. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em itraj} & integer index running over the Ntraj trajectories \\
+\hline
+{\em i,j} & integer indices \\
+\hline
+\end{DoxyParams}

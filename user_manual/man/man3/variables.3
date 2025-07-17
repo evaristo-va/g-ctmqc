@@ -1,0 +1,379 @@
+.TH "variables" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+variables \- The module defines all common variables\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "real(kind=dp), parameter \fBhbar\fP = 1\&.0_dp"
+.br
+.RI "Reduced Planck constant\&. "
+.ti -1c
+.RI "real(kind=dp), parameter \fBzero\fP = 0\&.0000000010_dp"
+.br
+.RI "'Numerical' zero "
+.ti -1c
+.RI "real(kind=dp), parameter \fBau_to_ang\fP = 0\&.52917721067121_dp"
+.br
+.RI "Conversion factor from bohr to angstrom\&. "
+.ti -1c
+.RI "real(kind=dp), parameter \fBau_to_ev\fP = 27\&.2114_dp"
+.br
+.RI "Conversion factor from Hartree to electronvolts\&. "
+.ti -1c
+.RI "real(kind=dp), parameter \fBamu_to_au\fP = 1836\&.0_dp"
+.br
+.RI "Conversion factor from atomic mass units to atomic units\&. "
+.ti -1c
+.RI "complex(kind=qp) \fBim_unit\fP = (0\&.0_dp, 1\&.0_dp)"
+.br
+.RI "Imaginary unit\&. "
+.ti -1c
+.RI "real(kind=dp) \fBpi\fP = 3\&.14159265359_dp"
+.br
+.RI "pi "
+.ti -1c
+.RI "complex(kind=qp) \fBcmp\fP = CMPLX(0\&.0_dp, 1\&.0_dp, qp)"
+.br
+.RI "pi "
+.ti -1c
+.RI "character(len=5) \fBtyp_cal\fP = 'EHREN'"
+.br
+.RI "Type of dynamics that is executed: EHREN for Ehrenfest dynamics, TSHLZ for surface hopping with Landau-Zener hopping probability, TSHFS for surface hopping with fewest-switches hopping probability, CTMQC for CT-MQC, read in input\&. "
+.ti -1c
+.RI "character(len=100) \fBmodel_potential\fP = 'unknown'"
+.br
+.RI "Name of the model potential as it is defined in QuantumModelLib, read in input\&. "
+.ti -1c
+.RI "integer \fBoption\fP = 1"
+.br
+.RI "Only used for Tully models and can be 1, 2, or 3, read in input\&. "
+.ti -1c
+.RI "logical \fBnew_potential\fP = \&.FALSE\&."
+.br
+.RI "It is FALSE if the QuantumModelLib potential library is used; it is TRUE if the potentials in analytical_potentials\&.f90 are used, read in input\&. "
+.ti -1c
+.RI "integer \fBn_dof\fP = 1"
+.br
+.RI "Number of degrees of nuclear freedom, read in input\&. "
+.ti -1c
+.RI "integer \fBnstates\fP = 2"
+.br
+.RI "Number of electronic states, read in input\&. "
+.ti -1c
+.RI "integer \fBnpairs\fP = 1"
+.br
+.RI "Number of pairs of electronic states\&. "
+.ti -1c
+.RI "logical, dimension(100) \fBperiodic_variable\fP = \&.FALSE\&."
+.br
+.RI "It is TRUE for each periodic nuclear coordinate, read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBperiodicity\fP = 0\&.0_dp"
+.br
+.RI "Periodicity of the correspoding nuclear nuclear coordinate in unit of pi, read in input\&. "
+.ti -1c
+.RI "character(len=2) \fBtype_deco\fP = ''"
+.br
+.RI "Type of decoherence scheme applied on surface hooping: CT based on coupled trajectories and on quantum momentum, ED which is the energy-decoherence correction, read in input\&. "
+.ti -1c
+.RI "real(kind=dp) \fBc_parameter\fP = 0\&.1_dp"
+.br
+.RI "Value of the parameter C in the energy-decoherence correction used in surface hopping, read in input\&. "
+.ti -1c
+.RI "integer \fBjump_seed\fP = \-100"
+.br
+.RI "Seed for the random number generator used for the probability jump is surface hopping, read in input\&. "
+.ti -1c
+.RI "integer \fBinitial_condition_seed\fP = \-100"
+.br
+.RI "Seed for the random number generator used for the selection of initial conditions, read in input\&. "
+.ti -1c
+.RI "real(kind=dp) \fBadia_nrg_gap\fP = 10000\&.0D0"
+.br
+.RI "Energy treshold to compute the non-adiabatic coupling vectors for the classical force or the Landau-Zener probability\&. "
+.ti -1c
+.RI "real(kind=dp) \fBlz_dist_cutoff\fP = 0\&.20D0"
+.br
+.RI "Distance cutoff from the crossing region to compute the Landau-Zener probability\&. "
+.ti -1c
+.RI "logical \fBnrg_check\fP = \&.FALSE\&."
+.br
+.RI "It is TRUE if the spin-orbit coupling is switched-off when the energy gap between spin-diabatic states is above a certain treshold, read in input\&. "
+.ti -1c
+.RI "real(kind=dp) \fBnrg_gap\fP = 10000\&.0D0"
+.br
+.RI "Energy treshold to switch-off the spin-orbit coupling, read in input\&. "
+.ti -1c
+.RI "logical \fBspin_dia\fP = \&.FALSE\&."
+.br
+.RI "It is TRUE when the spin-diabatic basis is used in CT-MQC, read in input\&. "
+.ti -1c
+.RI "logical \fBqmom_force\fP = \&.TRUE\&."
+.br
+.RI "It is TRUE when quantum-momentum force is used in CT-MQC, read in input\&. "
+.ti -1c
+.RI "logical \fBf_correction\fP = \&.FALSE\&."
+.br
+.RI "It is TRUE when energy conserving acc_force is used in CT-MQC (CTMQC-E), read in input\&. "
+.ti -1c
+.RI "real(kind=dp) \fBr_threshold\fP = 0\&.001_dp"
+.br
+.RI "R_threshold only used when f_correction= TRUE to determine cut-off for computation of modified acc force in CTMQC-E\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBm_parameter\fP = 100\&.0_dp"
+.br
+.RI "M_parameter is used only when cl_qmom = TRUE to determine 'how far' each trajectory has to search to find its neighbours, read in input\&. "
+.ti -1c
+.RI "integer \fBrescaling_type\fP = 2"
+.br
+.RI "type of momentum rescaling after hop: 0 = isotropical, 2 = along NACV, 1 = along NACV, if frustrated isotropical "
+.ti -1c
+.RI "logical \fBreflect_frust\fP = \&.FALSE\&."
+.br
+.RI "It is TRUE if you want to invert the full velocity vector after frustrated hop\&. "
+.ti -1c
+.RI "logical \fBforce_hops\fP = \&.FALSE\&."
+.br
+.RI "Adds a threshold to force hops in CTTSH\&. "
+.ti -1c
+.RI "real(kind=dp) \fBhop_thr\fP = 0\&.6"
+.br
+.RI "Above this threshold of population a trajectory is forced to hop\&. "
+.ti -1c
+.RI "logical \fBenergy_sharing\fP = \&.FALSE\&."
+.br
+.RI "Option to share energy for CCT TSH\&. "
+.ti -1c
+.RI "integer \fBsharing_type\fP = 0"
+.br
+.RI "Types of energy sharing: 0 = equity based, 1 = overlap based, 2 = Qmom based\&. "
+.ti -1c
+.RI "logical \fBdoubleintercept\fP = \&.true\&."
+.br
+.RI "If true then Qmom is calculated using double intercept\&. "
+.ti -1c
+.RI "real(kind=dp) \fBdt\fP = 0\&.1_dp"
+.br
+.RI "Time step, read in input\&. "
+.ti -1c
+.RI "real(kind=dp) \fBfinal_time\fP = 0\&.0_dp"
+.br
+.RI "Length of the simulations, read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBr_init\fP"
+.br
+.RI "Mean positions to initialize nuclear positions, read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBk_init\fP"
+.br
+.RI "Mean momenta to initialize nuclear momenta, read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBmass_input\fP = 0\&.0_dp"
+.br
+.RI "Nuclear masses, read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBsigmar_init\fP"
+.br
+.RI "Position variances to initialize nuclear positions, read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBsigmap_init\fP = \-100\&.0_dp"
+.br
+.RI "Momentum variances to initialize nuclear momenta, only necessary for non-Wigner sampling, read in input\&. "
+.ti -1c
+.RI "integer \fBntraj\fP = 100"
+.br
+.RI "Number of nuclear trajectories, read in input\&. "
+.ti -1c
+.RI "integer \fBnsteps\fP = 100"
+.br
+.RI "Total number of dynamics time steps\&. "
+.ti -1c
+.RI "integer \fBnesteps\fP = 20"
+.br
+.RI "Number of electronic time-steps per nuclear time-step\&. "
+.ti -1c
+.RI "integer \fBdump\fP = 1"
+.br
+.RI "Number of time steps after which the output is dumped, read in input\&. "
+.ti -1c
+.RI "integer \fBn_init_bo\fP = 1"
+.br
+.RI "Number of initially populated electronic state(s), read in input\&. "
+.ti -1c
+.RI "integer, dimension(100) \fBinit_bostate\fP = \-1"
+.br
+.RI "Initial electronic state(s), read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBweight_initbo\fP = 1\&.0_dp"
+.br
+.RI "Weight(s) of the initially populated electronic state(s), read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(100) \fBphase_initbo\fP = 0\&.0_dp"
+.br
+.RI "Phase(s) of the initially populated electronic state(s), read in input\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBr0\fP"
+.br
+.RI "Mean nuclear positions\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBr02\fP"
+.br
+.RI "Mean nuclear positions squared\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBk0\fP"
+.br
+.RI "Mean nuclear momenta\&. "
+.ti -1c
+.RI "integer, dimension(:), allocatable \fBinitial_bostate\fP"
+.br
+.RI "BO states with non-zero initial occupation\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBweight_bostate\fP"
+.br
+.RI "Occupation of the BO states with non-zero initial occupation\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBphase_bostate\fP"
+.br
+.RI "Phases of the BO coefficients\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBperiod\fP"
+.br
+.RI "Periodicity of the periodic nuclear nuclear coordinate in unit of pi\&. "
+.ti -1c
+.RI "logical, dimension(:), allocatable \fBperiodic_in\fP"
+.br
+.RI "It is TRUE for each periodic nuclear coordinate\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBmass\fP"
+.br
+.RI "Nuclear masses\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBsigma\fP"
+.br
+.RI "Position variances to initialize nuclear positions\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBvar_momentum\fP"
+.br
+.RI "Momentum variances to initialize nuclear momenta\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBboforce\fP"
+.br
+.RI "Gradients of the electronic energies, either adiabatic or spin-(a)diabatic\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:,:), allocatable \fBcoup\fP"
+.br
+.RI "Non-adiabatic couplings\&. "
+.ti -1c
+.RI "complex(kind=qp), dimension(:,:,:), allocatable \fBcoup_so\fP"
+.br
+.RI "Spin-orbit coupling\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:), allocatable \fBboenergy\fP"
+.br
+.RI "Electronic energies, either adiabatic or spin-(a)diabatic\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBbo_pop\fP"
+.br
+.RI "Populations of the electronic states computed from the electronic coefficients\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBbo_pop_sh\fP"
+.br
+.RI "Populations of the electronic states computed in surface hopping as the ratio of trajectories running in each state over the total number of trajectories\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBdia_pop\fP"
+.br
+.RI "diabatic Populations of the electronic states computed from the electronic coefficients "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBbo_coh\fP"
+.br
+.RI "Electronic coherences\&. "
+.ti -1c
+.RI "real(kind=dp) \fBctmqc_e\fP"
+.br
+.RI "Trajectory-averaged CTMQC Energy\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:), allocatable \fBinitial_positions\fP"
+.br
+.RI "Initial nuclear positions\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:), allocatable \fBinitial_momenta\fP"
+.br
+.RI "Initial nuclear momenta\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBweight\fP"
+.br
+.RI "Weight of each trajectory (usually it is equal to unity) "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBtdpes\fP"
+.br
+.RI "Gauge invariant part of the TDPES in CT-MQC calculation and mean Ehrenfest potential in Ehrenfest dynamics\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:), allocatable \fBdensity\fP"
+.br
+.RI "Nuclear density\&. "
+.ti -1c
+.RI "integer, dimension(:), allocatable \fBocc_state\fP"
+.br
+.RI "Active or force state in surface hopping\&. "
+.ti -1c
+.RI "integer, dimension(:), allocatable \fBlz_hop\fP"
+.br
+.RI "Keeps track of jumps in Landau-Zener surface hopping\&. "
+.ti -1c
+.RI "integer \fBcount_traj\fP"
+.br
+.RI "Counts the trajectories that go through the avoided crossing\&. "
+.ti -1c
+.RI "integer, dimension(:), allocatable \fBlist_coupled_trajectories\fP"
+.br
+.RI "List of coupled trajectories in CT-MQC (in the current version all trajectories are coupled) "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBvec0\fP"
+.br
+.RI "NACV used to assure the Phase following from QmodelLib\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:), allocatable \fBprevious_eigenv\fP"
+.br
+.RI "If NEW_POTENTIAL == \&.TRUE\&. this variable is needed to check the phase of neighboring eigenvectors\&. "
+.ti -1c
+.RI "real(kind=dp), dimension(:,:,:,:), allocatable \fBprevious_coup\fP"
+.br
+.RI "Checks that the NACVs are continous along a trajectory\&. "
+.ti -1c
+.RI "logical \fBinitial_coup\fP = \&.TRUE\&."
+.br
+.ti -1c
+.RI "character(len=400) \fBpositions_file\fP = ''"
+.br
+.RI "Path to the file here initial positions are listed in case they are generated by another program, read in input\&. "
+.ti -1c
+.RI "character(len=400) \fBmomenta_file\fP = ''"
+.br
+.RI "Path to the file here initial momenta are listed in case they are generated by another program, read in input\&. "
+.ti -1c
+.RI "character(len=400) \fBoutput_folder\fP = '\&./'"
+.br
+.RI "Path to the directory where the output is written, read in input; note that in such directory, two sub-directories (coeff and trajectories) have to be created\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The module defines all common variables\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

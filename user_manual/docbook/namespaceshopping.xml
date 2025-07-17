@@ -1,0 +1,624 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceshopping" xml:lang="en-US">
+<title>shopping Module Reference</title>
+<indexterm><primary>shopping</primary></indexterm>
+<para>
+
+<para>Surface hopping tools to compute the hop probability, the active state the energy rescaling after the hop, and the energy decoherence correction. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespaceshopping_1a52e8fd6def005247ec624392ceb21ffe">hopping</link> (my_rho, v, r, trajlabel, k_li)</para>
+
+<para>The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceshopping_1af517d79335a44778aaee69db1c556f21">choose_bostate</link> (v, r, hop_prob, trajlabel, k_li, my_rho)</para>
+
+<para>According to the fewest switches algorithm, the new active state is selected. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceshopping_1ad2f34a1b3da40e8e8f2d975cec75fbc0">momentum_correction</link> (v, r, old_occ_state, trajlabel, k_li, my_rho)</para>
+
+<para>Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceshopping_1a1e73fe534aa7891ff431291c94ab2a16">decoherence_coorection</link> (coeff, v, trajlabel)</para>
+
+<para>Energy decoherence corrections are applied to surface hopping coefficients according to Granucci and Persico JCP 2007 DOI: 10.1063/1.2715585. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespaceshopping_1a674547329fd9bcf21bcba8dbc02b6e4a"/>subroutine <emphasis role="strong">xi_for_model_system</emphasis> (dist, deltaE, xi, Rcl, Vcl, trajlabel)</para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceshopping_1a337e7b61b2198ac64f3e6ee8a26abee6">hopping</link> (my_rho, v, r, trajlabel)</para>
+
+<para>The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceshopping_1a23aaf41ee81dc0ce7779fa60ff5bca75">choose_bostate</link> (v, hop_prob, trajlabel)</para>
+
+<para>According to the fewest switches algorithm, the new active state is selected. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceshopping_1ada8f3a7445deb0d07a5a8b43bb6f92c0">momentum_correction</link> (v, old_occ_state, trajlabel)</para>
+
+<para>Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Surface hopping tools to compute the hop probability, the active state the energy rescaling after the hop, and the energy decoherence correction. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespaceshopping_1a23aaf41ee81dc0ce7779fa60ff5bca75"/>    <section>
+    <title>choose_bostate()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>choose_bostate</primary><secondary>shopping</secondary></indexterm>
+<indexterm><primary>shopping</primary><secondary>choose_bostate</secondary></indexterm>
+<para><computeroutput>subroutine shopping::choose_bostate (real(kind=dp), dimension(n_dof), intent(inout) v, real(kind=dp), dimension(nstates), intent(inout) hop_prob, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>According to the fewest switches algorithm, the new active state is selected. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>hop_prob</entry>
+                                <entry>
+<para>hopping probability for each electronic state </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>myrand</entry>
+                                <entry>
+<para>random number </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>prob_sum</entry>
+                                <entry>
+<para>cumulative hopping probability </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_state, j_state</entry>
+                                <entry>
+<para>integer indices running over the nstates electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>old_occ_state</entry>
+                                <entry>
+<para>previous active state </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the hopping probability is returned, along with the new nuclear velocity in case a hop occurred. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceshopping_1af517d79335a44778aaee69db1c556f21"/>    <section>
+    <title>choose_bostate()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>choose_bostate</primary><secondary>shopping</secondary></indexterm>
+<indexterm><primary>shopping</primary><secondary>choose_bostate</secondary></indexterm>
+<para><computeroutput>subroutine shopping::choose_bostate (real(kind=dp), dimension(ntraj,n_dof), intent(inout) v, real(kind=dp), dimension(ntraj,n_dof), intent(in) r, real(kind=dp), dimension(nstates), intent(inout) hop_prob, integer, intent(in) trajlabel, real(kind=dp), dimension(nstates,nstates), intent(in), optional k_li, complex(kind=dp), dimension(nstates,nstates), intent(in), optional my_rho)</computeroutput></para><para>
+
+<para>According to the fewest switches algorithm, the new active state is selected. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>hop_prob</entry>
+                                <entry>
+<para>hopping probability for each electronic state </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>myrand</entry>
+                                <entry>
+<para>random number </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>prob_sum</entry>
+                                <entry>
+<para>cumulative hopping probability </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_state, j_state</entry>
+                                <entry>
+<para>integer indices running over the nstates electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>old_occ_state</entry>
+                                <entry>
+<para>previous active state </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the hopping probability is returned, along with the new nuclear velocity in case a hop occurred. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceshopping_1a1e73fe534aa7891ff431291c94ab2a16"/>    <section>
+    <title>decoherence_coorection()</title>
+<indexterm><primary>decoherence_coorection</primary><secondary>shopping</secondary></indexterm>
+<indexterm><primary>shopping</primary><secondary>decoherence_coorection</secondary></indexterm>
+<para><computeroutput>subroutine shopping::decoherence_coorection (complex(kind=qp), dimension(nstates), intent(inout) coeff, real(kind=dp), dimension(n_dof), intent(in) v, integer trajlabel)</computeroutput></para><para>
+
+<para>Energy decoherence corrections are applied to surface hopping coefficients according to Granucci and Persico JCP 2007 DOI: 10.1063/1.2715585. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>coeff</entry>
+                                <entry>
+<para>electronic coefficients </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>decay_time</entry>
+                                <entry>
+<para>characteristic time over which the electronic coeffecients of the non-activate states are exponentially damped </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>deltaE</entry>
+                                <entry>
+<para>potential energy difference between the active states and the other electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>kinetic_energy</entry>
+                                <entry>
+<para>nuclear kinetic energy along the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>sum_rho</entry>
+                                <entry>
+<para>sum of the populations of the non-active states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>integer index running over the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_state</entry>
+                                <entry>
+<para>integer index running over the nstates electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the new nuclear velocity is returned in case a hop occurred. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceshopping_1a337e7b61b2198ac64f3e6ee8a26abee6"/>    <section>
+    <title>hopping()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>hopping</primary><secondary>shopping</secondary></indexterm>
+<indexterm><primary>shopping</primary><secondary>hopping</secondary></indexterm>
+<para><computeroutput>subroutine shopping::hopping (complex(kind=dp), dimension(nstates,nstates), intent(in) my_rho, real(kind=dp), dimension(n_dof), intent(inout) v, real(kind=dp), dimension(n_dof), intent(in) r, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>my_rho</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_state</entry>
+                                <entry>
+<para>integer index running over the nstates electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>integer index running over the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scal2</entry>
+                                <entry>
+<para>scalar product beteween the nuclear velocity and the non-adiabatic coupling </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>Re_rhoij</entry>
+                                <entry>
+<para>real part of the elememts of the electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>rhojj</entry>
+                                <entry>
+<para>population of the electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>hop_prob</entry>
+                                <entry>
+<para>hopping probability for each electronic state </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the nuclear velocity is returned, and it is modified to impose energy conservation if a hop occurred. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceshopping_1a52e8fd6def005247ec624392ceb21ffe"/>    <section>
+    <title>hopping()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>hopping</primary><secondary>shopping</secondary></indexterm>
+<indexterm><primary>shopping</primary><secondary>hopping</secondary></indexterm>
+<para><computeroutput>subroutine shopping::hopping (complex(kind=dp), dimension(nstates,nstates), intent(in) my_rho, real(kind=dp), dimension(ntraj,n_dof), intent(inout) v, real(kind=dp), dimension(ntraj,n_dof), intent(in) r, integer, intent(in) trajlabel, real(kind=dp), dimension(nstates,nstates), intent(in), optional k_li)</computeroutput></para><para>
+
+<para>The hopping probability for the surface hopping procedure is computed according to the fewest switches procedure. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>my_rho</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_state</entry>
+                                <entry>
+<para>integer index running over the nstates electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>integer index running over the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scal2</entry>
+                                <entry>
+<para>scalar product beteween the nuclear velocity and the non-adiabatic coupling </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>Re_rhoij</entry>
+                                <entry>
+<para>real part of the elememts of the electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>rhojj</entry>
+                                <entry>
+<para>population of the electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>hop_prob</entry>
+                                <entry>
+<para>hopping probability for each electronic state </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the nuclear velocity is returned, and it is modified to impose energy conservation if a hop occurred. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceshopping_1ada8f3a7445deb0d07a5a8b43bb6f92c0"/>    <section>
+    <title>momentum_correction()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>momentum_correction</primary><secondary>shopping</secondary></indexterm>
+<indexterm><primary>shopping</primary><secondary>momentum_correction</secondary></indexterm>
+<para><computeroutput>subroutine shopping::momentum_correction (real(kind=dp), dimension(n_dof), intent(inout) v, integer, intent(in) old_occ_state, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>old_occ_state</entry>
+                                <entry>
+<para>previous active state </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>deltaE</entry>
+                                <entry>
+<para>potential energy difference between the old and the new electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scal1</entry>
+                                <entry>
+<para>squared modulus of the non-adiabatic couplings divided by the nuclear mass </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scal2</entry>
+                                <entry>
+<para>scalar product betweem the nuclear velocity and the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>energy_check</entry>
+                                <entry>
+<para>criterion to identify the possibility of jump </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scaling_factor</entry>
+                                <entry>
+<para>factor to rescal the velocities along the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>integer index running over the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the new nuclear velocity is returned in case a hop occurred. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceshopping_1ad2f34a1b3da40e8e8f2d975cec75fbc0"/>    <section>
+    <title>momentum_correction()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>momentum_correction</primary><secondary>shopping</secondary></indexterm>
+<indexterm><primary>shopping</primary><secondary>momentum_correction</secondary></indexterm>
+<para><computeroutput>subroutine shopping::momentum_correction (real(kind=dp), dimension(ntraj,n_dof), intent(inout) v, real(kind=dp), dimension(ntraj,n_dof), intent(in) r, integer, intent(in) old_occ_state, integer, intent(in) trajlabel, real(kind=dp), dimension(nstates,nstates), intent(in), optional k_li, complex(kind=dp), dimension(nstates,nstates), intent(in), optional my_rho)</computeroutput></para><para>
+
+<para>Nuclear velocities are rescaled along the direction of the non-adiabatic couplings to impose energy conservation in case a hop to a new potential energy surface has occured. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>old_occ_state</entry>
+                                <entry>
+<para>previous active state </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>deltaE</entry>
+                                <entry>
+<para>potential energy difference between the old and the new electronic states </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scal1</entry>
+                                <entry>
+<para>squared modulus of the non-adiabatic couplings divided by the nuclear mass </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scal2</entry>
+                                <entry>
+<para>scalar product betweem the nuclear velocity and the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>energy_check</entry>
+                                <entry>
+<para>criterion to identify the possibility of jump </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>scaling_factor</entry>
+                                <entry>
+<para>factor to rescal the velocities along the non-adiabatic couplings </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>integer index running over the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the new nuclear velocity is returned in case a hop occurred. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

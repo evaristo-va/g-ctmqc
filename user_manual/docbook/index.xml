@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>My G-CTMQC</title>
+    </info>
+<chapter>
+    <title>Module Documentation</title>
+<xi:include href="namespaceanalytical__potentials.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceatomic__masses.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceclassical__evolution.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacecoefficients__evolution.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacecoherence__corrections.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceelectronic__problem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacekinds.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceoutput.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespaceshopping.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacetime__evolution.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacetools.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacetrajectories__selection.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacevariables.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="namespacewigner__distribution.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

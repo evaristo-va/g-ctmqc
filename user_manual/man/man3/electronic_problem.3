@@ -1,0 +1,86 @@
+.TH "electronic_problem" 3 "Mon May 12 2025" "My G-CTMQC" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+electronic_problem \- On-the-fly electronic-structure calculations\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions/Subroutines"
+
+.in +1c
+.ti -1c
+.RI "subroutine \fBboproblem\fP (Q, trajlabel)"
+.br
+.RI "Electronic energies (adiabatic or spin-(a)diabatic), forces and non-adiabatic couplings are compueted at the trajectory position\&. "
+.ti -1c
+.RI "subroutine \fBcheck_nac_overlap\fP (NACij, NACij_old)"
+.br
+.RI "Arbitrary sign changes in the NACs due to the diagonalization are fixed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+On-the-fly electronic-structure calculations\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Federica Agostini, Institut de Chimie Physique, University Paris-Saclay\&. 
+.RE
+.PP
+
+.SH "Function/Subroutine Documentation"
+.PP 
+.SS "subroutine electronic_problem::boproblem (real(kind=dp), dimension(n_dof), intent(in) Q, integer, intent(in) trajlabel)"
+
+.PP
+Electronic energies (adiabatic or spin-(a)diabatic), forces and non-adiabatic couplings are compueted at the trajectory position\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItrajlabel\fP label of the trajectory 
+.br
+\fIQ\fP position of the trajectory 
+.br
+\fIistate\fP integer index running over the electronic states 
+.br
+\fIV\fP array of (a)diabatic Hamiltonian 
+.br
+\fIG\fP array of gradients of the (a)diabatic Hamiltonian 
+.br
+\fINAC\fP array of non-adiabatic couplings 
+.br
+\fINAC_old\fP array of non-adiabatic couplings at previous time step 
+.br
+\fIinitialize\fP logical to initialize the QMLLibrary potentials 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Energies, forces and non-adiabatic couplings are stored in the arrays BOenergy, BOforce, coup\&. 
+.RE
+.PP
+
+.SS "subroutine electronic_problem::check_nac_overlap (real(kind=dp), dimension(nstates,nstates,n_dof), intent(inout) NACij, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) NACij_old)"
+
+.PP
+Arbitrary sign changes in the NACs due to the diagonalization are fixed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fINACij_old\fP NAC between two electronic states at time t 
+.br
+\fINACij\fP NAC between two electronic states at time t+dt param snac_old magnitude of NAC vector at time t param snac magnitude of NAC vector at time t+dt ovlp overlap between NAC_ij(t) and NAC_ij(t+dt) eps threshold for the overlap 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+NAC at time t+dt with right sign respect to previous timestep 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My G-CTMQC from the source code\&.

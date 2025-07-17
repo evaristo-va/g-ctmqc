@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceoutput" xml:lang="en-US">
+<title>output Module Reference</title>
+<indexterm><primary>output</primary></indexterm>
+<para>
+
+<para>Output subroutines that print: electronic populations and coherences as functions of time; electronic coefficients as functions of positions at different time steps; positions, momenta and energies at different time steps. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespaceoutput_1a97d7611603ef98cdf4434e93ae5ea38d">plot</link> (BOsigma, Rcl, Vcl, time)</para>
+
+<para>Subroutine which writes electronic populations and coherences in output and calls additional output subroutines. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceoutput_1ac9b4106993ba0f3f342033fbb3965daa">plot_coefficients</link> (BOsigma, Rcl, time)</para>
+
+<para>Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceoutput_1ab306200f08bbb52e685f616adb4ed5ec">plot_r_p_e</link> (Rcl, Vcl, time)</para>
+
+<para>Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceoutput_1af5a889e640d391458cb4177fac08de97">plot_qmom</link> (Rcl, qmom, qmom_type, time)</para>
+
+<para>Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceoutput_1a13a53781b83a74a63ba7f8ce0c59bc58">plot_stc</link> (k_ll, BOsigma, acc_force_E, Vcl, time)</para>
+
+<para>Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceoutput_1a3d2caef916d021721f8eb6529aac2b4f">compute_energy</link> (my_rho, e_BO, trajlabel)</para>
+
+<para>The subroutine computes the expectation value of the electronic Hamiltonian on the time-dependent electronic wavefunction, yielding the gauge-invariant part of the TDPES in CT-MQC or the mean Ehrenfest potential. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceoutput_1a86836a6f446885d459f048a9c0f393fb">initialize_output</link></para>
+
+<para>The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are opened in this subroutine. </para>
+</listitem>
+            <listitem><para><anchor xml:id="_namespaceoutput_1aaa0414cf8105658e81912a3a41d752cb"/>subroutine <link linkend="_namespaceoutput_1aaa0414cf8105658e81912a3a41d752cb">finalize_output</link></para>
+
+<para>The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are closed in this subroutine. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Output subroutines that print: electronic populations and coherences as functions of time; electronic coefficients as functions of positions at different time steps; positions, momenta and energies at different time steps. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespaceoutput_1a3d2caef916d021721f8eb6529aac2b4f"/>    <section>
+    <title>compute_energy()</title>
+<indexterm><primary>compute_energy</primary><secondary>output</secondary></indexterm>
+<indexterm><primary>output</primary><secondary>compute_energy</secondary></indexterm>
+<para><computeroutput>subroutine output::compute_energy (complex(kind=qp), dimension(nstates,nstates), intent(in) my_rho, real(kind=dp), dimension(nstates), intent(in) e_BO, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>The subroutine computes the expectation value of the electronic Hamiltonian on the time-dependent electronic wavefunction, yielding the gauge-invariant part of the TDPES in CT-MQC or the mean Ehrenfest potential. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>my_rho</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>e_BO</entry>
+                                <entry>
+<para>adiabatic or spin-(a)diabatic energy </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i</entry>
+                                <entry>
+<para>integer index </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the TDPES is returned, where &quot;TDPES&quot; means either the gauge-invariant part of the TDPES in CT-MQC or the mean Ehrenfest potential. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceoutput_1a86836a6f446885d459f048a9c0f393fb"/>    <section>
+    <title>initialize_output()</title>
+<indexterm><primary>initialize_output</primary><secondary>output</secondary></indexterm>
+<indexterm><primary>output</primary><secondary>initialize_output</secondary></indexterm>
+<para><computeroutput>subroutine output::initialize_output</computeroutput></para><para>
+
+<para>The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are opened in this subroutine. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>ios</entry>
+                                <entry>
+<para>control variable for output errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespaceoutput_1a97d7611603ef98cdf4434e93ae5ea38d"/>    <section>
+    <title>plot()</title>
+<indexterm><primary>plot</primary><secondary>output</secondary></indexterm>
+<indexterm><primary>output</primary><secondary>plot</secondary></indexterm>
+<para><computeroutput>subroutine output::plot (complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, integer, intent(in) time)</computeroutput></para><para>
+
+<para>Subroutine which writes electronic populations and coherences in output and calls additional output subroutines. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>time</entry>
+                                <entry>
+<para>time step </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Rcl</entry>
+                                <entry>
+<para>positions of the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Vcl</entry>
+                                <entry>
+<para>velocities of the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>BOsigma</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i, j</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>itraj</entry>
+                                <entry>
+<para>integer index running over the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>index_ij</entry>
+                                <entry>
+<para>integer index running over the pairs of electronic states </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Energies, forces and non-adiabatic couplings are stored in the arrays BOenergy, BOforce, coup. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceoutput_1ac9b4106993ba0f3f342033fbb3965daa"/>    <section>
+    <title>plot_coefficients()</title>
+<indexterm><primary>plot_coefficients</primary><secondary>output</secondary></indexterm>
+<indexterm><primary>output</primary><secondary>plot_coefficients</secondary></indexterm>
+<para><computeroutput>subroutine output::plot_coefficients (complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, integer, intent(in) time)</computeroutput></para><para>
+
+<para>Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>time</entry>
+                                <entry>
+<para>time step </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Rcl</entry>
+                                <entry>
+<para>positions of the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>BOsigma</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>idx</entry>
+                                <entry>
+<para>index labelling the output files from 000 to 999 </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>filename</entry>
+                                <entry>
+<para>name of the output file </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>itraj</entry>
+                                <entry>
+<para>integer index running over the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>ios</entry>
+                                <entry>
+<para>control variable for output errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>In the directory coeff the files coeff.XXX.dat are created, labelled from 000 to 999 (those indices label the time steps). </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceoutput_1af5a889e640d391458cb4177fac08de97"/>    <section>
+    <title>plot_qmom()</title>
+<indexterm><primary>plot_qmom</primary><secondary>output</secondary></indexterm>
+<indexterm><primary>output</primary><secondary>plot_qmom</secondary></indexterm>
+<para><computeroutput>subroutine output::plot_qmom (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(n_dof,ntraj,npairs), intent(in) qmom, integer, dimension(n_dof,ntraj,npairs), intent(in) qmom_type, integer, intent(in) time)</computeroutput></para><para>
+
+<para>Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>time</entry>
+                                <entry>
+<para>time step </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_namespaceoutput_1ab306200f08bbb52e685f616adb4ed5ec"/>    <section>
+    <title>plot_r_p_e()</title>
+<indexterm><primary>plot_r_p_e</primary><secondary>output</secondary></indexterm>
+<indexterm><primary>output</primary><secondary>plot_r_p_e</secondary></indexterm>
+<para><computeroutput>subroutine output::plot_r_p_e (real(kind=dp), dimension(ntraj,n_dof), intent(in) Rcl, real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, integer, intent(in) time)</computeroutput></para><para>
+
+<para>Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>time</entry>
+                                <entry>
+<para>time step </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Rcl</entry>
+                                <entry>
+<para>positions of the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>Vcl</entry>
+                                <entry>
+<para>velocities of the trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>idx</entry>
+                                <entry>
+<para>index labelling the output files from 000 to 999 </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>filename</entry>
+                                <entry>
+<para>name of the output file </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>itraj</entry>
+                                <entry>
+<para>integer index running over the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>ios</entry>
+                                <entry>
+<para>control variable for output errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>In the directory trajectories the files RPE.XXX.dat are created, labelled from 000 to 999 (those indices label the time steps). </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceoutput_1a13a53781b83a74a63ba7f8ce0c59bc58"/>    <section>
+    <title>plot_stc()</title>
+<indexterm><primary>plot_stc</primary><secondary>output</secondary></indexterm>
+<indexterm><primary>output</primary><secondary>plot_stc</secondary></indexterm>
+<para><computeroutput>subroutine output::plot_stc (real(kind=dp), dimension(ntraj,nstates,nstates), intent(in) k_ll, complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in) BOsigma, real(kind=dp), dimension(ntraj,n_dof,nstates), intent(in) acc_force_E, real(kind=dp), dimension(ntraj,n_dof), intent(in) Vcl, integer, intent(in) time)</computeroutput></para><para>
+
+<para>Subroutine which outputs information about the spurious transfer condition (STC), ie, sum_traj Q(fl-fk)rho_ll*rho_kk, and dE/dt. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>time</entry>
+                                <entry>
+<para>time step </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>BOsigma</entry>
+                                <entry>
+<para>electronic density matrix </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>k_ll</entry>
+                                <entry>
+<para>qmom*acc_force </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>itraj</entry>
+                                <entry>
+<para>integer index running over the Ntraj trajectories </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>ios</entry>
+                                <entry>
+<para>control variable for output errors </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>In main directory STC.dat is created </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

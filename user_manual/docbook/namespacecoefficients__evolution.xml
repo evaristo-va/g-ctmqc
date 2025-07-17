@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespacecoefficients__evolution" xml:lang="en-US">
+<title>coefficients_evolution Module Reference</title>
+<indexterm><primary>coefficients_evolution</primary></indexterm>
+<para>
+
+<para>Evolution of the electronic coefficients. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_namespacecoefficients__evolution_1a643fd94059d3bbe545866d2e61982330"/>subroutine <emphasis role="strong">evolve_coeff</emphasis> (v, coeff, k_li, E_old, NAC_old, trajlabel)</para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespacecoefficients__evolution_1ac1d60ce85e048272f970a9e1c8701d16">rk4_coeff</link> (v, coeff, k_li, E, NAC, trajlabel)</para>
+
+<para>Numerical integration of the non-linear differential equation describing the electronic evolution of the coefficients. </para>
+</listitem>
+            <listitem><para>complex(kind=qp) function <link linkend="_namespacecoefficients__evolution_1a8e346e6ec68943c650b9cd2f18c3ed7e">cdot</link> (state, kfunction, v, coeff, k_li, E_int, NAC_int, trajlabel)</para>
+
+<para>Total time derivative of the electronic coefficients as given in the Ehrenfest algorithm, surface hopping algorithm, and CT-MQC. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Evolution of the electronic coefficients. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespacecoefficients__evolution_1a8e346e6ec68943c650b9cd2f18c3ed7e"/>    <section>
+    <title>cdot()</title>
+<indexterm><primary>cdot</primary><secondary>coefficients_evolution</secondary></indexterm>
+<indexterm><primary>coefficients_evolution</primary><secondary>cdot</secondary></indexterm>
+<para><computeroutput>complex(kind=qp) function coefficients_evolution::cdot (integer, intent(in) state, complex(kind=qp), intent(in) kfunction, real(kind=dp), dimension(n_dof), intent(in) v, complex(kind=qp), dimension(nstates), intent(in) coeff, real(kind=dp), dimension(nstates,nstates), intent(in) k_li, real(kind=dp), dimension(nstates), intent(in) E_int, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) NAC_int, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>Total time derivative of the electronic coefficients as given in the Ehrenfest algorithm, surface hopping algorithm, and CT-MQC. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>state</entry>
+                                <entry>
+<para>electronic state for which the time derivative of the coefficients is computer </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory along which the equation is integrated </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>velocity of trajectory along which the time derivative of the coefficient is calculated </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>k_li</entry>
+                                <entry>
+<para>term accounting for decoherence effects in CT-MQC </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>coeff</entry>
+                                <entry>
+<para>electronic coefficientes </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>kfunction</entry>
+                                <entry>
+<para>function appearing in the expression of the time increment </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>cdot</entry>
+                                <entry>
+<para>time derivative of the coefficient </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>nonadiabatic_sum</entry>
+                                <entry>
+<para>off-diagonal contribution to the time derivative of the coefficients </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>my_coeff</entry>
+                                <entry>
+<para>local temporary values of the coefficients </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i</entry>
+                                <entry>
+<para>integer index </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>my_gap</entry>
+                                <entry>
+<para>energy-gap threshold between the spin-diabatic states to tune the effect of the spin-orbit coupling </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The values of the time derivative of the electronic coefficientes is returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespacecoefficients__evolution_1ac1d60ce85e048272f970a9e1c8701d16"/>    <section>
+    <title>rk4_coeff()</title>
+<indexterm><primary>rk4_coeff</primary><secondary>coefficients_evolution</secondary></indexterm>
+<indexterm><primary>coefficients_evolution</primary><secondary>rk4_coeff</secondary></indexterm>
+<para><computeroutput>subroutine coefficients_evolution::rk4_coeff (real(kind=dp), dimension(n_dof), intent(in) v, complex(kind=qp), dimension(nstates), intent(inout) coeff, real(kind=dp), dimension(nstates,nstates), intent(in) k_li, real(kind=dp), dimension(nstates), intent(in) E, real(kind=dp), dimension(nstates,nstates,n_dof), intent(in) NAC, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>Numerical integration of the non-linear differential equation describing the electronic evolution of the coefficients. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label of the trajectory along which the equation is integrated </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>velocity of trajectory along which the equation is integrated </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>k_li</entry>
+                                <entry>
+<para>term accounting for decoherence effects in CT-MQC </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>coeff</entry>
+                                <entry>
+<para>electronic coefficientes </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i</entry>
+                                <entry>
+<para>integer index </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>k1, k2, k3, k4</entry>
+                                <entry>
+<para>functions appearing in the expression of the time increment </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>kfunction</entry>
+                                <entry>
+<para>function appearing in the expression of the time increment </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>my_coeff</entry>
+                                <entry>
+<para>local temporary values of the coefficients </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>normalization</entry>
+                                <entry>
+<para>norm of the electronic wavefunction after a time step </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The values of the electronic coefficientes are returned after one step of dynamics. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

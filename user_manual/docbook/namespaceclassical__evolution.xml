@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceclassical__evolution" xml:lang="en-US">
+<title>classical_evolution Module Reference</title>
+<indexterm><primary>classical_evolution</primary></indexterm>
+<para>
+
+<para>The module contains a collection of subroutines used in the classical evolution of the nuclei. </para>
+ 
+</para>
+<simplesect>
+    <title>Functions/Subroutines    </title>
+        <itemizedlist>
+            <listitem><para>subroutine <link linkend="_namespaceclassical__evolution_1aa56590b0cb9845368cd3d5345b908857">update_position</link> (x, v)</para>
+
+<para>Update of the classical positions according to the velocity Verlet algorithm. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceclassical__evolution_1a59905627b30c87e644aeb0b1c008579f">update_velocity</link> (v, force)</para>
+
+<para>Update of the classical velocities according to the velocity Verlet algorithm. </para>
+</listitem>
+            <listitem><para>subroutine <link linkend="_namespaceclassical__evolution_1ae1c31050918fc14c897af2fe659432fc">non_adiabatic_force</link> (coeff, force, acc_force, k_li, trajlabel)</para>
+
+<para>Definition of the classical nuclear force depending on the type of calculation that is executed. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The module contains a collection of subroutines used in the classical evolution of the nuclei. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Federica Agostini, Institut de Chimie Physique, University Paris-Saclay. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function/Subroutine Documentation</title>
+<anchor xml:id="_namespaceclassical__evolution_1ae1c31050918fc14c897af2fe659432fc"/>    <section>
+    <title>non_adiabatic_force()</title>
+<indexterm><primary>non_adiabatic_force</primary><secondary>classical_evolution</secondary></indexterm>
+<indexterm><primary>classical_evolution</primary><secondary>non_adiabatic_force</secondary></indexterm>
+<para><computeroutput>subroutine classical_evolution::non_adiabatic_force (complex(kind=qp), dimension(nstates), intent(in) coeff, real(kind=dp), dimension(n_dof), intent(inout) force, real(kind=dp), dimension(n_dof,nstates), intent(in) acc_force, real(kind=dp), dimension(nstates,nstates), intent(in) k_li, integer, intent(in) trajlabel)</computeroutput></para><para>
+
+<para>Definition of the classical nuclear force depending on the type of calculation that is executed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>trajlabel</entry>
+                                <entry>
+<para>label indicating the trajectory number in the swarm </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>coeff</entry>
+                                <entry>
+<para>coefficients of the expansion of the electronic time-dependent wavefunction in the basis used for the dynamics </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>acc_force</entry>
+                                <entry>
+<para>gradient of the adiabatic or diabatic force accumulated over time along the trajectory trajlabel </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>k_li</entry>
+                                <entry>
+<para>quantity related to the quantum momentum and responsible for decoherence; it is identically zero for Ehrenfest and surface hopping calculations </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>force</entry>
+                                <entry>
+<para>classical force used to evolve the trajectory trajlabel </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i, j</entry>
+                                <entry>
+<para>integer indices </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>i_dof</entry>
+                                <entry>
+<para>index running on the n_dof degrees of freedom </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>check</entry>
+                                <entry>
+<para>control variable for allocation errors </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>my_rho</entry>
+                                <entry>
+<para>temporary array of the electronic density matrix </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The value of the classical force at the position of the trajectory is returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceclassical__evolution_1aa56590b0cb9845368cd3d5345b908857"/>    <section>
+    <title>update_position()</title>
+<indexterm><primary>update_position</primary><secondary>classical_evolution</secondary></indexterm>
+<indexterm><primary>classical_evolution</primary><secondary>update_position</secondary></indexterm>
+<para><computeroutput>subroutine classical_evolution::update_position (real(kind=dp), dimension(n_dof), intent(inout) x, real(kind=dp), dimension(n_dof), intent(in) v)</computeroutput></para><para>
+
+<para>Update of the classical positions according to the velocity Verlet algorithm. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>x</entry>
+                                <entry>
+<para>nuclear position </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>my_x</entry>
+                                <entry>
+<para>temporary nuclear position for internal calculations </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The updated nuclear position is returned. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_namespaceclassical__evolution_1a59905627b30c87e644aeb0b1c008579f"/>    <section>
+    <title>update_velocity()</title>
+<indexterm><primary>update_velocity</primary><secondary>classical_evolution</secondary></indexterm>
+<indexterm><primary>classical_evolution</primary><secondary>update_velocity</secondary></indexterm>
+<para><computeroutput>subroutine classical_evolution::update_velocity (real(kind=dp), dimension(n_dof), intent(inout) v, real(kind=dp), dimension(n_dof), intent(in) force)</computeroutput></para><para>
+
+<para>Update of the classical velocities according to the velocity Verlet algorithm. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>force</entry>
+                                <entry>
+<para>nuclear force </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in,out                                </entry>                                <entry>v</entry>
+                                <entry>
+<para>nuclear velocity </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>                                </entry>                                <entry>my_v</entry>
+                                <entry>
+<para>temporary nuclear velocity for internal calculations </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The updated nuclear velocity is returned. </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

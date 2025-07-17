@@ -1,0 +1,204 @@
+\begin{theindex}
+
+  \item {acc\_force\_ec}
+    \subitem {coherence\_corrections}, \hyperpage{14}
+  \item {accumulated\_boforce}
+    \subitem {coherence\_corrections}, \hyperpage{15}
+  \item {analytical\_potentials}, \hyperpage{3}
+    \subitem {check\_overlap}, \hyperpage{4}
+    \subitem {diagonalize}, \hyperpage{4}
+    \subitem {doublewell\_potential}, \hyperpage{5}
+    \subitem {ibr\_potential}, \hyperpage{5}
+    \subitem {nai\_potential}, \hyperpage{6}
+    \subitem {new\_model\_potentials}, \hyperpage{6}
+    \subitem {non\_adiabatic\_couplings}, \hyperpage{7}
+    \subitem {phenol\_potential}, \hyperpage{7}
+    \subitem {plot\_potential}, \hyperpage{8}
+    \subitem {subotnikjpca2019}, \hyperpage{8}
+    \subitem {tully3}, \hyperpage{9}
+  \item {atomic\_masses}, \hyperpage{9}
+
+  \indexspace
+
+  \item {boproblem}
+    \subitem {electronic\_problem}, \hyperpage{18}
+
+  \indexspace
+
+  \item {cdot}
+    \subitem {coefficients\_evolution}, \hyperpage{12}
+  \item {check\_nac\_overlap}
+    \subitem {electronic\_problem}, \hyperpage{19}
+  \item {check\_overlap}
+    \subitem {analytical\_potentials}, \hyperpage{4}
+  \item {choose\_bostate}
+    \subitem {shopping}, \hyperpage{24, 25}
+  \item {classical\_evolution}, \hyperpage{10}
+    \subitem {non\_adiabatic\_force}, \hyperpage{10}
+    \subitem {update\_position}, \hyperpage{11}
+    \subitem {update\_velocity}, \hyperpage{12}
+  \item {coefficients\_evolution}, \hyperpage{12}
+    \subitem {cdot}, \hyperpage{12}
+    \subitem {rk4\_coeff}, \hyperpage{13}
+  \item {coherence\_corrections}, \hyperpage{14}
+    \subitem {acc\_force\_ec}, \hyperpage{14}
+    \subitem {accumulated\_boforce}, \hyperpage{15}
+    \subitem {quantum\_momentum}, \hyperpage{15}, \hyperpage{17}
+  \item {compute\_energy}
+    \subitem {output}, \hyperpage{20}
+
+  \indexspace
+
+  \item {decoherence\_coorection}
+    \subitem {shopping}, \hyperpage{25}
+  \item {diagonalize}
+    \subitem {analytical\_potentials}, \hyperpage{4}
+  \item {doublewell\_potential}
+    \subitem {analytical\_potentials}, \hyperpage{5}
+
+  \indexspace
+
+  \item {electronic\_problem}, \hyperpage{18}
+    \subitem {boproblem}, \hyperpage{18}
+    \subitem {check\_nac\_overlap}, \hyperpage{19}
+  \item {evolution}
+    \subitem {time\_evolution}, \hyperpage{29}
+
+  \indexspace
+
+  \item {finalize}
+    \subitem {tools}, \hyperpage{31}
+  \item {finalize\_local\_vars}
+    \subitem {time\_evolution}, \hyperpage{30}
+
+  \indexspace
+
+  \item {gaussian\_distribution}
+    \subitem {wigner\_distribution}, \hyperpage{38}
+  \item {generate\_random\_seed}
+    \subitem {tools}, \hyperpage{31}
+  \item {generate\_random\_seed\_hop}
+    \subitem {tools}, \hyperpage{31}
+
+  \indexspace
+
+  \item {hopping}
+    \subitem {shopping}, \hyperpage{26, 27}
+
+  \indexspace
+
+  \item {ibr\_potential}
+    \subitem {analytical\_potentials}, \hyperpage{5}
+  \item {initial\_conditions}
+    \subitem {wigner\_distribution}, \hyperpage{38}
+  \item {initialize\_dynamics\_vars}
+    \subitem {tools}, \hyperpage{33}
+  \item {initialize\_local\_vars}
+    \subitem {time\_evolution}, \hyperpage{30}
+  \item {initialize\_output}
+    \subitem {output}, \hyperpage{21}
+  \item {initialize\_trajectory\_vars}
+    \subitem {tools}, \hyperpage{33}
+
+  \indexspace
+
+  \item {kinds}, \hyperpage{19}
+
+  \indexspace
+
+  \item {momentum\_correction}
+    \subitem {shopping}, \hyperpage{27, 28}
+
+  \indexspace
+
+  \item {nai\_potential}
+    \subitem {analytical\_potentials}, \hyperpage{6}
+  \item {new\_model\_potentials}
+    \subitem {analytical\_potentials}, \hyperpage{6}
+  \item {non\_adiabatic\_couplings}
+    \subitem {analytical\_potentials}, \hyperpage{7}
+  \item {non\_adiabatic\_force}
+    \subitem {classical\_evolution}, \hyperpage{10}
+
+  \indexspace
+
+  \item {output}, \hyperpage{19}
+    \subitem {compute\_energy}, \hyperpage{20}
+    \subitem {initialize\_output}, \hyperpage{21}
+    \subitem {plot}, \hyperpage{21}
+    \subitem {plot\_coefficients}, \hyperpage{22}
+    \subitem {plot\_qmom}, \hyperpage{22}
+    \subitem {plot\_r\_p\_e}, \hyperpage{22}
+    \subitem {plot\_stc}, \hyperpage{23}
+
+  \indexspace
+
+  \item {phenol\_potential}
+    \subitem {analytical\_potentials}, \hyperpage{7}
+  \item {plot}
+    \subitem {output}, \hyperpage{21}
+  \item {plot\_coefficients}
+    \subitem {output}, \hyperpage{22}
+  \item {plot\_potential}
+    \subitem {analytical\_potentials}, \hyperpage{8}
+  \item {plot\_qmom}
+    \subitem {output}, \hyperpage{22}
+  \item {plot\_r\_p\_e}
+    \subitem {output}, \hyperpage{22}
+  \item {plot\_stc}
+    \subitem {output}, \hyperpage{23}
+
+  \indexspace
+
+  \item {quantum\_momentum}
+    \subitem {coherence\_corrections}, \hyperpage{15}, \hyperpage{17}
+
+  \indexspace
+
+  \item {rk4\_coeff}
+    \subitem {coefficients\_evolution}, \hyperpage{13}
+
+  \indexspace
+
+  \item {shopping}, \hyperpage{24}
+    \subitem {choose\_bostate}, \hyperpage{24, 25}
+    \subitem {decoherence\_coorection}, \hyperpage{25}
+    \subitem {hopping}, \hyperpage{26, 27}
+    \subitem {momentum\_correction}, \hyperpage{27, 28}
+  \item {subotnikjpca2019}
+    \subitem {analytical\_potentials}, \hyperpage{8}
+
+  \indexspace
+
+  \item {time\_evolution}, \hyperpage{28}
+    \subitem {evolution}, \hyperpage{29}
+    \subitem {finalize\_local\_vars}, \hyperpage{30}
+    \subitem {initialize\_local\_vars}, \hyperpage{30}
+  \item {tools}, \hyperpage{30}
+    \subitem {finalize}, \hyperpage{31}
+    \subitem {generate\_random\_seed}, \hyperpage{31}
+    \subitem {generate\_random\_seed\_hop}, \hyperpage{31}
+    \subitem {initialize\_dynamics\_vars}, \hyperpage{33}
+    \subitem {initialize\_trajectory\_vars}, \hyperpage{33}
+  \item {trajectories\_selection}, \hyperpage{33}
+  \item {tully3}
+    \subitem {analytical\_potentials}, \hyperpage{9}
+
+  \indexspace
+
+  \item {update\_position}
+    \subitem {classical\_evolution}, \hyperpage{11}
+  \item {update\_velocity}
+    \subitem {classical\_evolution}, \hyperpage{12}
+
+  \indexspace
+
+  \item {variables}, \hyperpage{34}
+
+  \indexspace
+
+  \item {wigner\_distribution}, \hyperpage{37}
+    \subitem {gaussian\_distribution}, \hyperpage{38}
+    \subitem {initial\_conditions}, \hyperpage{38}
+
+\end{theindex}

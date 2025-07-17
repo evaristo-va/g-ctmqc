@@ -1,0 +1,208 @@
+\hypertarget{namespaceoutput}{}\doxysection{output Module Reference}
+\label{namespaceoutput}\index{output@{output}}
+
+
+Output subroutines that print\+: electronic populations and coherences as functions of time; electronic coefficients as functions of positions at different time steps; positions, momenta and energies at different time steps.  
+
+
+\doxysubsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespaceoutput_a97d7611603ef98cdf4434e93ae5ea38d}{plot}} (BOsigma, Rcl, Vcl, time)
+\begin{DoxyCompactList}\small\item\em Subroutine which writes electronic populations and coherences in output and calls additional output subroutines. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceoutput_ac9b4106993ba0f3f342033fbb3965daa}{plot\+\_\+coefficients}} (BOsigma, Rcl, time)
+\begin{DoxyCompactList}\small\item\em Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceoutput_ab306200f08bbb52e685f616adb4ed5ec}{plot\+\_\+r\+\_\+p\+\_\+e}} (Rcl, Vcl, time)
+\begin{DoxyCompactList}\small\item\em Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceoutput_af5a889e640d391458cb4177fac08de97}{plot\+\_\+qmom}} (Rcl, qmom, qmom\+\_\+type, time)
+\begin{DoxyCompactList}\small\item\em Subroutine which outputs information about the spurious transfer condition (STC), ie, sum\+\_\+traj Q(fl-\/fk)rho\+\_\+ll$\ast$rho\+\_\+kk, and d\+E/dt. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceoutput_a13a53781b83a74a63ba7f8ce0c59bc58}{plot\+\_\+stc}} (k\+\_\+ll, BOsigma, acc\+\_\+force\+\_\+E, Vcl, time)
+\begin{DoxyCompactList}\small\item\em Subroutine which outputs information about the spurious transfer condition (STC), ie, sum\+\_\+traj Q(fl-\/fk)rho\+\_\+ll$\ast$rho\+\_\+kk, and d\+E/dt. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceoutput_a3d2caef916d021721f8eb6529aac2b4f}{compute\+\_\+energy}} (my\+\_\+rho, e\+\_\+\+BO, trajlabel)
+\begin{DoxyCompactList}\small\item\em The subroutine computes the expectation value of the electronic Hamiltonian on the time-\/dependent electronic wavefunction, yielding the gauge-\/invariant part of the TDPES in CT-\/\+MQC or the mean Ehrenfest potential. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespaceoutput_a86836a6f446885d459f048a9c0f393fb}{initialize\+\_\+output}}
+\begin{DoxyCompactList}\small\item\em The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are opened in this subroutine. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceoutput_aaa0414cf8105658e81912a3a41d752cb}\label{namespaceoutput_aaa0414cf8105658e81912a3a41d752cb}} 
+subroutine \mbox{\hyperlink{namespaceoutput_aaa0414cf8105658e81912a3a41d752cb}{finalize\+\_\+output}}
+\begin{DoxyCompactList}\small\item\em The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are closed in this subroutine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Output subroutines that print\+: electronic populations and coherences as functions of time; electronic coefficients as functions of positions at different time steps; positions, momenta and energies at different time steps. 
+
+\begin{DoxyAuthor}{Author}
+Federica Agostini, Institut de Chimie Physique, University Paris-\/\+Saclay. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespaceoutput_a3d2caef916d021721f8eb6529aac2b4f}\label{namespaceoutput_a3d2caef916d021721f8eb6529aac2b4f}} 
+\index{output@{output}!compute\_energy@{compute\_energy}}
+\index{compute\_energy@{compute\_energy}!output@{output}}
+\doxysubsubsection{\texorpdfstring{compute\_energy()}{compute\_energy()}}
+{\footnotesize\ttfamily subroutine output\+::compute\+\_\+energy (\begin{DoxyParamCaption}\item[{complex(kind=qp), dimension(nstates,nstates), intent(in)}]{my\+\_\+rho,  }\item[{real(kind=dp), dimension(nstates), intent(in)}]{e\+\_\+\+BO,  }\item[{integer, intent(in)}]{trajlabel }\end{DoxyParamCaption})}
+
+
+
+The subroutine computes the expectation value of the electronic Hamiltonian on the time-\/dependent electronic wavefunction, yielding the gauge-\/invariant part of the TDPES in CT-\/\+MQC or the mean Ehrenfest potential. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trajlabel} & label of the trajectory \\
+\hline
+\mbox{\texttt{ in}}  & {\em my\+\_\+rho} & electronic density matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em e\+\_\+\+BO} & adiabatic or spin-\/(a)diabatic energy \\
+\hline
+ & {\em i} & integer index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the TDPES is returned, where \char`\"{}\+TDPES\char`\"{} means either the gauge-\/invariant part of the TDPES in CT-\/\+MQC or the mean Ehrenfest potential. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceoutput_a86836a6f446885d459f048a9c0f393fb}\label{namespaceoutput_a86836a6f446885d459f048a9c0f393fb}} 
+\index{output@{output}!initialize\_output@{initialize\_output}}
+\index{initialize\_output@{initialize\_output}!output@{output}}
+\doxysubsubsection{\texorpdfstring{initialize\_output()}{initialize\_output()}}
+{\footnotesize\ttfamily subroutine output\+::initialize\+\_\+output}
+
+
+
+The files where electronic populations, coherences and the energy of the ensemble of trajectories are written are opened in this subroutine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ios} & control variable for output errors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceoutput_a97d7611603ef98cdf4434e93ae5ea38d}\label{namespaceoutput_a97d7611603ef98cdf4434e93ae5ea38d}} 
+\index{output@{output}!plot@{plot}}
+\index{plot@{plot}!output@{output}}
+\doxysubsubsection{\texorpdfstring{plot()}{plot()}}
+{\footnotesize\ttfamily subroutine output\+::plot (\begin{DoxyParamCaption}\item[{complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in)}]{BOsigma,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Rcl,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Vcl,  }\item[{integer, intent(in)}]{time }\end{DoxyParamCaption})}
+
+
+
+Subroutine which writes electronic populations and coherences in output and calls additional output subroutines. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & time step \\
+\hline
+\mbox{\texttt{ in}}  & {\em Rcl} & positions of the trajectories \\
+\hline
+\mbox{\texttt{ in}}  & {\em Vcl} & velocities of the trajectories \\
+\hline
+\mbox{\texttt{ in}}  & {\em BOsigma} & electronic density matrix \\
+\hline
+ & {\em i,j} & integer indices \\
+\hline
+ & {\em itraj} & integer index running over the Ntraj trajectories \\
+\hline
+ & {\em index\+\_\+ij} & integer index running over the pairs of electronic states \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Energies, forces and non-\/adiabatic couplings are stored in the arrays BOenergy, BOforce, coup. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceoutput_ac9b4106993ba0f3f342033fbb3965daa}\label{namespaceoutput_ac9b4106993ba0f3f342033fbb3965daa}} 
+\index{output@{output}!plot\_coefficients@{plot\_coefficients}}
+\index{plot\_coefficients@{plot\_coefficients}!output@{output}}
+\doxysubsubsection{\texorpdfstring{plot\_coefficients()}{plot\_coefficients()}}
+{\footnotesize\ttfamily subroutine output\+::plot\+\_\+coefficients (\begin{DoxyParamCaption}\item[{complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in)}]{BOsigma,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Rcl,  }\item[{integer, intent(in)}]{time }\end{DoxyParamCaption})}
+
+
+
+Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & time step \\
+\hline
+\mbox{\texttt{ in}}  & {\em Rcl} & positions of the trajectories \\
+\hline
+\mbox{\texttt{ in}}  & {\em BOsigma} & electronic density matrix \\
+\hline
+ & {\em idx} & index labelling the output files from 000 to 999 \\
+\hline
+ & {\em filename} & name of the output file \\
+\hline
+ & {\em itraj} & integer index running over the Ntraj trajectories \\
+\hline
+ & {\em ios} & control variable for output errors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+In the directory coeff the files coeff.\+XXX.\+dat are created, labelled from 000 to 999 (those indices label the time steps). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceoutput_af5a889e640d391458cb4177fac08de97}\label{namespaceoutput_af5a889e640d391458cb4177fac08de97}} 
+\index{output@{output}!plot\_qmom@{plot\_qmom}}
+\index{plot\_qmom@{plot\_qmom}!output@{output}}
+\doxysubsubsection{\texorpdfstring{plot\_qmom()}{plot\_qmom()}}
+{\footnotesize\ttfamily subroutine output\+::plot\+\_\+qmom (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Rcl,  }\item[{real(kind=dp), dimension(n\+\_\+dof,ntraj,npairs), intent(in)}]{qmom,  }\item[{integer, dimension(n\+\_\+dof,ntraj,npairs), intent(in)}]{qmom\+\_\+type,  }\item[{integer, intent(in)}]{time }\end{DoxyParamCaption})}
+
+
+
+Subroutine which outputs information about the spurious transfer condition (STC), ie, sum\+\_\+traj Q(fl-\/fk)rho\+\_\+ll$\ast$rho\+\_\+kk, and d\+E/dt. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & time step \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceoutput_ab306200f08bbb52e685f616adb4ed5ec}\label{namespaceoutput_ab306200f08bbb52e685f616adb4ed5ec}} 
+\index{output@{output}!plot\_r\_p\_e@{plot\_r\_p\_e}}
+\index{plot\_r\_p\_e@{plot\_r\_p\_e}!output@{output}}
+\doxysubsubsection{\texorpdfstring{plot\_r\_p\_e()}{plot\_r\_p\_e()}}
+{\footnotesize\ttfamily subroutine output\+::plot\+\_\+r\+\_\+p\+\_\+e (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Rcl,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Vcl,  }\item[{integer, intent(in)}]{time }\end{DoxyParamCaption})}
+
+
+
+Subroutine which writes electronic coeffecients as functions of the trajectory positions at some selected time steps along the dynamics. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & time step \\
+\hline
+\mbox{\texttt{ in}}  & {\em Rcl} & positions of the trajectories \\
+\hline
+\mbox{\texttt{ in}}  & {\em Vcl} & velocities of the trajectories \\
+\hline
+ & {\em idx} & index labelling the output files from 000 to 999 \\
+\hline
+ & {\em filename} & name of the output file \\
+\hline
+ & {\em itraj} & integer index running over the Ntraj trajectories \\
+\hline
+ & {\em ios} & control variable for output errors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+In the directory trajectories the files RPE.\+XXX.\+dat are created, labelled from 000 to 999 (those indices label the time steps). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceoutput_a13a53781b83a74a63ba7f8ce0c59bc58}\label{namespaceoutput_a13a53781b83a74a63ba7f8ce0c59bc58}} 
+\index{output@{output}!plot\_stc@{plot\_stc}}
+\index{plot\_stc@{plot\_stc}!output@{output}}
+\doxysubsubsection{\texorpdfstring{plot\_stc()}{plot\_stc()}}
+{\footnotesize\ttfamily subroutine output\+::plot\+\_\+stc (\begin{DoxyParamCaption}\item[{real(kind=dp), dimension(ntraj,nstates,nstates), intent(in)}]{k\+\_\+ll,  }\item[{complex(kind=qp), dimension(ntraj,nstates,nstates), intent(in)}]{BOsigma,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof,nstates), intent(in)}]{acc\+\_\+force\+\_\+E,  }\item[{real(kind=dp), dimension(ntraj,n\+\_\+dof), intent(in)}]{Vcl,  }\item[{integer, intent(in)}]{time }\end{DoxyParamCaption})}
+
+
+
+Subroutine which outputs information about the spurious transfer condition (STC), ie, sum\+\_\+traj Q(fl-\/fk)rho\+\_\+ll$\ast$rho\+\_\+kk, and d\+E/dt. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & time step \\
+\hline
+\mbox{\texttt{ in}}  & {\em BOsigma} & electronic density matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em k\+\_\+ll} & qmom$\ast$acc\+\_\+force \\
+\hline
+ & {\em itraj} & integer index running over the Ntraj trajectories \\
+\hline
+ & {\em ios} & control variable for output errors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+In main directory STC.\+dat is created 
+\end{DoxyReturn}
