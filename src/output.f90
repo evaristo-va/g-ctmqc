@@ -485,7 +485,7 @@ MODULE output
     OPEN(88,FILE=TRIM(output_folder)//"/BO_coherences.dat",STATUS="replace", &
       FORM="formatted",ACTION="write",IOSTAT=ios)
     IF(ios/=0) PRINT*,'error opening BO_coherences.dat'
-    WRITE(88,*) "#Time, Coherences"
+    WRITE(88,*) "#Time, Sum|rho_12|, Sum|rho_13|, ..., Sum|rho_1N|, Sum|rho_23|, ..."
 
     open(89,FILE=TRIM(output_folder)//"/BO_population.dat",STATUS="replace", &
       FORM="formatted",ACTION="write",IOSTAT=ios)
@@ -500,7 +500,7 @@ MODULE output
     OPEN(94,FILE=TRIM(output_folder)//"/BO_coherence_magsum.dat",STATUS="replace", &
       FORM="formatted",ACTION="write",IOSTAT=ios)
     IF(ios/=0) PRINT*,'error opening BO_coherence_magsum.dat'
-    WRITE(94,*) "#Time, Coherences magnitude of sum"
+    WRITE(94,*) "#Time, |Sum rho_12|, |Sum rho_13|, ..., |Sum rho_1N|, |Sum rho_23|, ..."
 
     open(95,FILE=TRIM(output_folder)//"/BO_population_d.dat",STATUS="replace", &
       FORM="formatted",ACTION="write",IOSTAT=ios)
