@@ -92,22 +92,28 @@ MODULE output
        DO j=i+1,nstates
           index_ij=index_ij+1
           DO itraj=1,ntraj
+             ! Trajectory sum of magnitude of electronic coherences
              BO_coh(index_ij) = BO_coh(index_ij) + &
               DSQRT((real(BOsigma(itraj,i,i),KIND=dp))* &
                (real(BOsigma(itraj,j,j),KIND=dp)))
+             ! Trajectory sum of complex electronic coherences
              BO_coh_sum(index_ij) = BO_coh_magsum(index_ij) + BOsigma(itraj,i,j)
           END DO
        END DO
     END DO
-    BO_coh     = BO_coh/dble(ntraj)
 
+    ! Trajectory sum of magnitude of electronic coherences
+    BO_coh        = BO_coh/dble(ntraj)
+    ! Magnitude of rajectory sum of electronic coherences
+    BO_coh_magsum = ABS(BO_coh_sum)/dble(ntraj)
+
+    ! Total energy
     CTMQC_E = 0.0_dp
     DO itraj=1,ntraj
       CTMQC_E=CTMQC_E+0.5_dp*DOT_PRODUCT(mass(:),Vcl(itraj,:)**2)+tdpes(itraj)
     ENDDO
 
     CTMQC_E = CTMQC_E/dble(ntraj)
-    BO_coh_magsum = ABS(BO_coh_sum)/dble(ntraj)
 
     WRITE(88,'(f14.4,300f14.8)') DBLE(time)*dt,BO_coh
     WRITE(89,'(f14.4,105f14.8)') DBLE(time)*dt,BO_pop,BO_pop_SH
