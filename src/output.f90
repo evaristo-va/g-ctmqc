@@ -104,7 +104,7 @@ MODULE output
               DSQRT((real(BOsigma(itraj,i,i),KIND=dp))* &
                (real(BOsigma(itraj,j,j),KIND=dp)))
              ! Trajectory sum of complex electronic coherences
-             BO_coh_sum(index_ij) = BO_coh_magsum(index_ij) + BOsigma(itraj,i,j)
+             BO_coh_sum(index_ij) = BO_coh_sum(index_ij) + BOsigma(itraj,i,j)
           END DO
        END DO
     END DO
