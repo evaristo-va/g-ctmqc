@@ -65,8 +65,15 @@ MODULE output
 
     IF(time==0) CALL initialize_output
 
-    BO_pop = 0.0_dp
-    BO_pop_SH = 0.0_dp
+    BO_pop          = 0.0_dp
+    BO_pop_SH       = 0.0_dp
+    CTMQC_E         = 0.0_dp
+    BO_coh          = 0.0_dp
+    BO_coh_sum      = CMPLX(0.0_dp,0.0_dp,qp)
+    BO_coh_magsum   = 0.0_dp
+    index_ij        = 0
+
+    ! Computation of SH populations
     IF (typ_cal=="TSHLZ" .OR. typ_cal=="TSHFS") THEN
        DO i=1,nstates
           DO itraj=1,ntraj
@@ -75,18 +82,18 @@ MODULE output
        END DO
        BO_pop_SH = BO_pop_SH/dble(ntraj)
     END IF
+
+    ! Computation of populations and energy
     DO itraj=1,ntraj
+       CTMQC_E=CTMQC_E+0.5_dp*DOT_PRODUCT(mass(:),Vcl(itraj,:)**2)+tdpes(itraj)
        DO i=1,nstates
           BO_pop(i) = BO_pop(i) + real(BOsigma(itraj,i,i),kind=dp)
        END DO
     END DO
-  
-    BO_pop = BO_pop/dble(ntraj)
 
-    BO_coh          = 0.0_dp
-    BO_coh_sum      = CMPLX(0.0_dp,0.0_dp,qp)
-    BO_coh_magsum   = 0.0_dp
-    index_ij        = 0
+    BO_pop = BO_pop/dble(ntraj)
+    CTMQC_E = CTMQC_E/dble(ntraj)
+
 
     DO i=1,nstates
        DO j=i+1,nstates
@@ -106,14 +113,6 @@ MODULE output
     BO_coh        = BO_coh/dble(ntraj)
     ! Magnitude of rajectory sum of electronic coherences
     BO_coh_magsum = ABS(BO_coh_sum)/dble(ntraj)
-
-    ! Total energy
-    CTMQC_E = 0.0_dp
-    DO itraj=1,ntraj
-      CTMQC_E=CTMQC_E+0.5_dp*DOT_PRODUCT(mass(:),Vcl(itraj,:)**2)+tdpes(itraj)
-    ENDDO
-
-    CTMQC_E = CTMQC_E/dble(ntraj)
 
     WRITE(88,'(f14.4,300f14.8)') DBLE(time)*dt,BO_coh
     WRITE(89,'(f14.4,105f14.8)') DBLE(time)*dt,BO_pop,BO_pop_SH
