@@ -51,6 +51,7 @@ MODULE output
     REAL(KIND=DP)   ,INTENT(IN)    :: Rcl(ntraj,n_dof),Vcl(ntraj,n_dof)
     COMPLEX(KIND=QP),INTENT(IN)    :: BOsigma(ntraj,nstates,nstates)
     INTEGER                        :: i,j,itraj,index_ij
+    REAL(KIND=DP)                  :: abs_sigma_ii, abs_sigma_jj
 
     IF(time==0 .AND. new_potential) CALL plot_potential
 
@@ -83,32 +84,25 @@ MODULE output
        BO_pop_SH = BO_pop_SH/dble(ntraj)
     END IF
 
-    ! Computation of populations and energy
-    DO itraj=1,ntraj
+    DO itraj = 1,ntraj
        CTMQC_E=CTMQC_E+0.5_dp*DOT_PRODUCT(mass(:),Vcl(itraj,:)**2)+tdpes(itraj)
+       index_ij = 0
        DO i=1,nstates
           BO_pop(i) = BO_pop(i) + real(BOsigma(itraj,i,i),kind=dp)
-       END DO
-    END DO
-
-    BO_pop = BO_pop/dble(ntraj)
-    CTMQC_E = CTMQC_E/dble(ntraj)
-
-
-    DO i=1,nstates
-       DO j=i+1,nstates
+          DO j=i+1,nstates
           index_ij=index_ij+1
-          DO itraj=1,ntraj
+             abs_sigma_ii = DSQRT((real(BOsigma(itraj,i,i),KIND=dp))
+             abs_sigma_jj = DSQRT((real(BOsigma(itraj,j,j)),KIND=dp))
              ! Trajectory sum of magnitude of electronic coherences
-             BO_coh(index_ij) = BO_coh(index_ij) + &
-              DSQRT((real(BOsigma(itraj,i,i),KIND=dp))* &
-               (real(BOsigma(itraj,j,j),KIND=dp)))
+             BO_coh(index_ij) = BO_coh(index_ij) + abs_sigma_ii * abs_sigma_jj
              ! Trajectory sum of complex electronic coherences
              BO_coh_sum(index_ij) = BO_coh_sum(index_ij) + BOsigma(itraj,i,j)
           END DO
        END DO
-    END DO
+    ENDDO
 
+    BO_pop = BO_pop/dble(ntraj)
+    CTMQC_E = CTMQC_E/dble(ntraj)
     ! Trajectory sum of magnitude of electronic coherences
     BO_coh        = BO_coh/dble(ntraj)
     ! Magnitude of rajectory sum of electronic coherences
