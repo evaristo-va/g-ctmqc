@@ -51,7 +51,8 @@ MODULE output
     REAL(KIND=DP)   ,INTENT(IN)    :: Rcl(ntraj,n_dof),Vcl(ntraj,n_dof)
     COMPLEX(KIND=QP),INTENT(IN)    :: BOsigma(ntraj,nstates,nstates)
     INTEGER                        :: i,j,itraj,index_ij
-    REAL(KIND=DP)                  :: abs_sigma_ii, abs_sigma_jj
+    REAL(KIND=DP)                  :: sigma_sqrt(nstates)
+    REAL(KIND=DP)                  :: sigma_ii
 
     IF(time==0 .AND. new_potential) CALL plot_potential
 
@@ -76,37 +77,40 @@ MODULE output
 
     ! Computation of SH populations
     IF (typ_cal=="TSHLZ" .OR. typ_cal=="TSHFS") THEN
-       DO i=1,nstates
-          DO itraj=1,ntraj
-             IF (occ_state(itraj)==i) BO_pop_SH(i) = BO_pop_SH(i) + 1_dp 
-          END DO
+       DO itraj=1,ntraj
+         i = occ_state(itraj)
+         BO_pop_SH(i) = BO_pop_SH(i) + 1.0_dp
        END DO
        BO_pop_SH = BO_pop_SH/dble(ntraj)
     END IF
 
     DO itraj = 1,ntraj
+
        CTMQC_E=CTMQC_E+0.5_dp*DOT_PRODUCT(mass(:),Vcl(itraj,:)**2)+tdpes(itraj)
        index_ij = 0
+
        DO i=1,nstates
-          BO_pop(i) = BO_pop(i) + real(BOsigma(itraj,i,i),kind=dp)
+          sigma_ii = real(BOsigma(itraj,i,i),kind=dp)
+          BO_pop(i) = BO_pop(i) + sigma_ii
+          sigma_sqrt(i) = DSQRT(sigma_ii)
+       ENDDO
+
+       DO i = 1, nstates
           DO j=i+1,nstates
-          index_ij=index_ij+1
-             abs_sigma_ii = DSQRT((real(BOsigma(itraj,i,i),KIND=dp))
-             abs_sigma_jj = DSQRT((real(BOsigma(itraj,j,j)),KIND=dp))
+              index_ij=index_ij+1
              ! Trajectory sum of magnitude of electronic coherences
-             BO_coh(index_ij) = BO_coh(index_ij) + abs_sigma_ii * abs_sigma_jj
+             BO_coh(index_ij) = BO_coh(index_ij) + sigma_sqrt(i) * sigma_sqrt(j)
              ! Trajectory sum of complex electronic coherences
              BO_coh_sum(index_ij) = BO_coh_sum(index_ij) + BOsigma(itraj,i,j)
           END DO
        END DO
+
     ENDDO
 
-    BO_pop = BO_pop/dble(ntraj)
-    CTMQC_E = CTMQC_E/dble(ntraj)
-    ! Trajectory sum of magnitude of electronic coherences
-    BO_coh        = BO_coh/dble(ntraj)
-    ! Magnitude of rajectory sum of electronic coherences
-    BO_coh_magsum = ABS(BO_coh_sum)/dble(ntraj)
+    BO_pop        = BO_pop/dble(ntraj)
+    CTMQC_E       = CTMQC_E/dble(ntraj)
+    BO_coh        = BO_coh/dble(ntraj) ! Sum of magnitudes
+    BO_coh_magsum = ABS(BO_coh_sum)/dble(ntraj) ! Magnitude of sum
 
     WRITE(88,'(f14.4,300f14.8)') DBLE(time)*dt,BO_coh
     WRITE(89,'(f14.4,105f14.8)') DBLE(time)*dt,BO_pop,BO_pop_SH
